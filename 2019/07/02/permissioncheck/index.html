@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>MIUI权限检测之路 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#权限检测之路 ##问题与需求在业务线在使用过程中，发生了一些权限状态丢失的情况。而在我们的群控平台中，如果某些权限的设置状态丢失，则群控平台绝大多数功能不能执行。尤其是HRG业务人员，它们不仅需要群控自动执行功能指令，还不能影响手动操作。所以在权限状态丢失后，产品提出了一个权限检测的需求。这个需求就是在我们的平台中检测应用的权限列表，获取权限的当前状态。用于提示使用者，当前的群控在权限设置上是否">
+  <meta name="description" content="##问题与需求在业务线在使用过程中，发生了一些权限状态丢失的情况。而在我们的群控平台中，如果某些权限的设置状态丢失，则群控平台绝大多数功能不能执行。尤其是HRG业务人员，它们不仅需要群控自动执行功能指令，还不能影响手动操作。所以在权限状态丢失后，产品提出了一个权限检测的需求。这个需求就是在我们的平台中检测应用的权限列表，获取权限的当前状态。用于提示使用者，当前的群控在权限设置上是否已经被允许。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MIUI权限检测之路">
 <meta property="og:url" content="http://yoursite.com/2019/07/02/permissioncheck/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#权限检测之路 ##问题与需求在业务线在使用过程中，发生了一些权限状态丢失的情况。而在我们的群控平台中，如果某些权限的设置状态丢失，则群控平台绝大多数功能不能执行。尤其是HRG业务人员，它们不仅需要群控自动执行功能指令，还不能影响手动操作。所以在权限状态丢失后，产品提出了一个权限检测的需求。这个需求就是在我们的平台中检测应用的权限列表，获取权限的当前状态。用于提示使用者，当前的群控在权限设置上是否">
+<meta property="og:description" content="##问题与需求在业务线在使用过程中，发生了一些权限状态丢失的情况。而在我们的群控平台中，如果某些权限的设置状态丢失，则群控平台绝大多数功能不能执行。尤其是HRG业务人员，它们不仅需要群控自动执行功能指令，还不能影响手动操作。所以在权限状态丢失后，产品提出了一个权限检测的需求。这个需求就是在我们的平台中检测应用的权限列表，获取权限的当前状态。用于提示使用者，当前的群控在权限设置上是否已经被允许。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/YlJava110/photo/blob/master/pms/20181126105443.png?raw=true">
 <meta property="og:image" content="https://github.com/YlJava110/photo/blob/master/pms/20181120115301.png?raw=true">
 <meta property="og:image" content="https://github.com/YlJava110/photo/blob/master/pms/20181120115328.png?raw=true">
-<meta property="og:updated_time" content="2019-07-02T05:13:26.000Z">
+<meta property="og:updated_time" content="2019-07-02T05:15:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MIUI权限检测之路">
-<meta name="twitter:description" content="#权限检测之路 ##问题与需求在业务线在使用过程中，发生了一些权限状态丢失的情况。而在我们的群控平台中，如果某些权限的设置状态丢失，则群控平台绝大多数功能不能执行。尤其是HRG业务人员，它们不仅需要群控自动执行功能指令，还不能影响手动操作。所以在权限状态丢失后，产品提出了一个权限检测的需求。这个需求就是在我们的平台中检测应用的权限列表，获取权限的当前状态。用于提示使用者，当前的群控在权限设置上是否">
+<meta name="twitter:description" content="##问题与需求在业务线在使用过程中，发生了一些权限状态丢失的情况。而在我们的群控平台中，如果某些权限的设置状态丢失，则群控平台绝大多数功能不能执行。尤其是HRG业务人员，它们不仅需要群控自动执行功能指令，还不能影响手动操作。所以在权限状态丢失后，产品提出了一个权限检测的需求。这个需求就是在我们的平台中检测应用的权限列表，获取权限的当前状态。用于提示使用者，当前的群控在权限设置上是否已经被允许。">
 <meta name="twitter:image" content="https://github.com/YlJava110/photo/blob/master/pms/20181126105443.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -178,8 +178,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#权限检测之路</p>
-<p>##问题与需求<br>在业务线在使用过程中，发生了一些权限状态丢失的情况。而在我们的群控平台中，如果某些权限的设置状态丢失，则群控平台绝大多数功能不能执行。尤其是HRG业务人员，它们不仅需要群控自动执行功能指令，还不能影响手动操作。所以在权限状态丢失后，产品提出了一个权限检测的需求。这个需求就是在我们的平台中检测应用的权限列表，获取权限的当前状态。用于提示使用者，当前的群控在权限设置上是否已经被允许。</p>
+        <p>##问题与需求<br>在业务线在使用过程中，发生了一些权限状态丢失的情况。而在我们的群控平台中，如果某些权限的设置状态丢失，则群控平台绝大多数功能不能执行。尤其是HRG业务人员，它们不仅需要群控自动执行功能指令，还不能影响手动操作。所以在权限状态丢失后，产品提出了一个权限检测的需求。这个需求就是在我们的平台中检测应用的权限列表，获取权限的当前状态。用于提示使用者，当前的群控在权限设置上是否已经被允许。</p>
+<!--全文-->
 <p>##权限介绍<br>一个Android应用默认情况下是不拥有任何权限的,  在默认情况下, 一个应用是没有权利去进行一些可能会造成不好影响的操作的. 这些不好的影响可能是对其它应用,操作系统,或者是用户.<br>如果应用需要某些额外的能力,则需要在AndroidManifest.xml中静态地声明相应的权限.<br>也就是我们在AndroidManifest.xml注册了一系列uses-permission，这些permission就是我们需要申请的权限。</p>
 <p>在Android 6.0发布之前, 所有的权限都在安装应用的时候显示给用户,用户选择安装则表示全部接受这些权限, 之后无法撤销对这些权限的授权.<br>但是从Android 6.0开始, 一部分比较危险的权限需要在程序运行请求用户授权.<br>至于什么时候需要授权,由应用程序自己决定.而这些权限，就是我们所说的运行时权限。<br>而对于其他权限,认为不是很危险,所以仍然保持原来的做法,在用户安装应用程序时就予以授权.<br>需要注意的是,在设置中,对于应用的危险权限,用户可以选择性地进行授权或者关闭.</p>
 <p>Dangerous Permissions主要有：</p>
