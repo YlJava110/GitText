@@ -193,7 +193,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Xposed是什么"><a href="#Xposed是什么" class="headerlink" title="Xposed是什么"></a>Xposed是什么</h2><p>官方对此的解释是这样的：<br>“Xposed是一个适用于Android的框架。基于这个框架开发的模块可以改变系统和app应用的行为，而不需要修改APK。这是一个很棒的特性，意味着Xposed模块可以不经过任何修改，安装在各种不同的ROM上。Xposed模块可以很容易的开启和关闭。你只需要激活或者禁用Xposed模块，然后重启手机即可。”</p>
-<!--......-->
+<!--阅读全文-->
 <h2 id="Hook是什么"><a href="#Hook是什么" class="headerlink" title="Hook是什么"></a>Hook是什么</h2><p>Hook 英文就是「挂钩」的意思.那我们如何使用这个「挂钩」呢？在我们的应用程序种，包括应用触发事件和后台逻辑处理，都是是根据事件流程一步步地向下执行。而「挂钩」的意思，就是在事件传送到终点前截获并监控事件的传输，像个钩子钩上事件一样，并且能够在钩上事件时，处理一些自己特定的事件。<br><img src="https://upload-images.jianshu.io/upload_images/1820210-151e50cb305a17fa.png?imageMogr2/auto-orient/" alt><br>如何理解，例如我们有一个方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private int getResult(int i, int i2) &#123;</span><br><span class="line">    return i+i2; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -390,7 +390,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="问题与需求"><a href="#问题与需求" class="headerlink" title="问题与需求"></a>问题与需求</h2><p>在业务线在使用过程中，发生了一些权限状态丢失的情况。而在我们的群控平台中，如果某些权限的设置状态丢失，则群控平台绝大多数功能不能执行。尤其是HRG业务人员，它们不仅需要群控自动执行功能指令，还不能影响手动操作。所以在权限状态丢失后，产品提出了一个权限检测的需求。这个需求就是在我们的平台中检测应用的权限列表，获取权限的当前状态。用于提示使用者，当前的群控在权限设置上是否已经被允许。</p>
-<!--......-->
+<!--阅读全文-->
 <h2 id="权限介绍"><a href="#权限介绍" class="headerlink" title="权限介绍"></a>权限介绍</h2><p>一个Android应用默认情况下是不拥有任何权限的,  在默认情况下, 一个应用是没有权利去进行一些可能会造成不好影响的操作的. 这些不好的影响可能是对其它应用,操作系统,或者是用户.<br>如果应用需要某些额外的能力,则需要在AndroidManifest.xml中静态地声明相应的权限.<br>也就是我们在AndroidManifest.xml注册了一系列uses-permission，这些permission就是我们需要申请的权限。</p>
 <p>在Android 6.0发布之前, 所有的权限都在安装应用的时候显示给用户,用户选择安装则表示全部接受这些权限, 之后无法撤销对这些权限的授权.<br>但是从Android 6.0开始, 一部分比较危险的权限需要在程序运行请求用户授权.<br>至于什么时候需要授权,由应用程序自己决定.而这些权限，就是我们所说的运行时权限。<br>而对于其他权限,认为不是很危险,所以仍然保持原来的做法,在用户安装应用程序时就予以授权.<br>需要注意的是,在设置中,对于应用的危险权限,用户可以选择性地进行授权或者关闭.</p>
 <p>Dangerous Permissions主要有：</p>
@@ -637,7 +637,7 @@
         <h2 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h2><p>只读属性使用const关键字之后将没有get方法，举个例子<br>在kotlin文件中，写两个包级属性，一个是const，一个不是const</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const val i = 1</span><br><span class="line">val j = &quot;A&quot;</span><br></pre></td></tr></table></figure>
 
-<!--......-->
+<!--阅读全文-->
 <p>使用java代码访问，访问方式是不同的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class TestConst &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int i = ConstKt.i;</span><br><span class="line">        ConstKt.getJ();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
