@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>xposed | chenyulong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Xposed是什么官方对此的解释是这样的：“Xposed是一个适用于Android的框架。基于这个框架开发的模块可以改变系统和app应用的行为，而不需要修改APK。这是一个很棒的特性，意味着Xposed模块可以不经过任何修改，安装在各种不同的ROM上。Xposed模块可以很容易的开启和关闭。你只需要激活或者禁用Xposed模块，然后重启手机即可。”  Hook是什么Hook 英文就是「挂钩」的意思">
+  <meta name="description" content="Xposed是什么官方对此的解释是这样的：“Xposed是一个适用于Android的框架。基于这个框架开发的模块可以改变系统和app应用的行为，而不需要修改APK。这是一个很棒的特性，意味着Xposed模块可以不经过任何修改，安装在各种不同的ROM上。Xposed模块可以很容易的开启和关闭。你只需要激活或者禁用Xposed模块，然后重启手机即可。”">
 <meta name="keywords" content="Xposed">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xposed">
 <meta property="og:url" content="http://yoursite.com/2019/07/02/xposed/index.html">
 <meta property="og:site_name" content="chenyulong">
-<meta property="og:description" content="Xposed是什么官方对此的解释是这样的：“Xposed是一个适用于Android的框架。基于这个框架开发的模块可以改变系统和app应用的行为，而不需要修改APK。这是一个很棒的特性，意味着Xposed模块可以不经过任何修改，安装在各种不同的ROM上。Xposed模块可以很容易的开启和关闭。你只需要激活或者禁用Xposed模块，然后重启手机即可。”  Hook是什么Hook 英文就是「挂钩」的意思">
+<meta property="og:description" content="Xposed是什么官方对此的解释是这样的：“Xposed是一个适用于Android的框架。基于这个框架开发的模块可以改变系统和app应用的行为，而不需要修改APK。这是一个很棒的特性，意味着Xposed模块可以不经过任何修改，安装在各种不同的ROM上。Xposed模块可以很容易的开启和关闭。你只需要激活或者禁用Xposed模块，然后重启手机即可。”">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1820210-151e50cb305a17fa.png?imageMogr2/auto-orient/">
 <meta property="og:image" content="http://yoursite.com/Users/chenyulong01/Downloads/xposed/%E6%A8%A1%E5%9D%97.png">
-<meta property="og:updated_time" content="2019-07-02T13:05:41.000Z">
+<meta property="og:updated_time" content="2019-07-02T13:09:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xposed">
-<meta name="twitter:description" content="Xposed是什么官方对此的解释是这样的：“Xposed是一个适用于Android的框架。基于这个框架开发的模块可以改变系统和app应用的行为，而不需要修改APK。这是一个很棒的特性，意味着Xposed模块可以不经过任何修改，安装在各种不同的ROM上。Xposed模块可以很容易的开启和关闭。你只需要激活或者禁用Xposed模块，然后重启手机即可。”  Hook是什么Hook 英文就是「挂钩」的意思">
+<meta name="twitter:description" content="Xposed是什么官方对此的解释是这样的：“Xposed是一个适用于Android的框架。基于这个框架开发的模块可以改变系统和app应用的行为，而不需要修改APK。这是一个很棒的特性，意味着Xposed模块可以不经过任何修改，安装在各种不同的ROM上。Xposed模块可以很容易的开启和关闭。你只需要激活或者禁用Xposed模块，然后重启手机即可。”">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1820210-151e50cb305a17fa.png?imageMogr2/auto-orient/">
   
     <link rel="alternative" href="/atom.xml" title="chenyulong" type="application/atom+xml">
@@ -220,7 +220,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Xposed是什么"><a href="#Xposed是什么" class="headerlink" title="Xposed是什么"></a>Xposed是什么</h2><p>官方对此的解释是这样的：<br>“Xposed是一个适用于Android的框架。基于这个框架开发的模块可以改变系统和app应用的行为，而不需要修改APK。这是一个很棒的特性，意味着Xposed模块可以不经过任何修改，安装在各种不同的ROM上。Xposed模块可以很容易的开启和关闭。你只需要激活或者禁用Xposed模块，然后重启手机即可。”</p>
-<!--阅读全文-->
+<a id="more"></a>
 <h2 id="Hook是什么"><a href="#Hook是什么" class="headerlink" title="Hook是什么"></a>Hook是什么</h2><p>Hook 英文就是「挂钩」的意思.那我们如何使用这个「挂钩」呢？在我们的应用程序种，包括应用触发事件和后台逻辑处理，都是是根据事件流程一步步地向下执行。而「挂钩」的意思，就是在事件传送到终点前截获并监控事件的传输，像个钩子钩上事件一样，并且能够在钩上事件时，处理一些自己特定的事件。<br><img src="https://upload-images.jianshu.io/upload_images/1820210-151e50cb305a17fa.png?imageMogr2/auto-orient/" alt><br>如何理解，例如我们有一个方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private int getResult(int i, int i2) &#123;</span><br><span class="line">    return i+i2; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
