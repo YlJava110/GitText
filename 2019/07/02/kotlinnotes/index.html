@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="chenyulong">
 <meta property="og:description" content="const关键字只读属性使用const关键字之后将没有get方法，举个例子在kotlin文件中，写两个包级属性，一个是const，一个不是const 12const val i = 1val j = &amp;quot;A&amp;quot;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-02T13:07:07.000Z">
+<meta property="og:updated_time" content="2019-07-03T08:11:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin新手使用笔记">
 <meta name="twitter:description" content="const关键字只读属性使用const关键字之后将没有get方法，举个例子在kotlin文件中，写两个包级属性，一个是const，一个不是const 12const val i = 1val j = &amp;quot;A&amp;quot;">
@@ -377,6 +377,17 @@
 
 <p> <strong>1.List&lt;? extends T&gt;协变：out</strong></p>
 <p> 在si.set(elementD)中， elementD的类型是T，所以我们可以set（T t），以及一切参数中含有 T 的方法（称为消费者方法），T类型或者从T继承的类型都可以被set，但是因为可以set不同的类型，所以这些方法可能会破坏类型安全，所以编译器限制这些方法的调用。</p>
+<p> 举kotlin例说明：<br> 有一方法</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun generate(args : Array&lt;Any&gt;)&#123;</span><br><span class="line">//todo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 我们调用它：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val args : Array&lt;String&gt; = arrayOf()</span><br><span class="line">generate(args)</span><br></pre></td></tr></table></figure>
+
+<p> 这个时候会提示异常（类型不匹配）：type mismitch，为了解决这个问题，我们只需要修改一下调用方法，使用型变out即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun generate(args : Array&lt;out Any&gt;)&#123;</span><br><span class="line"> //todo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>2.List&lt;? super T&gt;逆变：in</strong> </p>
 <p> 同协变正好相反，在T elementD =di.next();中，因为di的类型是&lt;? super T&gt;，所以我们通过di.next()获取的类型可能T,也可能是从T继承的类型，从而我们不能确定next的类型。注意，这次拒绝的理由跟协变中是不一样的。get方法并不会破坏泛型类的类型安全，主要原因在于我们不能确定get的返回类型。<br> <a href="https://www.jianshu.com/p/0c2948f7e656" target="_blank" rel="noopener">参考链接1</a><br> <a href="https://www.jianshu.com/p/ecacb7af79eb?from=timeline&isappinstalled=0" target="_blank" rel="noopener">参考链接2</a></p>
 <h2 id="操作符"><a href="#操作符" class="headerlink" title="?: ?. !!操作符"></a>?: ?. !!操作符</h2><p>?.就是当前面的变量!= nuil 时正常调用，如果为null就为null;并且?.可以连续使用。例如user?.userName?.length</p>
