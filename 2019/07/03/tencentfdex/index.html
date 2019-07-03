@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>FDex2脱壳使用事例 | chenyulong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12345678910111213141516171819202122if(lpparam.packageName.startsWith(&amp;quot;com.luhu.livexiuwu&amp;quot;))&amp;#123;                    try &amp;#123;                        //腾讯加固，需要获取对应classloader">
+  <meta name="description" content="脱壳工具FDex2原理通过Hook ClassLoader的loadClass方法，反射调用getDex方法取得Dex(com.android.dex.Dex类对象)，在将里面的dex写出。">
 <meta name="keywords" content="Xposed">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FDex2脱壳使用事例">
 <meta property="og:url" content="http://yoursite.com/2019/07/03/tencentfdex/index.html">
 <meta property="og:site_name" content="chenyulong">
-<meta property="og:description" content="12345678910111213141516171819202122if(lpparam.packageName.startsWith(&amp;quot;com.luhu.livexiuwu&amp;quot;))&amp;#123;                    try &amp;#123;                        //腾讯加固，需要获取对应classloader">
+<meta property="og:description" content="脱壳工具FDex2原理通过Hook ClassLoader的loadClass方法，反射调用getDex方法取得Dex(com.android.dex.Dex类对象)，在将里面的dex写出。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-03T12:26:18.000Z">
+<meta property="og:updated_time" content="2019-07-03T12:33:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FDex2脱壳使用事例">
-<meta name="twitter:description" content="12345678910111213141516171819202122if(lpparam.packageName.startsWith(&amp;quot;com.luhu.livexiuwu&amp;quot;))&amp;#123;                    try &amp;#123;                        //腾讯加固，需要获取对应classloader">
+<meta name="twitter:description" content="脱壳工具FDex2原理通过Hook ClassLoader的loadClass方法，反射调用getDex方法取得Dex(com.android.dex.Dex类对象)，在将里面的dex写出。">
   
     <link rel="alternative" href="/atom.xml" title="chenyulong" type="application/atom+xml">
   
@@ -199,7 +199,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#脱壳工具FDex2"><span class="toc-number">1.</span> <span class="toc-text">脱壳工具FDex2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">1.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脱壳流程"><span class="toc-number">1.2.</span> <span class="toc-text">脱壳流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hook过程"><span class="toc-number">2.</span> <span class="toc-text">hook过程</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -220,7 +220,10 @@
   
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">if(lpparam.packageName.startsWith(&quot;com.luhu.livexiuwu&quot;))&#123;</span><br><span class="line">                    try &#123;</span><br><span class="line">                        //腾讯加固，需要获取对应classloader</span><br><span class="line">                        XposedHelpers.findAndHookMethod(&quot;com.tencent.StubShell.TxAppEntry&quot;, lpparam.classLoader,</span><br><span class="line">                                &quot;attachBaseContext&quot;, Context.class, new XC_MethodHook() &#123;</span><br><span class="line">                                    @Override</span><br><span class="line">                                    protected void afterHookedMethod(MethodHookParam param) throws Throwable &#123;</span><br><span class="line">                                        super.afterHookedMethod(param);</span><br><span class="line">                                        //获取到Context对象，通过这个对象来获取classloader</span><br><span class="line">                                        Context context = (Context) param.args[0];</span><br><span class="line">                                        //获取classloader，之后hook加固后的就使用这个classloader</span><br><span class="line">                                        SecApp.hookLuhu(lpparam,context.getClassLoader());</span><br><span class="line">                                        XposedBridge.log(&quot;----------pna:&quot; + lpparam.packageName);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                                    &#125;</span><br><span class="line"></span><br><span class="line">                                &#125;);</span><br><span class="line">                    &#125;catch (Exception e)&#123;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="脱壳工具FDex2"><a href="#脱壳工具FDex2" class="headerlink" title="脱壳工具FDex2"></a>脱壳工具FDex2</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>通过Hook ClassLoader的loadClass方法，反射调用getDex方法取得Dex(com.android.dex.Dex类对象)，在将里面的dex写出。</p>
+<a id="more"></a>
+<h3 id="脱壳流程"><a href="#脱壳流程" class="headerlink" title="脱壳流程"></a>脱壳流程</h3><p>FDex2和需要脱壳的应用都安装到手机上。在Xposed install模块中勾选FDex2，重启手机。然后打开FDex2应用，在应用列表中选择需要脱壳的应用，保存dex即可。</p>
+<h2 id="hook过程"><a href="#hook过程" class="headerlink" title="hook过程"></a>hook过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">if(lpparam.packageName.startsWith(&quot;com.luhu.livexiuwu&quot;))&#123;</span><br><span class="line">                    try &#123;</span><br><span class="line">                        //腾讯加固，需要获取对应classloader</span><br><span class="line">                        XposedHelpers.findAndHookMethod(&quot;com.tencent.StubShell.TxAppEntry&quot;, lpparam.classLoader,</span><br><span class="line">                                &quot;attachBaseContext&quot;, Context.class, new XC_MethodHook() &#123;</span><br><span class="line">                                    @Override</span><br><span class="line">                                    protected void afterHookedMethod(MethodHookParam param) throws Throwable &#123;</span><br><span class="line">                                        super.afterHookedMethod(param);</span><br><span class="line">                                        //获取到Context对象，通过这个对象来获取classloader</span><br><span class="line">                                        Context context = (Context) param.args[0];</span><br><span class="line">                                        //获取classloader，之后hook加固后的就使用这个classloader</span><br><span class="line">                                        SecApp.hookLuhu(lpparam,context.getClassLoader());</span><br><span class="line">                                        XposedBridge.log(&quot;----------pna:&quot; + lpparam.packageName);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                                    &#125;</span><br><span class="line"></span><br><span class="line">                                &#125;);</span><br><span class="line">                    &#125;catch (Exception e)&#123;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -266,7 +269,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Xposed//" class="article-tag-list-link color2">Xposed</a>
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -313,7 +316,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#脱壳工具FDex2"><span class="toc-number">1.</span> <span class="toc-text">脱壳工具FDex2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">1.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脱壳流程"><span class="toc-number">1.2.</span> <span class="toc-text">脱壳流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hook过程"><span class="toc-number">2.</span> <span class="toc-text">hook过程</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -429,11 +432,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+                <a href="javascript:void(0)" class="js-tag color2">Xposed</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Xposed</a>
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
             
             <div class="clearfix"></div>
