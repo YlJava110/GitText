@@ -439,34 +439,6 @@
       <div class="article-nav-title">Kotlin新手使用笔记</div>
       <i class="icon-circle-right"></i>
     </a>
-    <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题与需求"><span class="toc-number">1.</span> <span class="toc-text">问题与需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权限介绍"><span class="toc-number">2.</span> <span class="toc-text">权限介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现历程"><span class="toc-number">3.</span> <span class="toc-text">实现历程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-App-Ops"><span class="toc-number">3.1.</span> <span class="toc-text">1.App Ops</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SecurityCenter"><span class="toc-number">3.2.</span> <span class="toc-text">2.SecurityCenter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-AppOpsX"><span class="toc-number">3.3.</span> <span class="toc-text">3.AppOpsX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-checkSelfPermission"><span class="toc-number">3.4.</span> <span class="toc-text">4.checkSelfPermission</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ContextCompat"><span class="toc-number">3.4.1.</span> <span class="toc-text">ContextCompat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PermissionChecker"><span class="toc-number">3.4.2.</span> <span class="toc-text">PermissionChecker</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-AuthManager"><span class="toc-number">3.5.</span> <span class="toc-text">5.AuthManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-runtime-permissions-xml与appops-xml"><span class="toc-number">3.6.</span> <span class="toc-text">6.runtime-permissions.xml与appops.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-miui-ngen-db"><span class="toc-number">3.7.</span> <span class="toc-text">7.miui_ngen.db</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对权限的处理场景"><span class="toc-number">4.</span> <span class="toc-text">对权限的处理场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
   
 </nav>
 
@@ -499,7 +471,34 @@
         
     </div>
 </aside>
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题与需求"><span class="toc-number">1.</span> <span class="toc-text">问题与需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权限介绍"><span class="toc-number">2.</span> <span class="toc-text">权限介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现历程"><span class="toc-number">3.</span> <span class="toc-text">实现历程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-App-Ops"><span class="toc-number">3.1.</span> <span class="toc-text">1.App Ops</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SecurityCenter"><span class="toc-number">3.2.</span> <span class="toc-text">2.SecurityCenter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-AppOpsX"><span class="toc-number">3.3.</span> <span class="toc-text">3.AppOpsX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-checkSelfPermission"><span class="toc-number">3.4.</span> <span class="toc-text">4.checkSelfPermission</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ContextCompat"><span class="toc-number">3.4.1.</span> <span class="toc-text">ContextCompat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PermissionChecker"><span class="toc-number">3.4.2.</span> <span class="toc-text">PermissionChecker</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-AuthManager"><span class="toc-number">3.5.</span> <span class="toc-text">5.AuthManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-runtime-permissions-xml与appops-xml"><span class="toc-number">3.6.</span> <span class="toc-text">6.runtime-permissions.xml与appops.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-miui-ngen-db"><span class="toc-number">3.7.</span> <span class="toc-text">7.miui_ngen.db</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对权限的处理场景"><span class="toc-number">4.</span> <span class="toc-text">对权限的处理场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
 
 
   
@@ -603,15 +602,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Xposed</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
             
             <div class="clearfix"></div>
