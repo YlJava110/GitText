@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="chenyulong">
 <meta property="og:description" content="const关键字只读属性使用const关键字之后将没有get方法，举个例子在kotlin文件中，写两个包级属性，一个是const，一个不是const 12const val i = 1val j = &amp;quot;A&amp;quot;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-08T06:15:22.000Z">
+<meta property="og:updated_time" content="2019-07-08T07:07:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin新手使用笔记">
 <meta name="twitter:description" content="const关键字只读属性使用const关键字之后将没有get方法，举个例子在kotlin文件中，写两个包级属性，一个是const，一个不是const 12const val i = 1val j = &amp;quot;A&amp;quot;">
@@ -306,6 +306,13 @@
 
 <h2 id="vararg可变参数"><a href="#vararg可变参数" class="headerlink" title="vararg可变参数"></a>vararg可变参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fun print(vararg msgs: String) &#123;</span><br><span class="line">    for (msg in msgs) &#123;</span><br><span class="line">    	println(msg)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun LogPrinters()&#123;</span><br><span class="line">	print(&quot;11&quot;,&quot;22&quot;,&quot;33&quot;,&quot;44&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>但是如果是下面这样调用是不可以的，会报参数匹配异常：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val array = arrayOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;)</span><br><span class="line">print(array)</span><br></pre></td></tr></table></figure>
+
+<p>如果想调用，需要使用*操作符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(*array)</span><br></pre></td></tr></table></figure>
+
+<p>所以我们调用带有可变参数的方法时，只能传递离散的参数值，直接传递数组会报语法错误。但是当我们手头上就是一个数组，要想传递，就需要借助运算符*(spread operator)：相当于将数组分散成一个个的个体再传入进去。</p>
 <h2 id="var-get-set-xxx-方法"><a href="#var-get-set-xxx-方法" class="headerlink" title="var get() set(xxx)方法"></a>var get() set(xxx)方法</h2><p>1.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">override var name: String=&quot;ninhao&quot;</span><br><span class="line">	get() = field</span><br><span class="line">	set(value) &#123;</span><br><span class="line">		field=value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -606,11 +613,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
