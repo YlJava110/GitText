@@ -3,6 +3,37 @@
   
     
     <entry>
+      <title><![CDATA[Flutter 配置]]></title>
+      <url>/2019/07/12/Flutter-%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<h2 id="下载SDK"><a href="#下载SDK" class="headerlink" title="下载SDK"></a>下载SDK</h2><p><a href="https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#macos" target="_blank" rel="noopener">SDK下载地址</a><br>对应下载合适的平台即可，可能由于网速等原因，下载详细未显示，所以我用的是直接git clone。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone -b master https://github.com/flutter/flutter.git</span><br><span class="line"> ./flutter/bin/flutter --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ open .bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>在.bash_profile中添加flutter的path</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#flutter</span><br><span class="line">export PATH=/Users/chenyulong01/myflutter/flutter/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>执行flutter doctor或flutter –version命令来查看是否还需要安装其它依赖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Downloading Dart SDK from Flutter engine d1dcd1848633c5764e23313823445cbcba451a59...</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">  0     0    0     0    0     0      0      0 --:--:--  0:00:39 --:--:--     0</span><br><span class="line">curl: (56) SSLRead() return error -9806</span><br><span class="line"></span><br><span class="line">Failed to retrieve the Dart SDK from: https://storage.googleapis.com/flutter_infra/flutter/d1dcd1848633c5764e23313823445cbcba451a59/dart-sdk-darwin-x64.zip</span><br><span class="line">If you&apos;re located in China, please see this page:</span><br><span class="line">  https://flutter.dev/community/china</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      
+        <categories>
+            
+            <category> Flutter </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Flutter </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android API Level对应Android版本一览表]]></title>
       <url>/2019/07/05/Android-API-Level%E5%AF%B9%E5%BA%94Android%E7%89%88%E6%9C%AC%E4%B8%80%E8%A7%88%E8%A1%A8/</url>
       <content type="html"><![CDATA[<figure class="image-box">

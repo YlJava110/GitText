@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     
     
-    <title>Android API Level对应Android版本一览表 | chenyulong | 理论是你知道是这样，但它却不好用；实践是它很好用，但你不知道是为什么；程序员将理论和实践结合到一起：既不好用，也不知道是为什么。</title>
+    <title>Flutter 配置 | chenyulong | 理论是你知道是这样，但它却不好用；实践是它很好用，但你不知道是为什么；程序员将理论和实践结合到一起：既不好用，也不知道是为什么。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Android">
+    <meta name="keywords" content="Flutter">
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
     <link rel="stylesheet" href="/css/style.css?v=1.4.2">
@@ -139,7 +139,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>Android API Level对应Android版本一览表</span>
+            <span>Flutter 配置</span>
             
         </div>
         
@@ -152,15 +152,15 @@
 <header class="content-header post-header">
     <img src="/img/banner.jpg" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">Android API Level对应Android版本一览表</h1>
+        <h1 class="title">Flutter 配置</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-07-05T03:52:50.000Z" itemprop="datePublished" class="page-time">
-  2019-07-05
+                <time datetime="2019-07-12T06:20:33.000Z" itemprop="datePublished" class="page-time">
+  2019-07-12
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Flutter/">Flutter</a></li></ul>
 
             
         </h5>
@@ -185,15 +185,15 @@
 
 
 <div class="container body-wrap">
-    <article id="post-Android-API-Level对应Android版本一览表"
+    <article id="post-Flutter-配置"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">Android API Level对应Android版本一览表</h1>
+        <h1 class="post-card-title">Flutter 配置</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-07-05 11:52:50" datetime="2019-07-05T03:52:50.000Z"  itemprop="datePublished">2019-07-05</time>
+            <time class="post-time" title="2019-07-12 14:20:33" datetime="2019-07-12T06:20:33.000Z"  itemprop="datePublished">2019-07-12</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Flutter/">Flutter</a></li></ul>
 
 
 
@@ -206,15 +206,17 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <figure class="image-box">
-                <a rel=Android API Level对应Android版本一览表 href="http://nunu03.github.io/2019/07/05/Android-API-Level对应Android版本一览表/api1.jpg" title="api-1" data-fancybox="images"><img src="http://nunu03.github.io/2019/07/05/Android-API-Level对应Android版本一览表/api1.jpg" alt="api-1" title class></a>
-                <p>api-1</p>
-            </figure>
-<a id="more"></a>
-<figure class="image-box">
-                <a rel=Android API Level对应Android版本一览表 href="http://nunu03.github.io/2019/07/05/Android-API-Level对应Android版本一览表/api2.jpg" title="api-2" data-fancybox="images"><img src="http://nunu03.github.io/2019/07/05/Android-API-Level对应Android版本一览表/api2.jpg" alt="api-2" title class></a>
-                <p>api-2</p>
-            </figure>
+            <h2 id="下载SDK"><a href="#下载SDK" class="headerlink" title="下载SDK"></a>下载SDK</h2><p><a href="https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#macos" target="_blank" rel="noopener">SDK下载地址</a><br>对应下载合适的平台即可，可能由于网速等原因，下载详细未显示，所以我用的是直接git clone。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone -b master https://github.com/flutter/flutter.git</span><br><span class="line"> ./flutter/bin/flutter --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ open .bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>在.bash_profile中添加flutter的path</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#flutter</span><br><span class="line">export PATH=/Users/chenyulong01/myflutter/flutter/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>执行flutter doctor或flutter –version命令来查看是否还需要安装其它依赖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Downloading Dart SDK from Flutter engine d1dcd1848633c5764e23313823445cbcba451a59...</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">  0     0    0     0    0     0      0      0 --:--:--  0:00:39 --:--:--     0</span><br><span class="line">curl: (56) SSLRead() return error -9806</span><br><span class="line"></span><br><span class="line">Failed to retrieve the Dart SDK from: https://storage.googleapis.com/flutter_infra/flutter/d1dcd1848633c5764e23313823445cbcba451a59/dart-sdk-darwin-x64.zip</span><br><span class="line">If you&apos;re located in China, please see this page:</span><br><span class="line">  https://flutter.dev/community/china</span><br></pre></td></tr></table></figure>
+
 
         </div>
         
@@ -222,12 +224,12 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-07-11T12:29:44.000Z" itemprop="dateUpdated">2019-07-11 20:29:44</time>
+    Last updated: <time datetime="2019-07-12T06:31:06.000Z" itemprop="dateUpdated">2019-07-12 14:31:06</time>
 </span><br>
 
 
         
-        转载注明出处，原文地址：<a href="/2019/07/05/Android-API-Level对应Android版本一览表/" target="_blank" rel="external">http://nunu03.github.io/2019/07/05/Android-API-Level对应Android版本一览表/</a>
+        转载注明出处，原文地址：<a href="/2019/07/12/Flutter-配置/" target="_blank" rel="external">http://nunu03.github.io/2019/07/12/Flutter-配置/</a>
         
     </div>
     <footer>
@@ -241,7 +243,7 @@
         
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/">Flutter</a></li></ul>
 
             <div class="page-share-wrap">
     
@@ -250,7 +252,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/07/05/Android-API-Level对应Android版本一览表/&title=《Android API Level对应Android版本一览表》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/07/12/Flutter-配置/&title=《Flutter 配置》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -262,10 +264,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/07/05/Android-API-Level对应Android版本一览表/&title=《Android API Level对应Android版本一览表》 — chenyulong&source=
-                
-                api-1
-            " data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/07/12/Flutter-配置/&title=《Flutter 配置》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -288,21 +287,14 @@
         
     </div>
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="prev">
-      <a href="/2019/07/12/Flutter-配置/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Flutter 配置</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="next">
-      <a href="/2019/07/03/tencentfdex/" id="post-next" class="post-nav-link">
+      <a href="/2019/07/05/Android-API-Level对应Android版本一览表/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">腾讯加固脱壳使用事例</h4>
+        <h4 class="title">Android API Level对应Android版本一览表</h4>
       </a>
     </div>
   
@@ -310,6 +302,14 @@
 
 
     
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下载SDK"><span class="post-toc-number">1.</span> <span class="post-toc-text">下载SDK</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置环境变量"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置环境变量</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
     
 </article>
 
@@ -380,7 +380,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/07/05/Android-API-Level对应Android版本一览表/&title=《Android API Level对应Android版本一览表》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/07/12/Flutter-配置/&title=《Flutter 配置》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -392,10 +392,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/07/05/Android-API-Level对应Android版本一览表/&title=《Android API Level对应Android版本一览表》 — chenyulong&source=
-                
-                api-1
-            " data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/07/12/Flutter-配置/&title=《Flutter 配置》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -407,7 +404,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACp0lEQVR42u3a0U7DQAwEwP7/T5dXEDSs7XMJ0uQJtSG5CVJs1vd4xMfz0/Hq21fnf/42+eT6mo+NAw8PD2+w9HxZ32/5DI7rR9Z7KNd3wcPDw9vjXb/uk8Ul4KTk9Nbz8nM8PDy82/Dy3jXBJyvBw8PD+7+8fIn5cnv3xcPDw/tbXhJGJIvL44ZqrLCeteDh4eHFvHyKdJ+fV+Z7eHh4eOOpeh7C5pFBdcxWHbB9uQIeHh7eAu9URFvF99rfXhOPh4eHd5aX3CYPaqshxSSwiJpvPDw8vDXepJ1NzpyP05qbG/Dw8PAWeHNkNWKYxA29bV54eHh427xqENArJNcPK9+eFSnw8PDwjvIOvHZbC9rbsIWHh4e3zZssLr/0PAJOzsTDw8N7D28SCuRbrHqv/uoGBTw8PLx38nqXyNnNwdXlI0uKDR4eHt4GL29eq012NYSdFKdmYo2Hh4c34FXTi2dwJC/35NWfF4Zf/mJ4eHh4h3ijGjIYoSWkXjP9Q0nAw8PDO8rLm+Nezclb5F4kUR7g4eHh4Y15SbN7KtjNm/h8zFaoe3h4eHhHeb1mOj+/OmCr3veXTVd4eHh4R3n5+Cq5fS/MrW69wsPDw/tbXr6gSehQjWtPPTg8PDy8DV4vkpiMoJJNVPn1o1gZDw8Pb41XfuEuxK9JBFyOMPDw8PDWeFV2vqykeCQDMzw8PLy78SaLqBaGagueD8CiKR8eHh7egPcsHslDmbTCeVQRFTM8PDy8BV51S1Pe7E5KzuTxlWF4eHh4LV41XJjHsr1Xf7VQ4eHh4W3zkq1UOa/6W4sHHh4e3o151QY6LwyT4AMPDw/vDrwJpjcwy++Oh4eH905eHhP0thH0BmPVwHeUteDh4eHFvOp/9NWhV3UYtjLBw8PDwzvD+wCKEpxx2NG22QAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aQY6DMAwF0N7/0ow0mkWlEfDtQFWSl1VVFfBj4dpxXq94bb/r/fP7Sr7//5vj+7/uWBgYGI9lbIcrCeX42r3geq9m7/4YGBgrMJIk28t4SejV52JgYGDkj9xj5Gn0OHQMDAyMkYSbp9c7GloMDIw1GUkTm7eX1Vb2o704BgbGAxm9wcBnPt8+38DAwPh6xjawrtp6G0nlf1dhYGBMzci30nrbar2BZdIAR2FhYGBMwRhvTXuNa/U1nRSsGBgYCzCqCW68ZOw1z7vfY2BgTM2ojioT0vF9ek+MUjkGBsakjCS4JFH2ysH8sEU0g8XAwJiUkSfH/Ha94PLvd5+CgYExKSMpv5LEN3L8K2+kTyaxGBgYUzOq6a/ayo6PH05aXwwMjKkZ4wH10nEylqhGiIGBMTejGlY1lPza3m8wMDBWY+SHIaqwy3YHMTAwMIqNZa8CrR7piMYPGBgYCzDy7a2klOwl1uomYHN2ioGB8VhGr8W9KtXmybew3YaBgTEp444N/d7YoDnTwMDAmJqRl3QjaTQPLi8lMTAwVmBUk29SGuYvKN9iKywMDIyJGFtxJUHn968WgrtJGQMDY2pGLxFXW9l85NAbSGBgYKzASNJisk1fbYl7A1EMDIyVGdWGNi8fkxKw2qtG/wkYGBgLM/I02tuwa27MYWBgYBTLx3zcOD4uxcDAWIeRhJin4F4a7R0aw8DAWIFx1SGMasnYO7QxdFADAwPjeYwfn2BgvmbPg98AAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
