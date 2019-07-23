@@ -3,6 +3,40 @@
   
     
     <entry>
+      <title><![CDATA[aar依赖引用关系]]></title>
+      <url>/2019/07/23/aar%E4%BE%9D%E8%B5%96%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB/</url>
+      <content type="html"><![CDATA[<h2 id="依赖关系查看"><a href="#依赖关系查看" class="headerlink" title="依赖关系查看"></a>依赖关系查看</h2><p>在AS中安装Gradle View插件，安装完重启。</p>
+<p>在AS面板中-&gt;View-&gt;Tool Windows-&gt;Gradle View查看。</p>
+<h2 id="多版本依赖"><a href="#多版本依赖" class="headerlink" title="多版本依赖"></a>多版本依赖</h2><blockquote>
+<p>依赖库有版本冲突时，默认使用高版本中的依赖（注意：是引用库的高版本中的依赖），如果项目中指定版本高于依赖中，优先用项目中指定的版本<br>如果想指定使用引入库中版本，使用force参数</p>
+<blockquote>
+<p>总结：</p>
+<p>1.a = 引用库依赖（高）&gt;引用库依赖（低）;</p>
+<p>2.force = true 使用指定;</p>
+<p>3.引用&gt; a 使用引用，否则使用a</p>
+</blockquote>
+</blockquote>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2019/07/23/aar依赖引用关系/aar.jpg" alt="aar" title class>
+                <p>aar</p>
+            </figure>]]></content>
+      
+        <categories>
+            
+            <category> Gradle </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> aar </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Flutter 配置]]></title>
       <url>/2019/07/12/Flutter-%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h2 id="下载SDK"><a href="#下载SDK" class="headerlink" title="下载SDK"></a>下载SDK</h2><p><a href="https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#macos" target="_blank" rel="noopener">SDK下载地址</a><br>对应下载合适的平台即可，可能由于网速等原因，下载详细未显示，所以我用的是直接git clone。</p>
