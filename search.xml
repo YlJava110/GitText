@@ -3,6 +3,34 @@
   
     
     <entry>
+      <title><![CDATA[Fragment和Activity生命周期]]></title>
+      <url>/2019/08/08/Fragment%E5%92%8CActivity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+      <content type="html"><![CDATA[<figure class="image-box">
+                <img src="http://nunu03.github.io/2019/08/08/Fragment和Activity生命周期/fragment.png" alt="fragment" title class>
+                <p>fragment</p>
+            </figure>
+<a id="more"></a>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2019/08/08/Fragment和Activity生命周期/activity.png" alt="activity" title class>
+                <p>activity</p>
+            </figure>]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[aar依赖引用关系]]></title>
       <url>/2019/07/23/aar%E4%BE%9D%E8%B5%96%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB/</url>
       <content type="html"><![CDATA[<h2 id="依赖关系查看"><a href="#依赖关系查看" class="headerlink" title="依赖关系查看"></a>依赖关系查看</h2><p>在AS中安装Gradle View插件，安装完重启。</p>
