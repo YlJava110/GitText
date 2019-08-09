@@ -474,7 +474,7 @@
 
 <p>这里最重要的就是mSettings，所有的权限信息都通过mSettings来获取，但是mSettings是都做了什么操作呢？看下边的图：</p>
 <figure class="image-box">
-                <img src="https://github.com/YlJava110/photo/blob/master/pms/20181126105443.png?raw=true" alt="setting" title class>
+                <img src="http://nunu03.github.io/2019/07/02/permissioncheck/setting.png" alt="setting" title class>
                 <p>setting</p>
             </figure>
 <p>Android6.0之前会吧所有的权限都放置在data/system/packages.xml文件中。Android6.0之后，分为运行时权限跟普通权限，普通权限还是放在data/system/packages.xml中，运行时权限防止在data/system/users/0/runtime-permissions.xml文件中。根据运行时是否动态申请去更新权限。而对于普通权限，一直都为true。<br>具体的实例信息如下：</p>
@@ -497,8 +497,8 @@
 <p>结论：完全不可用。继续尝试</p>
 <h3 id="5-AuthManager"><a href="#5-AuthManager" class="headerlink" title="5.AuthManager"></a>5.AuthManager</h3><p>通过上述一些列的验证，都是不可以采用的结论。最终我们再次回到note 4x的实现方案上来。由于再标题2的时候，我们只是调研了获取权限状态的方式，但是没有深入的调研底层实现。所以我们通过一些列跟踪，最终找到具体的实现地方在AuthManager这个app下。</p>
 <figure class="image-box">
-                <img src="https://github.com/YlJava110/photo/blob/master/pms/20181120115301.png?raw=true" alt="am" title class>
-                <p>am</p>
+                <img src="http://nunu03.github.io/2019/07/02/permissioncheck/authmanager.png" alt="authmanager" title class>
+                <p>authmanager</p>
             </figure>
 <p>结论：</p>
 <p>1、由上图可以看出，小米手机完全自己封装了一层权限管理，它的权限状态都存储在了miui_ngen.db数据库里，并且通过PermissionManager管理并定义了权限的op和android.permission值。</p>
@@ -506,7 +506,7 @@
 <p>3、开发过程中，发现某些运行权限op=59的权限不能改变，一致获取到的是0.即授权的状态。<br>所以利用反射我们也不能实现我们的需求，继续。</p>
 <h3 id="6-runtime-permissions-xml与appops-xml"><a href="#6-runtime-permissions-xml与appops-xml" class="headerlink" title="6.runtime-permissions.xml与appops.xml"></a>6.runtime-permissions.xml与appops.xml</h3><p>经过调研后发现，当我们在修改权限的状态值时，不仅appops.xml里面的状态值在该比那，而且运行权限runtime-permissions.xml的值也在改变，那我们是不是可以比较两个文件的内容进行获取状态值呢。 首先，我们需要读取文件，但是我们没有读取文件权限，我们需要copy到sdcard进行解析。解析过程如下图：</p>
 <figure class="image-box">
-                <img src="https://github.com/YlJava110/photo/blob/master/pms/20181120115328.png?raw=true" alt="verify" title class>
+                <img src="http://nunu03.github.io/2019/07/02/permissioncheck/verify.png" alt="verify" title class>
                 <p>verify</p>
             </figure>
 
