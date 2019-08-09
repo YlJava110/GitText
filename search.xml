@@ -211,8 +211,8 @@
 <a id="more"></a>
 <h2 id="Hook是什么"><a href="#Hook是什么" class="headerlink" title="Hook是什么"></a>Hook是什么</h2><p>Hook 英文就是「挂钩」的意思.那我们如何使用这个「挂钩」呢？在我们的应用程序种，包括应用触发事件和后台逻辑处理，都是是根据事件流程一步步地向下执行。而「挂钩」的意思，就是在事件传送到终点前截获并监控事件的传输，像个钩子钩上事件一样，并且能够在钩上事件时，处理一些自己特定的事件。</p>
 <figure class="image-box">
-                <img src="https://upload-images.jianshu.io/upload_images/1820210-151e50cb305a17fa.png?imageMogr2/auto-orient/" alt title class>
-                <p></p>
+                <img src="http://nunu03.github.io/2019/07/02/xposed/hook.png" alt="hook" title class>
+                <p>hook</p>
             </figure>
 <p>如何理解，例如我们有一个方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private int getResult(int i, int i2) &#123;</span><br><span class="line">    return i+i2; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -221,10 +221,11 @@
 <p>关于Android中的Hook机制，大致有两个方式：</p>
 <p>要 root 权限，直接Hook系统，可以干掉所有的App。</p>
 <p>免root权限，但是只能 Hook 自身，对系统其它 App 无能为力。</p>
-<h2 id="Xposed接入"><a href="#Xposed接入" class="headerlink" title="Xposed接入"></a>Xposed接入</h2><h3 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h3><p>这个工程就是我们的插件工程，也是我们需要激活的Xposed模块工程。在我们的群控项目中，我们的hotB就是我们的模块工程。什么是模块工程，可以理解我们使用Hook挂钩自定义消息体的工程。这个app安装后可以在Xposed app的模块中找到。<figure class="image-box">
-                <img src="/.io//chenyulong01/Downloads/xposed/模块.png" alt title class>
-                <p></p>
-            </figure></p>
+<h2 id="Xposed接入"><a href="#Xposed接入" class="headerlink" title="Xposed接入"></a>Xposed接入</h2><h3 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h3><p>这个工程就是我们的插件工程，也是我们需要激活的Xposed模块工程。在我们的群控项目中，我们的hotB就是我们的模块工程。什么是模块工程，可以理解我们使用Hook挂钩自定义消息体的工程。这个app安装后可以在Xposed app的模块中找到。</p>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2019/07/02/xposed/mokuai.png" alt="set" title class>
+                <p>set</p>
+            </figure>
 <h3 id="导入api"><a href="#导入api" class="headerlink" title="导入api"></a>导入api</h3><p>倒入api比较简单：直接在build.gradle中添加依赖即可：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/* Xposed */</span><br><span class="line">    provided &apos;de.robv.android.xposed:api:82&apos;</span><br><span class="line">    provided &apos;de.robv.android.xposed:api:82:sources&apos;</span><br></pre></td></tr></table></figure>
 
