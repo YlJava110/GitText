@@ -3,6 +3,36 @@
   
     
     <entry>
+      <title><![CDATA[通过ngrok搭建github的webhook]]></title>
+      <url>/2019/08/21/%E9%80%9A%E8%BF%87ngrok%E6%90%AD%E5%BB%BAgithub%E7%9A%84webhook/</url>
+      <content type="html"><![CDATA[<h2 id="WebHook"><a href="#WebHook" class="headerlink" title="WebHook"></a>WebHook</h2><h3 id="webhook概述"><a href="#webhook概述" class="headerlink" title="webhook概述"></a>webhook概述</h3><p>Webhooks allow external services to be notified when certain events happen. When the specified events happen, we’ll send a POST request to each of the URLs you provide. Learn more in our <a href="https://developer.github.com/webhooks/" target="_blank" rel="noopener">Webhooks Guide</a>.</p>
+<p>针对web协议的”钩子“，但是与xposed的hook不同。这里我们认为的钩子的作用可以看作是对仓库的一个通知器，当github的仓库发生变化时，通知器同时把发生变化的事件信息通过post通知给服务器。</p>
+<h3 id="github上webhook设置"><a href="#github上webhook设置" class="headerlink" title="github上webhook设置"></a>github上webhook设置</h3><figure class="image-box">
+                <img src="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/webhooks.png" alt="webhooks" title class>
+                <p>webhooks</p>
+            </figure>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/webhooksuc.png" alt="webhooksuc" title class>
+                <p>webhooksuc</p>
+            </figure>
+]]></content>
+      
+        <categories>
+            
+            <category> WebHook </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> WebHook </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Charles修改请求参数]]></title>
       <url>/2019/08/16/charles%E4%BF%AE%E6%94%B9%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0/</url>
       <content type="html"><![CDATA[<p>先点击选定自己想要修改的该条请求，然后右击该条请求选择Compose，则会出现以下界面，便可以开始修改该请求了.</p>

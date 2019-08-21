@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     
     
-    <title>分类页: Kotlin | chenyulong | 理论是你知道是这样，但它却不好用；实践是它很好用，但你不知道是为什么；程序员将理论和实践结合到一起：既不好用，也不知道是为什么。</title>
+    <title>通过ngrok搭建github的webhook | chenyulong | 理论是你知道是这样，但它却不好用；实践是它很好用，但你不知道是为什么；程序员将理论和实践结合到一起：既不好用，也不知道是为什么。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Nunu">
+    <meta name="keywords" content="WebHook">
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
     <link rel="stylesheet" href="/css/style.css?v=1.4.2">
@@ -106,7 +106,7 @@
               </a>
             </li>
         
-            <li class=" active">
+            <li class="">
               <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
@@ -139,7 +139,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>分类页: Kotlin</span>
+            <span>通过ngrok搭建github的webhook</span>
             
         </div>
         
@@ -149,49 +149,24 @@
         
     </div>
 </header>
-<header class="content-header categories-header">
+<header class="content-header post-header">
     <img src="/img/banner.jpg" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">分类页: Kotlin</h1>
+        <h1 class="title">通过ngrok搭建github的webhook</h1>
         <h5 class="subtitle">
+            
+                <time datetime="2019-08-21T11:58:27.000Z" itemprop="datePublished" class="page-time">
+  2019-08-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/WebHook/">WebHook</a></li></ul>
+
             
         </h5>
         
     </div>
     
-<div class="tabs-bar container">
-    <nav class="tags-list">
-        <a href="/categories" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
-            ">All</a>
-        
-            <a href="/categories/Android/" backup-style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">Android</a>
-            
-        
-            <a href="/categories/Flutter/" backup-style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">Flutter</a>
-            
-        
-            <a href="/categories/Gradle/" backup-style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">Gradle</a>
-            
-        
-            <a href="/categories/Charles/" backup-style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">Charles</a>
-            
-        
-            <a href="/categories/Hexo/" backup-style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">Hexo</a>
-            
-        
-            <a href="/categories/Kotlin/" backup-style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">Kotlin</a>
-            
-        
-            <a href="/categories/WebHook/" backup-style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">WebHook</a>
-            
-        
-    </nav>
-    <!-- PC show more-->
-    <div class="tags-list-more">
-        <a href="javascript:;" class="action tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-h"></i></a>
-    </div>
-</div>
-
 
 </header>
 
@@ -208,45 +183,136 @@
     <div id="local-search-result"></div>
 </div>
 
-<div class="container body-wrap fade">
-    
-            <div class="waterfall">
-                
-                    <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-07-02 11:44:51" datetime="2019-07-02T03:44:51.000Z"  itemprop="datePublished">2019-07-02</time>
 
+<div class="container body-wrap">
+    <article id="post-通过ngrok搭建github的webhook"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">通过ngrok搭建github的webhook</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-21 19:58:27" datetime="2019-08-21T11:58:27.000Z"  itemprop="datePublished">2019-08-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/WebHook/">WebHook</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h2 id="WebHook"><a href="#WebHook" class="headerlink" title="WebHook"></a>WebHook</h2><h3 id="webhook概述"><a href="#webhook概述" class="headerlink" title="webhook概述"></a>webhook概述</h3><p>Webhooks allow external services to be notified when certain events happen. When the specified events happen, we’ll send a POST request to each of the URLs you provide. Learn more in our <a href="https://developer.github.com/webhooks/" target="_blank" rel="noopener">Webhooks Guide</a>.</p>
+<p>针对web协议的”钩子“，但是与xposed的hook不同。这里我们认为的钩子的作用可以看作是对仓库的一个通知器，当github的仓库发生变化时，通知器同时把发生变化的事件信息通过post通知给服务器。</p>
+<h3 id="github上webhook设置"><a href="#github上webhook设置" class="headerlink" title="github上webhook设置"></a>github上webhook设置</h3><figure class="image-box">
+                <a rel=通过ngrok搭建github的webhook href="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/webhooks.png" title="webhooks" data-fancybox="images"><img src="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/webhooks.png" alt="webhooks" title class></a>
+                <p>webhooks</p>
+            </figure>
+<figure class="image-box">
+                <a rel=通过ngrok搭建github的webhook href="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/webhooksuc.png" title="webhooksuc" data-fancybox="images"><img src="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/webhooksuc.png" alt="webhooksuc" title class></a>
+                <p>webhooksuc</p>
+            </figure>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-08-21T12:19:54.000Z" itemprop="dateUpdated">2019-08-21 20:19:54</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2019/08/21/通过ngrok搭建github的webhook/" target="_blank" rel="external">http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/</a>
+        
+    </div>
+    <footer>
+        <a href="http://nunu03.github.io">
+            <img src="/img/avatar.jpg" alt="Nunu Long">
+            Nunu Long
+        </a>
+    </footer>
+</blockquote>
+
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebHook/">WebHook</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
       
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Kotlin/">Kotlin</a></li></ul>
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/&title=《通过ngrok搭建github的webhook》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/&title=《通过ngrok搭建github的webhook》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
 
 
 
-    </div>
-    
-
-
-  
-    <h3 class="post-title " itemprop="name">
-      <a class="post-title-link" href="/2019/07/02/kotlinnotes/">Kotlin新手使用笔记</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-
-    </div>
-    
-  </article>
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
 </div>
-                
-            </div>
+
+        </div>
         
+            
+
+
+        
+    </div>
     
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/2019/08/16/charles修改请求参数/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Charles修改请求参数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WebHook"><span class="post-toc-number">1.</span> <span class="post-toc-text">WebHook</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#webhook概述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">webhook概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#github上webhook设置"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">github上webhook设置</span></a></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+
 </div>
 
     </main>
@@ -313,7 +379,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/categories/Kotlin/&title=chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/&title=《通过ngrok搭建github的webhook》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -325,7 +391,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/categories/Kotlin/&title=chenyulong&source=Nunu's blog!" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/&title=《通过ngrok搭建github的webhook》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -337,7 +403,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aS27DMAwFQN//0um2QBH5kbTUBBitAsexR1kI/F1XvF6/1t8r764nz7x2LFxc3DH3tVzre/IXr3+VGHBxcc9z1wfN+p58e9UN4+Lifhd3HcpUv8XFxf127jtKNZnBxcX9fG41BKlye8kVLi7uf3Enh85Tn7fUd3FxcVvcV3FVn5aERIW34+LiHuHOGyG9wkfvL8DFxT3JraYovSbKpOFaDnpwcXEH3OQwqjZI5gdiFJHh4uJu5vaKp72Ri14AhIuLe547aZw8VTSJjk5cXNyD3Dz56Q1n5Ju52QAuLu4Rbl6qWD86KYL0hrGimRFcXNwN3Gr40iuXTNonuLi4J7mTFkgvDBpdwcXFPcKtBi55gNIbtii0Z3BxcTdzq6FMYXAqbrHkgxq4uLgnuZNHV5upeQh1k6vh4uJu5iaHUTWlqTZUojtxcXE3cyfHVh70JFuNNoOLi3uEWy1PVF/Wa75WD1lcXNwd3El5NN/MvJWLi4t7npsnPPMhjAdyNVxc3I/nVpOl6hgHLi7ut3AnZdC8OHvT+cHFxd3MzduoCWU+mBU1WXFxcbdxJ43P3ghFHtaM6ru4uLgd7g9ORSn4pBq4eQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aUY7qMAwF0O5/07wFoJZ744THSKdfaIA2JyPFxvZ1xdfr7boG1/sd7u6/97l4eHh4u577erzeF/S8iLs73/Hyp7ffwsPDwzvNez6+717Pj/WWka8ZDw8P79d4z8d9vYiYioeHh/e3eHnSPP9WG5zw8PDwvs9rywF58FhLmtv7b6i14OHh4cW8tmX1C6+P9Pfw8PDwxl31tjibJ9Z5OWO0Wjw8PLwDvMnoQDtKNSlwTMoZeHh4eOd4SQLdpr95QysPOfU/AA8PD+8A79zi2jCwVoqNPo+Hh4e3iZcvem24atJmK5Lmu+3Dw8PDO8ZrA8Pk3XmRoigN4+Hh4R3jrQ0zTcae1j5TFynw8PDwjvHallLeKps0w9pUuy7d4uHh4S3x5s2ntpAxH9taHCnAw8PD28RbO3zz0mp+6CeYvHV3TWILHh4eXjyPlDx+kkCvpdGT8ICHh4d3gtf+vH/F12TIYK2e8KEBhoeHh3eA15ImaXQefkbbh4eHh/efeNEP/rJmnJcb2nZXNBmBh4eHN+C1Cet8CKAdSsg3MZqSwMPDwxvzkrS1LSK0wwdrTa+o/YaHh4d3jLdWDmi3Zm/giTYUDw8P7wCvDQ+TxLfFTBpyi9EPDw8PL+Ylj1kLAG0LLd/WetPx8PDwtvLa0kNSLGib/cVAQFsiwcPDwzvGS477vH2VD1pNEuU6mcbDw8PbymuP3Tzhbptha60vPDw8vO/wJm2tvEe/a4CgLmfg4eHhHeCtHb7PSfP8kW2AGcHw8PDwlnh5WnzucE/KGWsNNjw8PLxzvPnhPh8d2HXh4eHh/SYvDyFrR/+knFFXqfHw8PC+yFurduQp+wiGh4eHd5i3qxjRpuD5oNXz3z8EBjw8PLytvPbnfXu7dhyhDQ/b+nt4eHh4n3n/AB0u9FGQhW1eAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
