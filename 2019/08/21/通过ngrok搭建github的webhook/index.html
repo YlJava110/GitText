@@ -207,7 +207,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             
             <h2 id="WebHook"><a href="#WebHook" class="headerlink" title="WebHook"></a>WebHook</h2><h3 id="webhook概述"><a href="#webhook概述" class="headerlink" title="webhook概述"></a>webhook概述</h3><p>Webhooks allow external services to be notified when certain events happen. When the specified events happen, we’ll send a POST request to each of the URLs you provide. Learn more in our <a href="https://developer.github.com/webhooks/" target="_blank" rel="noopener">Webhooks Guide</a>.</p>
-<p>针对web协议的”钩子“，但是与xposed的hook不同。这里我们认为的钩子的作用可以看作是对仓库的一个通知器，当github的仓库发生变化时，通知器同时把发生变化的事件信息通过post通知给服务器。</p>
+<p>Webhook顾名思义，其实就是一钩子。当我们在Github上做出某些特定操作时，可以触发钩子，去进行一些我们事先设定好的脚本，以达到某些特定功能（例如–前端项目自动发布）。</p>
 <h3 id="github上webhook设置"><a href="#github上webhook设置" class="headerlink" title="github上webhook设置"></a>github上webhook设置</h3><figure class="image-box">
                 <a rel=通过ngrok搭建github的webhook href="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/webhooks.png" title="webhooks" data-fancybox="images"><img src="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/webhooks.png" alt="webhooks" title class></a>
                 <p>webhooks</p>
@@ -217,7 +217,7 @@
                 <p>webhooksuc</p>
             </figure>
 <p>上图是我设置的好的webhook：可以看到我设置好了Payload URL和Content type.</p>
-<p>Payload URL：就是我们要设置的通知器。</p>
+<p>Payload URL：就是我们要设置的钩子。</p>
 <p>Content type：是在通知我们时传递的内容类型，一般情况下我们选择json数据格式。</p>
 <p>Which events would you like to trigger this webhook?：这个选择比较重要，直接决定了当仓库发生什么变化时才对我们进行通知。</p>
 <p>到此webhook添加完成。</p>
@@ -253,7 +253,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-08-21T13:05:55.000Z" itemprop="dateUpdated">2019-08-21 21:05:55</time>
+    最後更新時間：<time datetime="2019-08-22T02:47:52.000Z" itemprop="dateUpdated">2019-08-22 10:47:52</time>
 </span><br>
 
 
