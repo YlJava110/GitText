@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title><![CDATA[gitlab api 使用问题]]></title>
+      <url>/2019/08/29/gitlab-api-%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p>在我们使用gitlab获取数据的时候，一般返回的数据都是每页20条数据，但是如果我们想一次获取获取多于20条怎么办？其实gitlab有两个参数可以设置。page和per_page，可以分别设置页数和条数，加到请求参数里即可</p>
+]]></content>
+      
+        <categories>
+            
+            <category> GitLab </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> GitLab </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[通过ngrok搭建github的webhook]]></title>
       <url>/2019/08/21/%E9%80%9A%E8%BF%87ngrok%E6%90%AD%E5%BB%BAgithub%E7%9A%84webhook/</url>
       <content type="html"><![CDATA[<h2 id="WebHook"><a href="#WebHook" class="headerlink" title="WebHook"></a>WebHook</h2><h3 id="webhook概述"><a href="#webhook概述" class="headerlink" title="webhook概述"></a>webhook概述</h3><p>Webhooks allow external services to be notified when certain events happen. When the specified events happen, we’ll send a POST request to each of the URLs you provide. Learn more in our <a href="https://developer.github.com/webhooks/" target="_blank" rel="noopener">Webhooks Guide</a>.</p>
