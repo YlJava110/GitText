@@ -206,7 +206,24 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <p>在我们使用gitlab获取数据的时候，一般返回的数据都是每页20条数据，但是如果我们想一次获取获取多于20条怎么办？其实gitlab有两个参数可以设置。page和per_page，可以分别设置页数和条数，加到请求参数里即可</p>
+            <p>在我们使用gitlab获取数据的时候，一般返回的数据都是每页20条数据，但是如果我们想一次获取获取多于20条怎么办？其实gitlab有两个参数可以设置。page和per_page，可以分别设置页数和条数，加到请求参数里即可。<br>API如下：</p>
+<h2 id="Pagination"><a href="#Pagination" class="headerlink" title="Pagination"></a>Pagination</h2><p>Sometimes the returned result will span across many pages. When listing<br>resources you can pass the following parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page</td>
+<td>Page number (default: 1)</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Number of items to list per page (default: 20, max: 100)</td>
+</tr>
+</tbody></table>
 
         </div>
         
@@ -214,7 +231,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-29T09:06:53.000Z" itemprop="dateUpdated">2019-08-29 17:06:53</time>
+    最後更新時間：<time datetime="2019-08-30T06:27:15.000Z" itemprop="dateUpdated">2019-08-30 14:27:15</time>
 </span><br>
 
 
@@ -292,6 +309,14 @@
 
 
     
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pagination"><span class="post-toc-number">1.</span> <span class="post-toc-text">Pagination</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
     
 </article>
 
