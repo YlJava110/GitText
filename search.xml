@@ -226,6 +226,7 @@ auto</td>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload----request.headers.X-GitHub-Event:push</span><br><span class="line">payload----request.headers.X-GitHub-Delivery:7a8185c4-c40a-11e9-8ed7-401aabcf3ce7</span><br></pre></td></tr></table></figure>
 
+<p>事件的驱动信息可以在webhook中查看：</p>
 <figure class="image-box">
                 <img src="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/webhookimage.jpg" alt="webhookimage" title class>
                 <p>webhookimage</p>
