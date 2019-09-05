@@ -65,7 +65,161 @@
             </figure>
 <p>可以看到我们本地服务器的地址被映射到了一个外网的地址。而这个<a href="http://4c8a9e3f.ngrok.io/就是上图中我们设置好的Payload" target="_blank" rel="noopener">http://4c8a9e3f.ngrok.io/就是上图中我们设置好的Payload</a> URL。</p>
 <p>需要注意的是，当我们调试程序的时候，ngrok要打开，并且每次启动ngrok，外网地址都不同。</p>
-<h2 id="配置服务器"><a href="#配置服务器" class="headerlink" title="配置服务器"></a>配置服务器</h2><p>通过python配置一个简单的服务器，用于接收通知信息。启动服务：python3 githook.py</p>
+<h2 id="配置服务器"><a href="#配置服务器" class="headerlink" title="配置服务器"></a>配置服务器</h2><h3 id="bottle"><a href="#bottle" class="headerlink" title="bottle"></a>bottle</h3><p>Bottle是一个简单高效的遵循WSGI的微型python Web框架。bottle几乎没有任何依赖，而且只有一个文件。而相对于python默认的SimpleHTTPServer，功能更加丰富，实用更加灵活。如果只是开发一个小型的web程序，bottle已经足够了。但是这个服务器是阻塞式的，当一个用户请求的时候，其他用户的请求会被阻塞。可以很简单的使用其他的框架来配合bottle来实现无阻塞的web服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@route(&apos;/&apos;)</span><br><span class="line">@route(&apos;/index.html&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return &apos;&lt;a href=&quot;/hello&quot;&gt;Go to Hello World Page&lt;/a&gt;&apos;</span><br><span class="line">@route(&apos;/hello&apos;)</span><br><span class="line">def hello():</span><br><span class="line">    return &apos;Hello World&apos;</span><br><span class="line">@route(&apos;/hello/&lt;id&gt;&apos;)</span><br><span class="line">def hello(id):</span><br><span class="line">    return &apos;Hello World&apos;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">server_names = &#123;</span><br><span class="line">    &apos;cgi&apos;: CGIServer,</span><br><span class="line">    &apos;flup&apos;: FlupFCGIServer,</span><br><span class="line">    &apos;wsgiref&apos;: WSGIRefServer,</span><br><span class="line">    &apos;waitress&apos;: WaitressServer,</span><br><span class="line">    &apos;cherrypy&apos;: CherryPyServer,</span><br><span class="line">    &apos;paste&apos;: PasteServer,</span><br><span class="line">    &apos;fapws3&apos;: FapwsServer,</span><br><span class="line">    &apos;tornado&apos;: TornadoServer,</span><br><span class="line">    &apos;gae&apos;: AppEngineServer,</span><br><span class="line">    &apos;twisted&apos;: TwistedServer,</span><br><span class="line">    &apos;diesel&apos;: DieselServer,</span><br><span class="line">    &apos;meinheld&apos;: MeinheldServer,</span><br><span class="line">    &apos;gunicorn&apos;: GunicornServer,</span><br><span class="line">    &apos;eventlet&apos;: EventletServer,</span><br><span class="line">    &apos;gevent&apos;: GeventServer,</span><br><span class="line">    &apos;geventSocketIO&apos;:GeventSocketIOServer,</span><br><span class="line">    &apos;rocket&apos;: RocketServer,</span><br><span class="line">    &apos;bjoern&apos; : BjoernServer,</span><br><span class="line">    &apos;auto&apos;: AutoServer,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="paste"><a href="#paste" class="headerlink" title="paste"></a>paste</h3><table>
+<tbody>
+<tr><th style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);font-size:1.2em;">
+名称</th>
+<th style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);font-size:1.2em;">
+主页</th>
+<th style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);font-size:1.2em;">
+介绍</th>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+cgi</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+ </td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+以CGI脚本运行</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+flup</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://trac.saddi.com/flup" rel="noopener" title="FLUP" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="c7b4b5077834a0ed1f5c0a4bca14f4cf" target="_blank">http://trac.saddi.com/flup</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+以FastCGI进程运行</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+gae</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://code.google.com/appengine/docs/python/overview.html" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="288e3bc1b26e0f48f7cbdecc50951f37" target="_blank">http://code.google.com/appengine/docs/python/overview.html</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+Google App Engine部属</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+wsgiref</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://docs.python.org/library/wsgiref.html" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="237e23e44a4365b59fcc33b28a891844" target="_blank">http://docs.python.org/library/wsgiref.html</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+默认为单线程的服务器</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+cherrypy</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://www.cherrypy.org/" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="72c50cd82c583c625d441d5022206177" target="_blank">http://www.cherrypy.org/</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+多线程服务器</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+paste</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://pythonpaste.org/" rel="noopener" title="http://pythonpaste.org/" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="71228709dedcb943fefeb0aec3bbd640" target="_blank">http://pythonpaste.org/</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+多线程服务器</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+rocket</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://pypi.python.org/pypi/rocket" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="cefb0f508a65db9aca1af3f78aa8df61" target="_blank">http://pypi.python.org/pypi/rocket</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+多线程服务器</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+gunicorn</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://pypi.python.org/pypi/gunicorn" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="9a58bd759fbfdbd2c6bb60b30eb894f3" target="_blank">http://pypi.python.org/pypi/gunicorn</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+部分用C编写</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+fapws3</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://www.fapws.org/" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="7380c8ebddf823041cb3785a15444f1e" target="_blank">http://www.fapws.org/</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+Asynchronous，基于C开发</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+tornado</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://www.tornadoweb.org/" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="28816a7f106f3be4d11b72a58302eabb" target="_blank">http://www.tornadoweb.org/</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+Asynchronous，服务了部分 FaceBook 的服务</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+twisted</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://twistedmatrix.com/" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="c11813c5b43ff62fd484194d38ea9b09" target="_blank">http://twistedmatrix.com/</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+Asynchronous</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+gevent</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://www.gevent.org/" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="8739ffd1da6ba93b622d20965903c018" target="_blank">http://dieselweb.org/</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+Asynchronous，基于Greenlet</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+diesel</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://dieselweb.org/" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="8739ffd1da6ba93b622d20965903c018" target="_blank">http://dieselweb.org/</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+Asynchronous，基于Greenlet</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+meinheld</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://pypi.python.org/pypi/meinheld" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="e8fc885d48908fbe74c4848d401bb8f0" target="_blank">http://pypi.python.org/pypi/meinheld</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+Asynchronous，部分基于C开发</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+bjoern</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+<a href="http://pypi.python.org/pypi/bjoern" rel="noopener" style="text-decoration:none;color:rgb(38,94,21);border-bottom-color:rgb(153,102,51);border-bottom-width:1px;border-bottom-style:dashed;" data-token="f9fa6703b208a2b47317f58614c91139" target="_blank">http://pypi.python.org/pypi/bjoern</a></td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+Asynchronous，非常快，基于C开发</td>
+</tr>
+
+<tr><td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+auto</td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+ </td>
+<td style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(221,221,221);">
+自动选择一个可用的服务器</td>
+</tr>
+</tbody>
+</table>
+可以看到，bottle适配的web服务器很丰富。工作模式也很全面，有多线程的（如paste）、有多进程模式的（如gunicorn）、也有基于协程的（如gevent）。
+### 启动
+nohup python3 -u githook.py > nohup.log 2>&1 &
+
+<p>nohup：放在命令的开头，表示不挂起（no hang up），也即，关闭终端或者退出某个账号，进程也继续保持运行状态。</p>
+<p>-u ：不启用缓冲。</p>
+<p>nohup.log：日志文件</p>
+<p>2&gt;&amp;1：也就表示将错误重定向到标准输出上</p>
+<p>&amp; ：放在命令到结尾，表示后台运行，防止终端一直被某个进程占用，这样终端可以执行别到任务。</p>
+<p><strong>注意使用nohup命令后台运行命令之后，需要使用exit正常退出当前账户，这样才能保证命令一直在后台运行。否则当前账户非正常退出或者结束的时候，命令还是会结束。</strong></p>
+<h3 id="事例"><a href="#事例" class="headerlink" title="事例"></a>事例</h3><p>通过python配置一个简单的服务器，用于接收通知信息。具体事例如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@route(&apos;/payload&apos;, method=[&apos;GET&apos;,&apos;POST&apos;])</span><br><span class="line">def payload():</span><br><span class="line">    print(&apos;payload----request.json:&apos;+request.json.__str__())</span><br><span class="line">    print(&apos;payload----request.headers.X-GitHub-Event:&apos;+request.get_header(&apos;X-GitHub-Event&apos;))</span><br><span class="line">    print(&apos;payload----request.headers.X-GitHub-Delivery:&apos;+request.get_header(&apos;X-GitHub-Delivery&apos;))</span><br><span class="line">    return &quot;hello world&quot;</span><br></pre></td></tr></table></figure>
 
 <p>这个时候我们手动push一个信息，打印信息如下：</p>
@@ -77,7 +231,11 @@
                 <img src="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/webhookimage.jpg" alt="webhookimage" title class>
                 <p>webhookimage</p>
             </figure>
-<p>注意：我们的路由@route(‘/payload’, method=[‘GET’,’POST’])是必填的，如果丢失method,我们将不能受到请求。同时payload，要与Payload URL中设置的名一样。</p>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><p>1.我们的路由@route(‘/payload’, method=[‘GET’,’POST’])是必填的，如果丢失method,我们将不能受到请求。同时payload，要与Payload URL中设置的名一样。</p>
+<p>2.requests</p>
+<p>print(r):&lt;Response [200]&gt;<br>print(r.json):{‘id’: 132968, ‘iid’: 2182437, ‘project_id’: 15509,<br>print(r.text):{“id”:132968,”iid”:2182437,”project_id”:15509,<br>json.dumps(r.json())</p>
+<p>3.can only concatenate str (not “int”) to str</p>
+<p>print(‘payload—-projectid:%d’ % projectid)</p>
 <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>1.Could not fetch URL <a href="https://pypi.python.org/simple/requests/" target="_blank" rel="noopener">https://pypi.python.org/simple/requests/</a>: There was a problem confirming the ssl certificate: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:777) - skipping<br>  Could not find a version that satisfies the requirement requests (from versions: )<br>No matching distribution found for requests</p>
 <p>解决方法：pip3 install requests  -i  <a href="http://pypi.douban.com/simple" target="_blank" rel="noopener">http://pypi.douban.com/simple</a> –trusted-host=pypi.douban.com</p>
 <p>2.升级pip</p>
