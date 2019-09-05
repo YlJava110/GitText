@@ -210,9 +210,8 @@ auto</td>
 </tbody>
 </table>
 可以看到，bottle适配的web服务器很丰富。工作模式也很全面，有多线程的（如paste）、有多进程模式的（如gunicorn）、也有基于协程的（如gevent）。
-### 启动
-nohup python3 -u githook.py > nohup.log 2>&1 &
 
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>nohup python3 -u githook.py &gt; nohup.log 2&gt;&amp;1 &amp;</p>
 <p>nohup：放在命令的开头，表示不挂起（no hang up），也即，关闭终端或者退出某个账号，进程也继续保持运行状态。</p>
 <p>-u ：不启用缓冲。</p>
 <p>nohup.log：日志文件</p>
