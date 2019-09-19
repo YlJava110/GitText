@@ -282,7 +282,9 @@ auto</td>
 <figure class="image-box">
                 <img src="http://nunu03.github.io/2019/08/16/charles修改请求参数/throttle_input.png" alt="throttle_input" title class>
                 <p>throttle_input</p>
-            </figure>]]></content>
+            </figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://blog.csdn.net/weixin_40669017/article/details/81975000" target="_blank" rel="noopener">Charles抓包、修改请求、修改返回、弱网设置</a></p>
+]]></content>
       
         <categories>
             
