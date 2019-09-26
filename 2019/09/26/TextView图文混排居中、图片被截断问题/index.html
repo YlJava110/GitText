@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    
+    <title>TextView图文混排居中、图片被截断问题 | chenyulong | 理论是你知道是这样，但它却不好用；实践是它很好用，但你不知道是为什么；程序员将理论和实践结合到一起：既不好用，也不知道是为什么。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Android">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.2">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	false,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"codefine","repo":"gitment","oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Nunu Long</h5>
+          <a href="mailto:594531261@qq.com" title="594531261@qq.com" class="mail">
+            
+              <span>5</span>
+            
+              <span>9</span>
+            
+              <span>4</span>
+            
+              <span>5</span>
+            
+              <span>3</span>
+            
+              <span>1</span>
+            
+              <span>2</span>
+            
+              <span>6</span>
+            
+              <span>1</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/nunu03/" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                首页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>TextView图文混排居中、图片被截断问题</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">TextView图文混排居中、图片被截断问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-26T02:23:23.000Z" itemprop="datePublished" class="page-time">
+  2019-09-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-TextView图文混排居中、图片被截断问题"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">TextView图文混排居中、图片被截断问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-26 10:23:23" datetime="2019-09-26T02:23:23.000Z"  itemprop="datePublished">2019-09-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在Android中做图文混排，一般都是选择用TextView+ImageSpan来实现，但是在ImageSpan中，对齐方式只有ImageSpan.ALIGN_BASELINE,ImageSpan.ALIGN_BOTTOM两种对齐方式，不能相对于文本居中，如果我们图片小于文字，或者大于文字，都会导致排版问题出现。</p>
+<figure class="image-box">
+                <a rel=TextView图文混排居中、图片被截断问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nocenter.png" title="nocenter" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nocenter.png" alt="nocenter" title class></a>
+                <p>nocenter</p>
+            </figure>
+<figure class="image-box">
+                <a rel=TextView图文混排居中、图片被截断问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/blocked.png" title="blocked" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/blocked.png" alt="blocked" title class></a>
+                <p>blocked</p>
+            </figure>
+<h2 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h2><p>下面是抄自wangkunlin同学都一个居中实现代码，封装的很好，就拿过来直接用了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line">package com.wkl.imagespan;</span><br><span class="line"></span><br><span class="line">import android.graphics.Canvas;</span><br><span class="line">import android.graphics.Paint;</span><br><span class="line">import android.graphics.Rect;</span><br><span class="line">import android.graphics.drawable.Drawable;</span><br><span class="line">import android.support.annotation.IntDef;</span><br><span class="line">import android.text.style.ImageSpan;</span><br><span class="line"></span><br><span class="line">import java.lang.annotation.Retention;</span><br><span class="line">import java.lang.annotation.RetentionPolicy;</span><br><span class="line">import java.lang.ref.WeakReference;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by wangkunlin</span><br><span class="line"> * On 2017-03-15</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">public class AlignImageSpan extends ImageSpan &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 顶部对齐</span><br><span class="line">     */</span><br><span class="line">    public static final int ALIGN_TOP = 3;</span><br><span class="line">    /**</span><br><span class="line">     * 垂直居中</span><br><span class="line">     */</span><br><span class="line">    public static final int ALIGN_CENTER = 4;</span><br><span class="line"></span><br><span class="line">    @IntDef(&#123;ALIGN_BOTTOM, ALIGN_BASELINE, ALIGN_TOP, ALIGN_CENTER&#125;)</span><br><span class="line">    @Retention(RetentionPolicy.SOURCE)</span><br><span class="line">    public @interface Alignment &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public AlignImageSpan(Drawable d) &#123;</span><br><span class="line">        this(d, ALIGN_CENTER);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public AlignImageSpan(Drawable d, @Alignment int verticalAlignment) &#123;</span><br><span class="line">        super(d, verticalAlignment);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int getSize(Paint paint, CharSequence text, int start, int end, Paint.FontMetricsInt fm) &#123;</span><br><span class="line">        Drawable d = getCachedDrawable();</span><br><span class="line">        Rect rect = d.getBounds();</span><br><span class="line">        if (fm != null) &#123;</span><br><span class="line">            Paint.FontMetrics fmPaint = paint.getFontMetrics();</span><br><span class="line">            // 顶部 leading</span><br><span class="line">            float topLeading = fmPaint.top - fmPaint.ascent;</span><br><span class="line">            // 底部 leading</span><br><span class="line">            float bottomLeading = fmPaint.bottom - fmPaint.descent;</span><br><span class="line">            // drawable 的高度</span><br><span class="line">            int drHeight = rect.height();</span><br><span class="line"></span><br><span class="line">            switch (mVerticalAlignment) &#123;</span><br><span class="line">                case ALIGN_CENTER: &#123; // drawable 的中间与 行中间对齐</span><br><span class="line">                    // 当前行 的高度</span><br><span class="line">                    float fontHeight = fmPaint.descent - fmPaint.ascent;</span><br><span class="line">                    // 整行的 y方向上的中间 y 坐标</span><br><span class="line">                    float center = fmPaint.descent - fontHeight / 2;</span><br><span class="line"></span><br><span class="line">                    // 算出 ascent 和 descent</span><br><span class="line">                    float ascent = center - drHeight / 2;</span><br><span class="line">                    float descent = center + drHeight / 2;</span><br><span class="line"></span><br><span class="line">                    fm.ascent = (int) ascent;</span><br><span class="line">                    fm.top = (int) (ascent + topLeading);</span><br><span class="line">                    fm.descent = (int) descent;</span><br><span class="line">                    fm.bottom = (int) (descent + bottomLeading);</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                case ALIGN_BASELINE: &#123; // drawable 的底部与 baseline 对齐</span><br><span class="line">                    // 所以 ascent 的值就是 负的 drawable 的高度</span><br><span class="line">                    float ascent = -drHeight;</span><br><span class="line">                    fm.ascent = -drHeight;</span><br><span class="line">                    fm.top = (int) (ascent + topLeading);</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                case ALIGN_TOP: &#123; // drawable 的顶部与 行的顶部 对齐</span><br><span class="line">                    // 算出 descent</span><br><span class="line">                    float descent = drHeight + fmPaint.ascent;</span><br><span class="line">                    fm.descent = (int) descent;</span><br><span class="line">                    fm.bottom = (int) (descent + bottomLeading);</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                case ALIGN_BOTTOM: // drawable 的底部与 行的底部 对齐</span><br><span class="line">                default: &#123;</span><br><span class="line">                    // 算出 ascent</span><br><span class="line">                    float ascent = fmPaint.descent - drHeight;</span><br><span class="line">                    fm.ascent = (int) ascent;</span><br><span class="line">                    fm.top = (int) (ascent + topLeading);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return rect.right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 这里的 x, y, top 以及 bottom 都是基于整个 TextView 的坐标系的坐标</span><br><span class="line">     *</span><br><span class="line">     * @param x      drawable 绘制的起始 x 坐标</span><br><span class="line">     * @param top    当前行最高处，在 TextView 中的 y 坐标</span><br><span class="line">     * @param y      当前行的 BaseLine 在 TextView 中的 y 坐标</span><br><span class="line">     * @param bottom 当前行最低处，在 TextView 中的 y 坐标</span><br><span class="line">     */</span><br><span class="line">    @Override</span><br><span class="line">    public void draw(Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, Paint paint) &#123;</span><br><span class="line">        Drawable drawable = getDrawable();</span><br><span class="line">        Rect rect = drawable.getBounds();</span><br><span class="line">        float transY;</span><br><span class="line">        switch (mVerticalAlignment) &#123;</span><br><span class="line">            case ALIGN_BASELINE:</span><br><span class="line">                transY = y - rect.height();</span><br><span class="line">                break;</span><br><span class="line">            case ALIGN_CENTER:</span><br><span class="line">                transY = ((bottom - top) - rect.height()) / 2 + top;</span><br><span class="line">                break;</span><br><span class="line">            case ALIGN_TOP:</span><br><span class="line">                transY = top;</span><br><span class="line">                break;</span><br><span class="line">            case ALIGN_BOTTOM:</span><br><span class="line">            default:</span><br><span class="line">                transY = bottom - rect.height();</span><br><span class="line">        &#125;</span><br><span class="line">        canvas.save();</span><br><span class="line">        // 这里如果不移动画布，drawable 就会在 Textview 的左上角出现</span><br><span class="line">        canvas.translate(x, transY);</span><br><span class="line">        drawable.draw(canvas);</span><br><span class="line">        canvas.restore();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private Drawable getCachedDrawable() &#123;</span><br><span class="line">        WeakReference&lt;Drawable&gt; wr = mDrawableRef;</span><br><span class="line">        Drawable d = null;</span><br><span class="line"></span><br><span class="line">        if (wr != null)</span><br><span class="line">            d = wr.get();</span><br><span class="line"></span><br><span class="line">        if (d == null) &#123;</span><br><span class="line">            d = getDrawable();</span><br><span class="line">            mDrawableRef = new WeakReference&lt;&gt;(d);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return d;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private WeakReference&lt;Drawable&gt; mDrawableRef;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="截断处理"><a href="#截断处理" class="headerlink" title="截断处理"></a>截断处理</h2><h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><figure class="image-box">
+                <a rel=TextView图文混排居中、图片被截断问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nodot.png" title="nodot" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nodot.png" alt="nodot" title class></a>
+                <p>nodot</p>
+            </figure>
+<figure class="image-box">
+                <a rel=TextView图文混排居中、图片被截断问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/dot.png" title="dot" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/dot.png" alt="dot" title class></a>
+                <p>dot</p>
+            </figure>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://ddrv.cn/a/232387" target="_blank" rel="noopener">TextView 图文混排，解决图片被截断</a></p>
+<p><a href="https://blog.csdn.net/jdsjlzx/article/details/90033791" target="_blank" rel="noopener">TextView图文混排图片被截断的问题以及Android省略号只有一个点的问题</a></p>
+<p><a href="https://blog.csdn.net/jiangtea/article/details/54098123" target="_blank" rel="noopener">SpannableString的用法详解</a></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-26T02:59:09.000Z" itemprop="dateUpdated">2019-09-26 10:59:09</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2019/09/26/TextView图文混排居中、图片被截断问题/" target="_blank" rel="external">http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/</a>
+        
+    </div>
+    <footer>
+        <a href="http://nunu03.github.io">
+            <img src="/img/avatar.jpg" alt="Nunu Long">
+            Nunu Long
+        </a>
+    </footer>
+</blockquote>
+
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断问题》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断问题》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/2019/09/20/Android-7-0之后抓包证书无效的解决方案/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android 7.0之后抓包证书无效的解决方案</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#居中"><span class="post-toc-number">2.</span> <span class="post-toc-text">居中</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#截断处理"><span class="post-toc-number">3.</span> <span class="post-toc-text">截断处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最终效果"><span class="post-toc-number">4.</span> <span class="post-toc-text">最终效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="https://handsomeliuyang.github.io/" target="_blank">刘阳</a>
+    </span>
+    
+    <span class="blogroll-item">
+        <a href="https://www.kotlincn.net/docs/reference/map-operations.html" target="_blank">kotlincn</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Nunu Long &copy; 2017 - 2019
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断问题》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断问题》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADM0lEQVR42u3aS27bQBAFQN//0so2gEPqvR4GsNrFlUFTmqnhotWfr6/4ev11Xd3//t/8me/P53eS7xxe2NjY2B/Cft1eyTL3n02eub+T7yexYGNjY29l3weSZLtJAEtCzuz53IKNjY2NfZ+c5AlGmylgY2NjY5+zz5OE/CDaRAUbGxsb+6To0yYVbbl/dkCP1dKwsbGxfzy7TSR+8t//pb+NjY2N/YPZr+OrLSS1LYRZ6+LNnrGxsbEXsdsgkScSeXEnWbEFRw1jbGxs7BXsWWOgHeg5KWCdBLa654yNjY29gp2Hk1la0kbXWevizf6xsbGx17HPQ86siduunqxSlJOwsbGxF7Hb1umzveWnikr5UWJjY2NvYp8EqjblyJu7s4JXUjW6fPPY2NjYH8vOl2wxbeE+T0uSFsKb78fGxsZex24XOyHNSkjDNOM+A8PGxsZexM5LP8m4zGxb58dRHDQ2Njb2OvZJEtI2gGcN2nz4MmozYGNjYy9i5z/fZ4OPeZIz23re9MXGxsbeyp4VcZL7xSjkqNncdrOL9gA2Njb2Onb7474NcidhMmlaDAMYNjY29kex80DSbvG8GJSP7BTtZ2xsbOyl7LryFB9c+6m2XNW+MGxsbOyt7DZstIeVJyTtiE/d3MXGxsZexG4Xa3/V58iTAtNJ8oONjY396ey2sJ4XmGYtgai4H5Sf3rwGbGxs7EXsNqich66nAtJ9izpKTrCxsbFXs58KSLPg1Ba/hvvHxsbGXsFOAslJW/fq2/K1Zrt6Ew6xsbGx17FnS54nFbNw1aZG/3gGGxsbexE77wOfbP2pYtDJSNBlBoaNjY394ewkOLXDOrOt5GlJXlS6fD3Y2NjYi9gJvh24yY9gdqBJWhKlMdjY2Ngr2K/yOk9dZi3k82Ggy9wLGxsb+8PZbRg4GdB5qqw/SzywsbGxd7PboDULQu1hPdD3uMdjY2Njr2PPik0nMbMdDJolFZefwsbGxv6V7DywnQSwWeKRtKWHAQwbGxt7ETtv987C2yyYDRsA2NjY2OvYbVEpGeVp27T5i3mgSYCNjY29iN0GuVmRaDZw0x5re6DY2NjYH87+AyQDv4NPG3TXAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.2"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.2"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.2"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.2"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.2"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+
+    
+</body>
+</html>
