@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     
-    <title>TextView图文混排居中、图片被截断问题 | chenyulong | 理论是你知道是这样，但它却不好用；实践是它很好用，但你不知道是为什么；程序员将理论和实践结合到一起：既不好用，也不知道是为什么。</title>
+    <title>TextView图文混排居中、图片被截断、自动换行问题 | chenyulong | 理论是你知道是这样，但它却不好用；实践是它很好用，但你不知道是为什么；程序员将理论和实践结合到一起：既不好用，也不知道是为什么。</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="Android">
@@ -139,7 +139,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>TextView图文混排居中、图片被截断问题</span>
+            <span>TextView图文混排居中、图片被截断、自动换行问题</span>
             
         </div>
         
@@ -152,7 +152,7 @@
 <header class="content-header post-header">
     <img src="/img/banner.jpg" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">TextView图文混排居中、图片被截断问题</h1>
+        <h1 class="title">TextView图文混排居中、图片被截断、自动换行问题</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-09-26T02:23:23.000Z" itemprop="datePublished" class="page-time">
@@ -188,7 +188,7 @@
     <article id="post-TextView图文混排居中、图片被截断问题"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">TextView图文混排居中、图片被截断问题</h1>
+        <h1 class="post-card-title">TextView图文混排居中、图片被截断、自动换行问题</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-09-26 10:23:23" datetime="2019-09-26T02:23:23.000Z"  itemprop="datePublished">2019-09-26</time>
 
@@ -208,11 +208,11 @@
             
             <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在Android中做图文混排，一般都是选择用TextView+ImageSpan来实现，但是在ImageSpan中，对齐方式只有ImageSpan.ALIGN_BASELINE,ImageSpan.ALIGN_BOTTOM两种对齐方式，不能相对于文本居中，如果我们图片小于文字，或者大于文字，都会导致排版问题出现。</p>
 <figure class="image-box">
-                <a rel=TextView图文混排居中、图片被截断问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nocenter.png" title="nocenter" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nocenter.png" alt="nocenter" title class></a>
+                <a rel=TextView图文混排居中、图片被截断、自动换行问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nocenter.png" title="nocenter" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nocenter.png" alt="nocenter" title class></a>
                 <p>nocenter</p>
             </figure>
 <figure class="image-box">
-                <a rel=TextView图文混排居中、图片被截断问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/blocked.png" title="blocked" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/blocked.png" alt="blocked" title class></a>
+                <a rel=TextView图文混排居中、图片被截断、自动换行问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/blocked.png" title="blocked" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/blocked.png" alt="blocked" title class></a>
                 <p>blocked</p>
             </figure>
 <h2 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h2><p>下面是抄自wangkunlin同学都一个居中实现代码，封装的很好，就拿过来直接用了：</p>
@@ -228,11 +228,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">textView.post(() -&gt; &#123;</span><br><span class="line">        String endText = getAutoSplitText(textView,signature,2);</span><br><span class="line">        textView.setText(getSignatureText(endText,wh));</span><br><span class="line">    &#125;);</span><br><span class="line">        </span><br><span class="line">private String getAutoSplitText(TextView textView, String signature, int maxLineCount) &#123;</span><br><span class="line">	int imgSize = mContext.getResources().getDimensionPixelOffset(R.dimen.px28);</span><br><span class="line">	String rawText = signature.replaceAll(&quot;\r&quot;, &quot;&quot;);</span><br><span class="line">	final Paint tvPaint = textView.getPaint();</span><br><span class="line">	float space = tvPaint.measureText(&quot;  &quot;);</span><br><span class="line">	float dot = tvPaint.measureText(&quot;...&quot;);</span><br><span class="line">	float tvWidth = textView.getWidth() - textView.getPaddingLeft() - textView.getPaddingRight(); //控件可用宽度</span><br><span class="line">	//如果整行宽度超过控件可用宽度，则按字符测量，在超过可用宽度的前一个字符处手动换行</span><br><span class="line">	StringBuilder startText = new StringBuilder();</span><br><span class="line">	float lineWidth = imgSize + space;</span><br><span class="line">	int lineCount = 0;</span><br><span class="line">	for (int count = 0; count &lt; rawText.length(); ++count) &#123;</span><br><span class="line">	    char ch = rawText.charAt(count);</span><br><span class="line">	    lineWidth += tvPaint.measureText(String.valueOf(ch));</span><br><span class="line">	    if (lineWidth &lt;= tvWidth) &#123;</span><br><span class="line">	        startText.append(ch);</span><br><span class="line">	    &#125; else &#123;</span><br><span class="line">	        startText.append(&quot;\n&quot;);</span><br><span class="line">	        lineCount++;</span><br><span class="line">	        if (lineCount == maxLineCount) &#123;</span><br><span class="line">	            break;</span><br><span class="line">	        &#125;</span><br><span class="line">	        tvWidth = tvWidth - imgSize - space - dot - tvPaint.measureText(String.valueOf(ch));</span><br><span class="line">	        lineWidth = 0;</span><br><span class="line">	        --count;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//把结尾多余的\n去掉</span><br><span class="line">	if (startText.toString().endsWith(&quot;\n&quot;)) &#123;</span><br><span class="line">	    startText.deleteCharAt(startText.length() - 1);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	StringBuilder endText = new StringBuilder();</span><br><span class="line">	if(lineCount &lt; 2)&#123;</span><br><span class="line">	    endText.append(&quot;img  &quot;).append(startText).append(&quot;  img&quot;);</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">	    endText.append(&quot;img  &quot;).append(startText).append(&quot;...  img&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	return endText.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><figure class="image-box">
-                <a rel=TextView图文混排居中、图片被截断问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nodot.png" title="nodot" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nodot.png" alt="nodot" title class></a>
+                <a rel=TextView图文混排居中、图片被截断、自动换行问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nodot.png" title="nodot" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/nodot.png" alt="nodot" title class></a>
                 <p>nodot</p>
             </figure>
 <figure class="image-box">
-                <a rel=TextView图文混排居中、图片被截断问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/dot.png" title="dot" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/dot.png" alt="dot" title class></a>
+                <a rel=TextView图文混排居中、图片被截断、自动换行问题 href="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/dot.png" title="dot" data-fancybox="images"><img src="http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/dot.png" alt="dot" title class></a>
                 <p>dot</p>
             </figure>
 
@@ -246,7 +246,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-27T07:32:40.000Z" itemprop="dateUpdated">2019-09-27 15:32:40</time>
+    最后更新时间：<time datetime="2019-09-27T07:49:43.000Z" itemprop="dateUpdated">2019-09-27 15:49:43</time>
 </span><br>
 
 
@@ -274,7 +274,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断问题》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断、自动换行问题》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -286,7 +286,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断问题》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断、自动换行问题》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -402,7 +402,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断问题》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断、自动换行问题》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -414,7 +414,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断问题》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/09/26/TextView图文混排居中、图片被截断问题/&title=《TextView图文混排居中、图片被截断、自动换行问题》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

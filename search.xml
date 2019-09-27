@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[TextView图文混排居中、图片被截断问题]]></title>
+      <title><![CDATA[TextView图文混排居中、图片被截断、自动换行问题]]></title>
       <url>/2019/09/26/TextView%E5%9B%BE%E6%96%87%E6%B7%B7%E6%8E%92%E5%B1%85%E4%B8%AD%E3%80%81%E5%9B%BE%E7%89%87%E8%A2%AB%E6%88%AA%E6%96%AD%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在Android中做图文混排，一般都是选择用TextView+ImageSpan来实现，但是在ImageSpan中，对齐方式只有ImageSpan.ALIGN_BASELINE,ImageSpan.ALIGN_BOTTOM两种对齐方式，不能相对于文本居中，如果我们图片小于文字，或者大于文字，都会导致排版问题出现。</p>
 <figure class="image-box">
