@@ -3,6 +3,43 @@
   
     
     <entry>
+      <title><![CDATA[Toast解读]]></title>
+      <url>/2019/10/11/Toast%E8%A7%A3%E8%AF%BB/</url>
+      <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Toast(吐司)，这个控件的用词相当准确,它所表现出来的特征正是吐司似的弹出效果，使用非常简单便捷。<br>而且Toast开发时比较常用的一个类了，用它给用户弹提示信息和界面反馈，有时候也用它来作为辅助调试的手段。但是用得多了，有时候自然会遇到各种各样的问题，比如重复点击问题，弹框位置，显示时间等，这时候我们就要对运行机制以及源码进行了解。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>1.Toast 不是 View，它用于帮助创建并展示包含一条小消息的 View；</p>
+<p>2.它的设计理念是尽量不惹眼，但又能展示想让用户看到的信息；</p>
+<p>3.被展示时，浮在应用界面之上；</p>
+<p>4.永远不会获取到焦点；</p>
+<p>5.大小取决于消息的长度；</p>
+<p>6.超时后会自动消失；</p>
+<p>7.可以自定义显示在屏幕上的位置（默认左右居中显示在靠近屏幕底部的位置；</p>
+<p>8.可以使用自定义布局，也只有在自定义布局的时候才需要直接调用Toast的构造方法，其它时候都是使用 makeText方法来创建Toast；</p>
+<p>9.Toast弹出后当前 Activity 会保持可见性和可交互性；</p>
+<p>10.使用cancel方法可以立即将已显示的Toast关闭让未显示的Toast不再显示；</p>
+<p>11.Toast 也算是一个「通知」，如果弹出状态消息后期望得到用户响应，应该使用 Notification。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://blog.csdn.net/mzlogin/article/details/78580687" target="_blank" rel="noopener">Android 源码分析 —— 从 Toast 出发</a></p>
+<p><a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/services/core/java/com/android/server/notification/NotificationManagerService.java" target="_blank" rel="noopener">NotificationManagerService</a></p>
+<p><a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/view/WindowManager.java" target="_blank" rel="noopener">WindowManager</a></p>
+<p><a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/widget/Toast.java" target="_blank" rel="noopener">Toast</a></p>
+<p><a href="https://github.com/aosp-mirror/platform_frameworks_base/blob/master/services/core/java/com/android/server/policy/PhoneWindowManager.java" target="_blank" rel="noopener">PhoneWindowManager</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Toast </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[TextView图文混排居中、图片被截断、自动换行问题]]></title>
       <url>/2019/09/26/TextView%E5%9B%BE%E6%96%87%E6%B7%B7%E6%8E%92%E5%B1%85%E4%B8%AD%E3%80%81%E5%9B%BE%E7%89%87%E8%A2%AB%E6%88%AA%E6%96%AD%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在Android中做图文混排，一般都是选择用TextView+ImageSpan来实现，但是在ImageSpan中，对齐方式只有ImageSpan.ALIGN_BASELINE,ImageSpan.ALIGN_BOTTOM两种对齐方式，不能相对于文本居中，如果我们图片小于文字，或者大于文字，都会导致排版问题出现。</p>
