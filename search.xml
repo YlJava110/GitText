@@ -3,10 +3,10 @@
   
     
     <entry>
-      <title><![CDATA[Toast解读]]></title>
+      <title><![CDATA[Toast源码解读]]></title>
       <url>/2019/10/11/Toast%E8%A7%A3%E8%AF%BB/</url>
       <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Toast(吐司)，这个控件的用词相当准确,它所表现出来的特征正是吐司似的弹出效果，使用非常简单便捷。<br>而且Toast开发时比较常用的一个类了，用它给用户弹提示信息和界面反馈，有时候也用它来作为辅助调试的手段。但是用得多了，有时候自然会遇到各种各样的问题，比如重复点击问题，弹框位置，显示时间等，这时候我们就要对运行机制以及源码进行了解。</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>1.Toast 不是 View，它用于帮助创建并展示包含一条小消息的 View；</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>1.Toast不是View，它用于帮助创建并展示包含一条小消息的View；</p>
 <p>2.它的设计理念是尽量不惹眼，但又能展示想让用户看到的信息；</p>
 <p>3.被展示时，浮在应用界面之上；</p>
 <p>4.永远不会获取到焦点；</p>
