@@ -59,7 +59,10 @@
 
 <h3 id="Toast数量"><a href="#Toast数量" class="headerlink" title="Toast数量"></a>Toast数量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static final int MAX_PACKAGE_NOTIFICATIONS = 50;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Service中能否显示Toast"><a href="#Service中能否显示Toast" class="headerlink" title="Service中能否显示Toast"></a>Service中能否显示Toast</h3><p>可以</p>
+<h3 id="Service中能否显示Toast"><a href="#Service中能否显示Toast" class="headerlink" title="Service中能否显示Toast"></a>Service中能否显示Toast</h3><p>可以。但是网上说IntentService不可以,因为IntentService运行在独立的线程中，所以Toast不正常需要通过Handler运行于主线程之上，但是我打印IntentService也是main线程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Handler handler = new Handler(Looper.getMainLooper());  </span><br><span class="line">handler.post(new Runnable() &#123;  </span><br><span class="line">	public void run() &#123;  </span><br><span class="line">		dialog.show();  </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><h3 id="源码差异"><a href="#源码差异" class="headerlink" title="源码差异"></a>源码差异</h3><blockquote>
 <p>8 以下</p>
 </blockquote>
