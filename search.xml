@@ -14,7 +14,7 @@
 <p>6.超时后会自动消失；</p>
 <p>7.可以自定义显示在屏幕上的位置（默认左右居中显示在靠近屏幕底部的位置；</p>
 <p>8.可以使用自定义布局，也只有在自定义布局的时候才需要直接调用Toast的构造方法，其它时候都是使用 makeText方法来创建Toast；</p>
-<p>9.Toast弹出后当前 Activity 会保持可见性和可交互性；</p>
+<p>9.Toast弹出后当前Activity会保持可见性和可交互性；</p>
 <p>10.使用cancel方法可以立即将已显示的Toast关闭让未显示的Toast不再显示；</p>
 <p>11.Toast 也算是一个「通知」，如果弹出状态消息后期望得到用户响应，应该使用 Notification。</p>
 <h2 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><h4 id="new-Toast"><a href="#new-Toast" class="headerlink" title="new Toast"></a>new Toast</h4><blockquote>
@@ -52,6 +52,14 @@
 
 <h3 id="超时时长"><a href="#超时时长" class="headerlink" title="超时时长"></a>超时时长</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">static final long SHORT_DURATION_TIMEOUT = 4000;</span><br><span class="line">static final long LONG_DURATION_TIMEOUT = 7000;</span><br></pre></td></tr></table></figure>
 
+<h2 id="问题解答"><a href="#问题解答" class="headerlink" title="问题解答"></a>问题解答</h2><h3 id="能否在非-UI-线程调用"><a href="#能否在非-UI-线程调用" class="headerlink" title="能否在非 UI 线程调用"></a>能否在非 UI 线程调用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">new Thread(new Runnable() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        Toast.makeText(getContext(), &quot;Call toast on non-UI thread&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
+
+<p>异常提示：Can’t create handler inside thread that has not called Looper.prepare()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">new Thread(new Runnable() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        Looper.prepare();</span><br><span class="line">        Toast.makeText(getContext(), &quot;Call toast on non-UI thread&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">        Looper.loop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
+
+<h3 id="Toast数量"><a href="#Toast数量" class="headerlink" title="Toast数量"></a>Toast数量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static final int MAX_PACKAGE_NOTIFICATIONS = 50;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Service中能否显示Toast"><a href="#Service中能否显示Toast" class="headerlink" title="Service中能否显示Toast"></a>Service中能否显示Toast</h3><p>可以</p>
 <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><h3 id="源码差异"><a href="#源码差异" class="headerlink" title="源码差异"></a>源码差异</h3><blockquote>
 <p>8 以下</p>
 </blockquote>
