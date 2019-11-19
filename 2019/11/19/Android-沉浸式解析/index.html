@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    
+    <title>Android 沉浸式解析 | chenyulong | 理论是你知道是这样，但它却不好用；实践是它很好用，但你不知道是为什么；程序员将理论和实践结合到一起：既不好用，也不知道是为什么。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Title">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.2">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	false,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"codefine","repo":"gitment","oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Nunu Long</h5>
+          <a href="mailto:594531261@qq.com" title="594531261@qq.com" class="mail">
+            
+              <span>5</span>
+            
+              <span>9</span>
+            
+              <span>4</span>
+            
+              <span>5</span>
+            
+              <span>3</span>
+            
+              <span>1</span>
+            
+              <span>2</span>
+            
+              <span>6</span>
+            
+              <span>1</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/nunu03/" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                首页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>Android 沉浸式解析</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">Android 沉浸式解析</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-19T02:50:44.000Z" itemprop="datePublished" class="page-time">
+  2019-11-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-Android-沉浸式解析"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">Android 沉浸式解析</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-19 10:50:44" datetime="2019-11-19T02:50:44.000Z"  itemprop="datePublished">2019-11-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h2 id="StatusBar、TitleBar"><a href="#StatusBar、TitleBar" class="headerlink" title="StatusBar、TitleBar"></a>StatusBar、TitleBar</h2><p>StatusBar是状态栏，它处于屏幕的最顶部，正常情况下它是显示的，它和TitleBar之间没有直接的关系；</p>
+<p>TitleBar是标题栏，比如ActionBar、ToolBar，紧位于状态栏的下方显示。</p>
+<p>ActionBar（操作栏） 是在Android 3.0(API 11）中加入到SK中的。</p>
+<p>ToolBar（工具栏）是 Android 5.0 推出的一个 Material Design 风格的导航控件 ,用来取代之前的 Actionbar 。与 Actionbar 相比，Toolbar 明显要灵活的多。它不像 Actionbar 一样，一定要固定在Activity的顶部，而是可以放到界面的任意位置。与ActionBar相比显示效果跟ActionBar并没有区别。但优点是自定义视图的操作更加简单：</p>
+<ul>
+<li>1.设置导航栏图标；</li>
+<li>2.设置App的logo；</li>
+<li>3.支持设置标题和子标题；</li>
+<li>4.支持添加一个或多个的自定义控件；</li>
+<li>5.支持Action Menu；</li>
+</ul>
+<h3 id="ActionBar"><a href="#ActionBar" class="headerlink" title="ActionBar"></a>ActionBar</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;AppCompatActivity_ActionBarTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</span><br><span class="line">    &lt;!-- Customize your theme here. --&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState);</span><br><span class="line">    ActionBar actionBar = getSupportActionBar();</span><br><span class="line">    actionBar.setTitle(&quot;ActionBar Title&quot;);</span><br><span class="line">actionBar.setBackgroundDrawable(getDrawable(R.drawable.ic_launcher_background));</span><br><span class="line">    actionBar.setCustomView(R.layout.activity_actionbar);</span><br><span class="line">    actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>备注</strong>是getSupportActionBar()还是默认的getActionBar()，还可以自定义title view</p>
+<h3 id="Toolbar"><a href="#Toolbar" class="headerlink" title="Toolbar"></a>Toolbar</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;AppCompatActivity_ToolBarTheme&quot; parent=&quot;Theme.AppCompat.Light&quot;&gt;</span><br><span class="line">    &lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;windowNoTitle&quot;&gt;true&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;android:textAllCaps&quot;&gt;false&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;android.support.v7.widget.Toolbar</span><br><span class="line">    android:id=&quot;@+id/toolbar&quot;</span><br><span class="line">    android:orientation=&quot;vertical&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:background=&quot;?attr/colorPrimary&quot;</span><br><span class="line">    android:layout_height=&quot;200dp&quot;</span><br><span class="line">    app:title=&quot;标题&quot;</span><br><span class="line">    android:minHeight=&quot;?attr/actionBarSize&quot;&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/toolbar_view&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:textColor=&quot;#ff0000&quot;</span><br><span class="line">        android:text=&quot;自定义View&quot;/&gt;</span><br><span class="line">&lt;/android.support.v7.widget.Toolbar&gt;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState);</span><br><span class="line">	//也可以这里设置toolbar</span><br><span class="line">    Toolbar toolBar = findViewById(R.id.toolbar);</span><br><span class="line">    //主标题，必须在setSupportActionBar之前设置，否则无效，如果放在其他位置，则直接setTitle即可</span><br><span class="line">    toolBar.setTitle(&quot;ToolBar Title&quot;);</span><br><span class="line">    //用toolbar替换actionbar</span><br><span class="line">    setSupportActionBar(toolBar);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>备注</strong>可以在xml设置属性，也以在代码中设置；还可以在xml添加view；还可以对Toolbar自定义；使用Toolbar要隐藏ActionBar；</p>
+<p><a href="https://www.jianshu.com/p/81d0bcb282cb" target="_blank" rel="noopener">ActionBar和ToolBar：使用详细点击</a></p>
+<h3 id="item属性释义"><a href="#item属性释义" class="headerlink" title="item属性释义"></a>item属性释义</h3><figure class="image-box">
+                <a rel=Android 沉浸式解析 href="http://nunu03.github.io/2019/11/19/Android-沉浸式解析/item.png" title="item" data-fancybox="images"><img src="http://nunu03.github.io/2019/11/19/Android-沉浸式解析/item.png" alt="item" title class></a>
+                <p>item</p>
+            </figure>
+<p>比较通用的几个属性，引用了网上的一个截图；更多详细见：<br><a href="https://blog.csdn.net/jinmie0193/article/details/80723724" target="_blank" rel="noopener">各属性指定颜色的位置</a></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-11-19T07:53:19.000Z" itemprop="dateUpdated">2019-11-19 15:53:19</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2019/11/19/Android-沉浸式解析/" target="_blank" rel="external">http://nunu03.github.io/2019/11/19/Android-沉浸式解析/</a>
+        
+    </div>
+    <footer>
+        <a href="http://nunu03.github.io">
+            <img src="/img/avatar.jpg" alt="Nunu Long">
+            Nunu Long
+        </a>
+    </footer>
+</blockquote>
+
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Title/">Title</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/11/19/Android-沉浸式解析/&title=《Android 沉浸式解析》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/11/19/Android-沉浸式解析/&title=《Android 沉浸式解析》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/2019/10/11/Toast解读/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Toast源码解读</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#StatusBar、TitleBar"><span class="post-toc-number">1.</span> <span class="post-toc-text">StatusBar、TitleBar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ActionBar"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">ActionBar</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Toolbar"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Toolbar</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#item属性释义"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">item属性释义</span></a></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="https://handsomeliuyang.github.io/" target="_blank">刘阳</a>
+    </span>
+    
+    <span class="blogroll-item">
+        <a href="https://www.kotlincn.net/docs/reference/map-operations.html" target="_blank">kotlincn</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Nunu Long &copy; 2017 - 2019
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://nunu03.github.io/2019/11/19/Android-沉浸式解析/&title=《Android 沉浸式解析》 — chenyulong&pic=http://nunu03.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://nunu03.github.io/2019/11/19/Android-沉浸式解析/&title=《Android 沉浸式解析》 — chenyulong&source=Nunu's blog!" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aQW7DMAwEwPz/0+m5KGzsUk1RS+NT0TiyxgeGIvl6xdc7vn7en6x8/59fuzAwMB7LmG3r6vH321p5HVf3YGBgnMO4D4X39yTI++/OnouBgYFxtVwbHJOV29eBgYGBkQS+2ZH13/1uYGBgPIrRBr72aBptpVwZAwPjHEYeHP/+74/0NzAwMB7FeJdXnhrmieOsbfBtTQwMjK0ZsyJ+vukc1qZ9GBgYpzHyNsBs8GL26bCQh4GBsR3j/uP8kDkL2W3wvfwWBgbGAYwkLM6ajm0Qb0tvGBgYJzDWRxzyMJoH09kKGBgYJzCSklYelFfuT1oFwwYnBgbGAxntKNiwWB8X0YYDZBgYGMcw8m2tjGIkz8pLbxgYGKcx2vyxbWrmL6hui2JgYGzNyM+As8CavJq8/VlkphgYGNsxVjBtsM4LbbP7MTAw9mO0bcv1TbRF/+IXAwMDY2tGnsC15bmWMWwSYGBgbM3Ii2jJ4Fd+fF1pdkZpKAYGxnaMpEyWP3iWes4CbtTlwMDA2I6RV9qTtuVKCG5bqhgYGCcwkv8nx9SVxsBScRADA2NTxru8kmRuNnKRlPYwMDDOZORXmz4mxbuVoFwnjhgYGA9ntAfU9hC70got1sfAwDiAsXLgbMcmPpE4YmBgYLRtg1k62Ibvj/RRMTAwtmDkG5oNZ7QhGwMD4xxGGzrbsYlkqCJPEzEwME5j5EfHlRDZbqId9cDAwNiU8QWJtbJQGE/4XAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.2"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.2"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.2"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.2"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.2"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+
+    
+</body>
+</html>

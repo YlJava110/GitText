@@ -3,6 +3,49 @@
   
     
     <entry>
+      <title><![CDATA[Android 沉浸式解析]]></title>
+      <url>/2019/11/19/Android-%E6%B2%89%E6%B5%B8%E5%BC%8F%E8%A7%A3%E6%9E%90/</url>
+      <content type="html"><![CDATA[<h2 id="StatusBar、TitleBar"><a href="#StatusBar、TitleBar" class="headerlink" title="StatusBar、TitleBar"></a>StatusBar、TitleBar</h2><p>StatusBar是状态栏，它处于屏幕的最顶部，正常情况下它是显示的，它和TitleBar之间没有直接的关系；</p>
+<p>TitleBar是标题栏，比如ActionBar、ToolBar，紧位于状态栏的下方显示。</p>
+<p>ActionBar（操作栏） 是在Android 3.0(API 11）中加入到SK中的。</p>
+<p>ToolBar（工具栏）是 Android 5.0 推出的一个 Material Design 风格的导航控件 ,用来取代之前的 Actionbar 。与 Actionbar 相比，Toolbar 明显要灵活的多。它不像 Actionbar 一样，一定要固定在Activity的顶部，而是可以放到界面的任意位置。与ActionBar相比显示效果跟ActionBar并没有区别。但优点是自定义视图的操作更加简单：</p>
+<ul>
+<li>1.设置导航栏图标；</li>
+<li>2.设置App的logo；</li>
+<li>3.支持设置标题和子标题；</li>
+<li>4.支持添加一个或多个的自定义控件；</li>
+<li>5.支持Action Menu；</li>
+</ul>
+<h3 id="ActionBar"><a href="#ActionBar" class="headerlink" title="ActionBar"></a>ActionBar</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;AppCompatActivity_ActionBarTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</span><br><span class="line">    &lt;!-- Customize your theme here. --&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState);</span><br><span class="line">    ActionBar actionBar = getSupportActionBar();</span><br><span class="line">    actionBar.setTitle(&quot;ActionBar Title&quot;);</span><br><span class="line">actionBar.setBackgroundDrawable(getDrawable(R.drawable.ic_launcher_background));</span><br><span class="line">    actionBar.setCustomView(R.layout.activity_actionbar);</span><br><span class="line">    actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>备注</strong>是getSupportActionBar()还是默认的getActionBar()，还可以自定义title view</p>
+<h3 id="Toolbar"><a href="#Toolbar" class="headerlink" title="Toolbar"></a>Toolbar</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;AppCompatActivity_ToolBarTheme&quot; parent=&quot;Theme.AppCompat.Light&quot;&gt;</span><br><span class="line">    &lt;item name=&quot;windowActionBar&quot;&gt;false&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;windowNoTitle&quot;&gt;true&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;android:textAllCaps&quot;&gt;false&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;android.support.v7.widget.Toolbar</span><br><span class="line">    android:id=&quot;@+id/toolbar&quot;</span><br><span class="line">    android:orientation=&quot;vertical&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:background=&quot;?attr/colorPrimary&quot;</span><br><span class="line">    android:layout_height=&quot;200dp&quot;</span><br><span class="line">    app:title=&quot;标题&quot;</span><br><span class="line">    android:minHeight=&quot;?attr/actionBarSize&quot;&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/toolbar_view&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:textColor=&quot;#ff0000&quot;</span><br><span class="line">        android:text=&quot;自定义View&quot;/&gt;</span><br><span class="line">&lt;/android.support.v7.widget.Toolbar&gt;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState);</span><br><span class="line">	//也可以这里设置toolbar</span><br><span class="line">    Toolbar toolBar = findViewById(R.id.toolbar);</span><br><span class="line">    //主标题，必须在setSupportActionBar之前设置，否则无效，如果放在其他位置，则直接setTitle即可</span><br><span class="line">    toolBar.setTitle(&quot;ToolBar Title&quot;);</span><br><span class="line">    //用toolbar替换actionbar</span><br><span class="line">    setSupportActionBar(toolBar);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>备注</strong>可以在xml设置属性，也以在代码中设置；还可以在xml添加view；还可以对Toolbar自定义；使用Toolbar要隐藏ActionBar；</p>
+<p><a href="https://www.jianshu.com/p/81d0bcb282cb" target="_blank" rel="noopener">ActionBar和ToolBar：使用详细点击</a></p>
+<h3 id="item属性释义"><a href="#item属性释义" class="headerlink" title="item属性释义"></a>item属性释义</h3><figure class="image-box">
+                <img src="http://nunu03.github.io/2019/11/19/Android-沉浸式解析/item.png" alt="item" title class>
+                <p>item</p>
+            </figure>
+<p>比较通用的几个属性，引用了网上的一个截图；更多详细见：<br><a href="https://blog.csdn.net/jinmie0193/article/details/80723724" target="_blank" rel="noopener">各属性指定颜色的位置</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Title </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Toast源码解读]]></title>
       <url>/2019/10/11/Toast%E8%A7%A3%E8%AF%BB/</url>
       <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Toast(吐司)，这个控件的用词相当准确,它所表现出来的特征正是吐司似的弹出效果，使用非常简单便捷。<br>而且Toast开发时比较常用的一个类了，用它给用户弹提示信息和界面反馈，有时候也用它来作为辅助调试的手段。但是用得多了，有时候自然会遇到各种各样的问题，比如重复点击问题，弹框位置，显示时间等，这时候我们就要对运行机制以及源码进行了解。</p>
