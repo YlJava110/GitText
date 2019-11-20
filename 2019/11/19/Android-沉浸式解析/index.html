@@ -206,7 +206,18 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>沉浸式？沉浸式就是如何对 StatusBar（状态栏）的背景透明操作；当我们打开应用时，一般如果不对状态栏进行修改的话，在屏幕的顶部有一条默认的(黑色、灰色、其他)状态栏，和应用的风格非常不协调，为了提供更好的界面交互，然后在状态栏的位置显示我们自定义的颜色，通常为应用的TitleBar的颜色，或者是将应用的整体的一张图片也占据到状态栏中，这个时候我们就需要对状态栏的背景进行操作。</p>
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>首先我们得了解什么是透明状态栏以及什么是沉浸式状态栏，以及其区别，国内习惯称透明状态栏为沉浸式状态栏，但是两者是有本质区别的:</p>
+<ul>
+<li>沉浸式：<br>Android 4.4中，沉浸式体验得到了再次强化，提供了一种“全屏模式”(Full-screen Immersive Mode)。全屏模式又分两种，一种叫后撤式 (Lean Back)，另一种叫做沉浸式(Immersive)。后撤式已经在之前的系统中被广泛使用了——当你在优酷APP中观看视频时，大部分时间手指是不会去碰屏幕的。这种情况下，虚拟键和状态栏都会自动隐藏，但当你触摸屏幕的时候，它们又会出现。而新加入的沉浸式则不太一样，在沉浸式全屏状态下，对屏幕的操作并不会唤出系统栏。想要唤出系统栏，你必须从屏幕的上/下边缘向屏幕内划入。沉浸式的全屏状态更适合游戏和阅读这样的应用。</li>
+</ul>
+<ul>
+<li>变色：<ul>
+<li>透明：<br>Android 4.4 一个很重要的改变就是透明系统栏.。新的系统栏是渐变透明的, 可以最大限度的允许屏幕显示更多内容, 也可以让系统栏和 Action Bar 融为一体, 仅仅留下最低限度的背景保护以免通知通知栏内容和 Action Bar 文字/图标难以识别。谷歌把这种效果称之为：Translucent Bar。<br>Translucent Bar 是 Android 对 Edge to Edge 尝试中的一个, 也是最容易被用户注意到的. 它的初始目的就是要最大化可视面积和淡化系统界面的存在感。</li>
+<li>变色：<br>Android 5.0后可以自由设置状态栏颜色，所以也可以称作变色状态栏。</li>
+</ul>
+</li>
+</ul>
+<p>所以我们这里讲的是变色状态栏，变色状态栏就是如何对 StatusBar（状态栏）的背景透明操作；当我们打开应用时，一般如果不对状态栏进行修改的话，在屏幕的顶部有一条默认的(黑色、灰色、其他)状态栏，和应用的风格非常不协调，为了提供更好的界面交互，然后在状态栏的位置显示我们自定义的颜色，通常为应用的TitleBar的颜色，或者是将应用的整体的一张图片也占据到状态栏中，这个时候我们就需要对状态栏的背景进行操作。<br><a href="http://www.androidchina.net/3520.html" target="_blank" rel="noopener">状态栏详解点击</a></p>
 <h2 id="StatusBar、TitleBar"><a href="#StatusBar、TitleBar" class="headerlink" title="StatusBar、TitleBar"></a>StatusBar、TitleBar</h2><p>StatusBar是状态栏，它处于屏幕的最顶部，正常情况下它是显示的，它和TitleBar之间没有直接的关系；</p>
 <p>TitleBar是标题栏，比如ActionBar、ToolBar，紧位于状态栏的下方显示。</p>
 <p>ActionBar（操作栏） 是在Android 3.0(API 11）中加入到SK中的。</p>
@@ -248,7 +259,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-11-20T08:51:18.000Z" itemprop="dateUpdated">2019-11-20 16:51:18</time>
+    Last updated: <time datetime="2019-11-20T09:17:18.000Z" itemprop="dateUpdated">2019-11-20 17:17:18</time>
 </span><br>
 
 
