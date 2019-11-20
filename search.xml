@@ -51,7 +51,17 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN ,</span><br><span class="line">                WindowManager.LayoutParams. FLAG_FULLSCREEN);</span><br></pre></td></tr></table></figure>
 
-<h3 id="Android4-4（API-19）-Android-5-0（-lt-API-21）"><a href="#Android4-4（API-19）-Android-5-0（-lt-API-21）" class="headerlink" title="Android4.4（API 19）- Android 5.0（&lt; API 21）"></a>Android4.4（API 19）- Android 5.0（&lt; API 21）</h3><h3 id="Android-5-0（-gt-API-21）"><a href="#Android-5-0（-gt-API-21）" class="headerlink" title="Android 5.0（&gt;= API 21）"></a>Android 5.0（&gt;= API 21）</h3>]]></content>
+<h3 id="Android4-4（API-19）-Android-5-0（-lt-API-21）"><a href="#Android4-4（API-19）-Android-5-0（-lt-API-21）" class="headerlink" title="Android4.4（API 19）- Android 5.0（&lt; API 21）"></a>Android4.4（API 19）- Android 5.0（&lt; API 21）</h3><ul>
+<li><p>theme：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;item name=&quot;android:windowTranslucentStatus&quot;&gt;true&lt;/item&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>设置如上属性后，我们会发现状态栏的背景变了，其实不是变了，而是标题栏的布局延伸到了状态栏里。</p>
+<h3 id="Android-5-0（-gt-API-21）"><a href="#Android-5-0（-gt-API-21）" class="headerlink" title="Android 5.0（&gt;= API 21）"></a>Android 5.0（&gt;= API 21）</h3>]]></content>
       
         <categories>
             
