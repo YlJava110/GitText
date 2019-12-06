@@ -3,6 +3,439 @@
   
     
     <entry>
+      <title><![CDATA[颜色透明度十六进制]]></title>
+      <url>/2019/12/06/%E9%A2%9C%E8%89%B2%E9%80%8F%E6%98%8E%E5%BA%A6%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/</url>
+      <content type="html"><![CDATA[<p>00是完全透明(百分百透明)，FF就是完全<strong>不</strong>透明</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left" style="width: 300px;">透明度</th>
+  <th align="left" style="width: 300px;">16进制表示</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">100 %</td>
+  <td align="left">00</td>
+</tr>
+<tr>
+  <td align="left">99   %</td>
+  <td align="left">03</td>
+</tr>
+<tr>
+  <td align="left">98   %</td>
+  <td align="left">05</td>
+</tr>
+<tr>
+  <td align="left">97   %</td>
+  <td align="left">07</td>
+</tr>
+<tr>
+  <td align="left">96   %</td>
+  <td align="left">0A</td>
+</tr>
+<tr>
+  <td align="left">95   %</td>
+  <td align="left">0D</td>
+</tr>
+<tr>
+  <td align="left">94   %</td>
+  <td align="left">0F</td>
+</tr>
+<tr>
+  <td align="left">93   %</td>
+  <td align="left">12</td>
+</tr>
+<tr>
+  <td align="left">92   %</td>
+  <td align="left">14</td>
+</tr>
+<tr>
+  <td align="left">91   %</td>
+  <td align="left">17</td>
+</tr>
+<tr>
+  <td align="left">90   %</td>
+  <td align="left">1A</td>
+</tr>
+<tr>
+  <td align="left">89   %</td>
+  <td align="left">1C</td>
+</tr>
+<tr>
+  <td align="left">88   %</td>
+  <td align="left">1E</td>
+</tr>
+<tr>
+  <td align="left">87   %</td>
+  <td align="left">21</td>
+</tr>
+<tr>
+  <td align="left">86   %</td>
+  <td align="left">24</td>
+</tr>
+<tr>
+  <td align="left">85   %</td>
+  <td align="left">26</td>
+</tr>
+<tr>
+  <td align="left">84   %</td>
+  <td align="left">29</td>
+</tr>
+<tr>
+  <td align="left">83   %</td>
+  <td align="left">2B</td>
+</tr>
+<tr>
+  <td align="left">82   %</td>
+  <td align="left">2E</td>
+</tr>
+<tr>
+  <td align="left">81   %</td>
+  <td align="left">30</td>
+</tr>
+<tr>
+  <td align="left">80   %</td>
+  <td align="left">33</td>
+</tr>
+<tr>
+  <td align="left">79   %</td>
+  <td align="left">36</td>
+</tr>
+<tr>
+  <td align="left">78   %</td>
+  <td align="left">38</td>
+</tr>
+<tr>
+  <td align="left">77   %</td>
+  <td align="left">3B</td>
+</tr>
+<tr>
+  <td align="left">76   %</td>
+  <td align="left">3D</td>
+</tr>
+<tr>
+  <td align="left">75   %</td>
+  <td align="left">40</td>
+</tr>
+<tr>
+  <td align="left">74   %</td>
+  <td align="left">42</td>
+</tr>
+<tr>
+  <td align="left">73   %</td>
+  <td align="left">45</td>
+</tr>
+<tr>
+  <td align="left">72   %</td>
+  <td align="left">47</td>
+</tr>
+<tr>
+  <td align="left">71   %</td>
+  <td align="left">4A</td>
+</tr>
+<tr>
+  <td align="left">70   %</td>
+  <td align="left">4D</td>
+</tr>
+<tr>
+  <td align="left">69   %</td>
+  <td align="left">4F</td>
+</tr>
+<tr>
+  <td align="left">68   %</td>
+  <td align="left">52</td>
+</tr>
+<tr>
+  <td align="left">67   %</td>
+  <td align="left">54</td>
+</tr>
+<tr>
+  <td align="left">66   %</td>
+  <td align="left">57</td>
+</tr>
+<tr>
+  <td align="left">65   %</td>
+  <td align="left">59</td>
+</tr>
+<tr>
+  <td align="left">64   %</td>
+  <td align="left">5C</td>
+</tr>
+<tr>
+  <td align="left">63   %</td>
+  <td align="left">5E</td>
+</tr>
+<tr>
+  <td align="left">62   %</td>
+  <td align="left">61</td>
+</tr>
+<tr>
+  <td align="left">61   %</td>
+  <td align="left">63</td>
+</tr>
+<tr>
+  <td align="left">60   %</td>
+  <td align="left">66</td>
+</tr>
+<tr>
+  <td align="left">59   %</td>
+  <td align="left">69</td>
+</tr>
+<tr>
+  <td align="left">58   %</td>
+  <td align="left">6B</td>
+</tr>
+<tr>
+  <td align="left">57   %</td>
+  <td align="left">6E</td>
+</tr>
+<tr>
+  <td align="left">56   %</td>
+  <td align="left">70</td>
+</tr>
+<tr>
+  <td align="left">55   %</td>
+  <td align="left">73</td>
+</tr>
+<tr>
+  <td align="left">54   %</td>
+  <td align="left">75</td>
+</tr>
+<tr>
+  <td align="left">53   %</td>
+  <td align="left">78</td>
+</tr>
+<tr>
+  <td align="left">52   %</td>
+  <td align="left">7A</td>
+</tr>
+<tr>
+  <td align="left">51   %</td>
+  <td align="left">7D</td>
+</tr>
+<tr>
+  <td align="left">50   %</td>
+  <td align="left">80</td>
+</tr>
+<tr>
+  <td align="left">49   %</td>
+  <td align="left">82</td>
+</tr>
+<tr>
+  <td align="left">48   %</td>
+  <td align="left">85</td>
+</tr>
+<tr>
+  <td align="left">47   %</td>
+  <td align="left">87</td>
+</tr>
+<tr>
+  <td align="left">46   %</td>
+  <td align="left">8A</td>
+</tr>
+<tr>
+  <td align="left">45   %</td>
+  <td align="left">8C</td>
+</tr>
+<tr>
+  <td align="left">44   %</td>
+  <td align="left">8F</td>
+</tr>
+<tr>
+  <td align="left">43   %</td>
+  <td align="left">91</td>
+</tr>
+<tr>
+  <td align="left">42   %</td>
+  <td align="left">94</td>
+</tr>
+<tr>
+  <td align="left">41   %</td>
+  <td align="left">96</td>
+</tr>
+<tr>
+  <td align="left">40   %</td>
+  <td align="left">99</td>
+</tr>
+<tr>
+  <td align="left">39   %</td>
+  <td align="left">9C</td>
+</tr>
+<tr>
+  <td align="left">38   %</td>
+  <td align="left">9E</td>
+</tr>
+<tr>
+  <td align="left">37   %</td>
+  <td align="left">A1</td>
+</tr>
+<tr>
+  <td align="left">36   %</td>
+  <td align="left">A3</td>
+</tr>
+<tr>
+  <td align="left">35   %</td>
+  <td align="left">A6</td>
+</tr>
+<tr>
+  <td align="left">34   %</td>
+  <td align="left">A8</td>
+</tr>
+<tr>
+  <td align="left">33   %</td>
+  <td align="left">AB</td>
+</tr>
+<tr>
+  <td align="left">32   %</td>
+  <td align="left">AD</td>
+</tr>
+<tr>
+  <td align="left">31   %</td>
+  <td align="left">B0</td>
+</tr>
+<tr>
+  <td align="left">30   %</td>
+  <td align="left">B3</td>
+</tr>
+<tr>
+  <td align="left">29   %</td>
+  <td align="left">B5</td>
+</tr>
+<tr>
+  <td align="left">28   %</td>
+  <td align="left">B8</td>
+</tr>
+<tr>
+  <td align="left">27   %</td>
+  <td align="left">BA</td>
+</tr>
+<tr>
+  <td align="left">26   %</td>
+  <td align="left">BD</td>
+</tr>
+<tr>
+  <td align="left">25   %</td>
+  <td align="left">BF</td>
+</tr>
+<tr>
+  <td align="left">24   %</td>
+  <td align="left">C2</td>
+</tr>
+<tr>
+  <td align="left">23   %</td>
+  <td align="left">C4</td>
+</tr>
+<tr>
+  <td align="left">22   %</td>
+  <td align="left">C7</td>
+</tr>
+<tr>
+  <td align="left">21   %</td>
+  <td align="left">C9</td>
+</tr>
+<tr>
+  <td align="left">20   %</td>
+  <td align="left">CC</td>
+</tr>
+<tr>
+  <td align="left">19   %</td>
+  <td align="left">CF</td>
+</tr>
+<tr>
+  <td align="left">18   %</td>
+  <td align="left">D1</td>
+</tr>
+<tr>
+  <td align="left">17   %</td>
+  <td align="left">D4</td>
+</tr>
+<tr>
+  <td align="left">16   %</td>
+  <td align="left">D6</td>
+</tr>
+<tr>
+  <td align="left">15   %</td>
+  <td align="left">D9</td>
+</tr>
+<tr>
+  <td align="left">14   %</td>
+  <td align="left">DB</td>
+</tr>
+<tr>
+  <td align="left">13   %</td>
+  <td align="left">DE</td>
+</tr>
+<tr>
+  <td align="left">12   %</td>
+  <td align="left">E0</td>
+</tr>
+<tr>
+  <td align="left">11   %</td>
+  <td align="left">E3</td>
+</tr>
+<tr>
+  <td align="left">10   %</td>
+  <td align="left">E6</td>
+</tr>
+<tr>
+  <td align="left">9   %</td>
+  <td align="left">E8</td>
+</tr>
+<tr>
+  <td align="left">8   %</td>
+  <td align="left">EB</td>
+</tr>
+<tr>
+  <td align="left">7   %</td>
+  <td align="left">ED</td>
+</tr>
+<tr>
+  <td align="left">6   %</td>
+  <td align="left">F0</td>
+</tr>
+<tr>
+  <td align="left">5   %</td>
+  <td align="left">F2</td>
+</tr>
+<tr>
+  <td align="left">4   %</td>
+  <td align="left">F5</td>
+</tr>
+<tr>
+  <td align="left">3   %</td>
+  <td align="left">F7</td>
+</tr>
+<tr>
+  <td align="left">2   %</td>
+  <td align="left">FA</td>
+</tr>
+<tr>
+  <td align="left">1   %</td>
+  <td align="left">FC</td>
+</tr>
+<tr>
+  <td align="left">0   %</td>
+  <td align="left">FF</td>
+</tr>
+</tbody></table>]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Color </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android 沉浸式解析]]></title>
       <url>/2019/11/19/Android-%E6%B2%89%E6%B5%B8%E5%BC%8F%E8%A7%A3%E6%9E%90/</url>
       <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>首先我们得了解什么是透明状态栏以及什么是沉浸式状态栏，以及其区别，国内习惯称变色状态栏为沉浸式状态栏，但是两者是有本质区别的:</p>
