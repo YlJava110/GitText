@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[颜色透明度十六进制]]></title>
       <url>/2019/12/06/%E9%A2%9C%E8%89%B2%E9%80%8F%E6%98%8E%E5%BA%A6%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/</url>
-      <content type="html"><![CDATA[<p>00是完全透明(百分百透明)，FF就是完全<strong>不</strong>透明</p>
+      <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>00是完全透明(百分百透明)，FF就是完全<strong>不</strong>透明</p>
 
 <table>
 <thead>
@@ -418,7 +418,10 @@
   <td align="left">0   %</td>
   <td align="left">FF</td>
 </tr>
-</tbody></table>]]></content>
+</tbody></table>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://blog.csdn.net/hewuzhao/article/details/78821954" target="_blank" rel="noopener">最全的Android 颜色透明度</a></p>
+]]></content>
       
         <categories>
             
