@@ -1081,8 +1081,9 @@ auto</td>
       <url>/2019/07/23/aar%E4%BE%9D%E8%B5%96%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB/</url>
       <content type="html"><![CDATA[<h2 id="依赖关系查看"><a href="#依赖关系查看" class="headerlink" title="依赖关系查看"></a>依赖关系查看</h2><h3 id="Gradle-View"><a href="#Gradle-View" class="headerlink" title="Gradle View"></a>Gradle View</h3><p>在AS中安装Gradle View插件，安装完重启。</p>
 <p>在AS面板中-&gt;View-&gt;Tool Windows-&gt;Gradle View查看。</p>
-<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>./gradlew -q :app:dependencies<br>//查看app模块所有依赖，包含依赖的依赖</p>
-<p> ./gradlew : app:dependencies –configuration implementation<br> //查看app模块的依赖，不包含依赖的依赖</p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><h4 id="查看app模块所有依赖，包含依赖的依赖"><a href="#查看app模块所有依赖，包含依赖的依赖" class="headerlink" title="查看app模块所有依赖，包含依赖的依赖"></a>查看app模块所有依赖，包含依赖的依赖</h4><p>./gradlew -q :app:dependencies</p>
+<h4 id="查看app模块所有依赖，包含依赖的依赖-1"><a href="#查看app模块所有依赖，包含依赖的依赖-1" class="headerlink" title="查看app模块所有依赖，包含依赖的依赖"></a>查看app模块所有依赖，包含依赖的依赖</h4><p> ./gradlew : app:dependencies –configuration implementation</p>
+<h4 id="查看指定项目app模块的依赖，并输出到文件"><a href="#查看指定项目app模块的依赖，并输出到文件" class="headerlink" title="查看指定项目app模块的依赖，并输出到文件"></a>查看指定项目app模块的依赖，并输出到文件</h4><p> ./gradlew -q :app:dependencies &gt; tree.txt</p>
 <h2 id="多版本依赖"><a href="#多版本依赖" class="headerlink" title="多版本依赖"></a>多版本依赖</h2><blockquote>
 <p>依赖库有版本冲突时，默认使用高版本中的依赖（注意：是引用库的高版本中的依赖），如果项目中指定版本高于依赖中，优先用项目中指定的版本<br>如果想指定使用引入库中版本，使用force参数</p>
 <blockquote>

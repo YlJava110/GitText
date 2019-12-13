@@ -208,8 +208,9 @@
             
             <h2 id="依赖关系查看"><a href="#依赖关系查看" class="headerlink" title="依赖关系查看"></a>依赖关系查看</h2><h3 id="Gradle-View"><a href="#Gradle-View" class="headerlink" title="Gradle View"></a>Gradle View</h3><p>在AS中安装Gradle View插件，安装完重启。</p>
 <p>在AS面板中-&gt;View-&gt;Tool Windows-&gt;Gradle View查看。</p>
-<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>./gradlew -q :app:dependencies<br>//查看app模块所有依赖，包含依赖的依赖</p>
-<p> ./gradlew : app:dependencies –configuration implementation<br> //查看app模块的依赖，不包含依赖的依赖</p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><h4 id="查看app模块所有依赖，包含依赖的依赖"><a href="#查看app模块所有依赖，包含依赖的依赖" class="headerlink" title="查看app模块所有依赖，包含依赖的依赖"></a>查看app模块所有依赖，包含依赖的依赖</h4><p>./gradlew -q :app:dependencies</p>
+<h4 id="查看app模块所有依赖，包含依赖的依赖-1"><a href="#查看app模块所有依赖，包含依赖的依赖-1" class="headerlink" title="查看app模块所有依赖，包含依赖的依赖"></a>查看app模块所有依赖，包含依赖的依赖</h4><p> ./gradlew : app:dependencies –configuration implementation</p>
+<h4 id="查看指定项目app模块的依赖，并输出到文件"><a href="#查看指定项目app模块的依赖，并输出到文件" class="headerlink" title="查看指定项目app模块的依赖，并输出到文件"></a>查看指定项目app模块的依赖，并输出到文件</h4><p> ./gradlew -q :app:dependencies &gt; tree.txt</p>
 <h2 id="多版本依赖"><a href="#多版本依赖" class="headerlink" title="多版本依赖"></a>多版本依赖</h2><blockquote>
 <p>依赖库有版本冲突时，默认使用高版本中的依赖（注意：是引用库的高版本中的依赖），如果项目中指定版本高于依赖中，优先用项目中指定的版本<br>如果想指定使用引入库中版本，使用force参数</p>
 <blockquote>
@@ -233,7 +234,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-09-11T02:59:34.000Z" itemprop="dateUpdated">2019-09-11 10:59:34</time>
+    最后更新时间：<time datetime="2019-12-13T07:38:11.000Z" itemprop="dateUpdated">2019-12-13 15:38:11</time>
 </span><br>
 
 
@@ -322,7 +323,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#依赖关系查看"><span class="post-toc-number">1.</span> <span class="post-toc-text">依赖关系查看</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradle-View"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Gradle View</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多版本依赖"><span class="post-toc-number">2.</span> <span class="post-toc-text">多版本依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#依赖关系查看"><span class="post-toc-number">1.</span> <span class="post-toc-text">依赖关系查看</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradle-View"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Gradle View</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看app模块所有依赖，包含依赖的依赖"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">查看app模块所有依赖，包含依赖的依赖</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看app模块所有依赖，包含依赖的依赖-1"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">查看app模块所有依赖，包含依赖的依赖</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看指定项目app模块的依赖，并输出到文件"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">查看指定项目app模块的依赖，并输出到文件</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多版本依赖"><span class="post-toc-number">2.</span> <span class="post-toc-text">多版本依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
