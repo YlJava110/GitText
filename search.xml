@@ -3,6 +3,34 @@
   
     
     <entry>
+      <title><![CDATA[美颜相关概念]]></title>
+      <url>/2020/08/05/%E7%BE%8E%E9%A2%9C%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/</url>
+      <content type="html"><![CDATA[<h2 id="图像深度-amp-像素深度"><a href="#图像深度-amp-像素深度" class="headerlink" title="图像深度&amp;像素深度"></a>图像深度&amp;像素深度</h2><p>图像深度是指存储每个像素所用的位数，它也是用来度量图像的色彩分辨率的。它确定了彩色图像的每个像素可能有的色彩数，或者确定灰度图像的每个像素可能有的灰度级数。它决定了色彩图像中可能出现的最多的色彩数，或者灰度图像中的最大灰度等级。 </p>
+<p>中文名        图像深度<br>特    点    量度图像的色彩分辨率<br>含    义    指存储每个像素所用的位数<br>类    型    确定彩色图像颜色数<br>1.基本概念<br>图像深度是单个像素点的色彩详细度,如16位(65536色),32位等。比如一幅单色图像,若每个像素有8位,则最大灰度数目为2的8次方,即256.一幅彩色图像RGB3个温良的像素位数分别为4,4,2,则最大颜色数目为2的4+4+2次方,即1024,就是说像素的深度为10位,每个像素可以是1024种颜色中的一种，例如：一幅画的尺寸是1024*768，深度为16，则它的数据量为1.5M。</p>
+<h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><h3 id="线性滤波与卷积的基本概念"><a href="#线性滤波与卷积的基本概念" class="headerlink" title="线性滤波与卷积的基本概念"></a>线性滤波与卷积的基本概念</h3><p><a href="https://www.cnblogs.com/xiaojianliu/p/9075872.html" target="_blank" rel="noopener">数字图像处理中滤波和卷积操作详细说明</a> </p>
+<p>线性滤波可以说是图像处理最基本的方法，它可以允许我们对图像进行处理，产生很多不同的效果。做法很简单。首先，我们有一个二维的滤波器矩阵（有个高大上的名字叫卷积核）和一个要处理的二维图像。然后，对于图像的每一个像素点，计算它的邻域像素和滤波器矩阵的对应元素的乘积，然后加起来，作为该像素位置的值。这样就完成了滤波过程。</p>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2020/08/05/美颜相关概念/卷积.png" alt title class>
+                <p></p>
+            </figure>
+]]></content>
+      
+        <categories>
+            
+            <category> Video </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> FaceUnity </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android CMake]]></title>
       <url>/2020/08/05/Android-CMake/</url>
       <content type="html"><![CDATA[<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>向您的项目添加 C 和 C++ 代码。提供 CMake 或 ndk-build 脚本文件的路径以配置 Gradle。Gradle 使用构建脚本将源代码导入您的 Android Studio 项目并将原生库（SO 文件）打包到 APK 中。</p>
