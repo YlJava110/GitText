@@ -54,6 +54,18 @@
 
 <h3 id="滤镜纹理"><a href="#滤镜纹理" class="headerlink" title="滤镜纹理"></a>滤镜纹理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> protected void onDrawArraysPre() &#123;</span><br><span class="line">    if (mToneCurveTexture[0] != OpenGlUtils.NO_TEXTURE) &#123;</span><br><span class="line">        GLES20.glActiveTexture(GLES20.GL_TEXTURE3);</span><br><span class="line">        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mToneCurveTexture[0]);</span><br><span class="line">        GLES20.glUniform1i(mToneCurveTextureUniformLocation, 3);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><figure class="image-box">
+                <img src="http://nunu03.github.io/2020/08/13/GPUImage渲染流程解析/效果图.jpg" alt title class>
+                <p></p>
+            </figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static final float TEXTURE[] = &#123;</span><br><span class="line">            0.0f, 1.0f,</span><br><span class="line">            1.0f, 1.0f,</span><br><span class="line">            0.0f, 0.0f,</span><br><span class="line">            1.0f, 0.0f,</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2020/08/13/GPUImage渲染流程解析/正确纹理.jpg" alt title class>
+                <p></p>
+            </figure>
+<p>正确纹理.png</p>
 <h3 id="渲染流程总结"><a href="#渲染流程总结" class="headerlink" title="渲染流程总结"></a>渲染流程总结</h3><figure class="image-box">
                 <img src="http://nunu03.github.io/2020/08/13/GPUImage渲染流程解析/渲染流程.png" alt title class>
                 <p></p>
