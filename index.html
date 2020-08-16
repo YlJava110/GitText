@@ -232,15 +232,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
     
     
-        渲染着色器坐标顶点坐标：在OpenGL中，顶点坐标使用的是笛卡尔右手坐标系（世界坐标系）。分X Y Z 3个轴，X轴朝右为正，Y轴朝上为正，Z轴垂直屏幕朝外为正。X Y Z 3个轴的最大与最小值为 1 和 -1。
-
-                
-                
-            
-
-屏幕坐标：屏幕坐标系，就是应用在设备屏幕上的坐标系，也就是图形最终显示的地方。
-
-...
+        渲染创建视图1234567//版本mGlSurfaceView.setEGLContextClientVersion(2);// 设置渲染器(这个渲染器的类非常重要)mGlSurfaceView.setRenderer(mRenderer);// 设置渲染模式为根据需要来渲染（RENDERMODE_CONTINUOUSLY）mGlSurfaceView.setRenderMode(GLSur...
     
     <a href="/2020/08/13/GPUImage渲染流程解析/" class="post-more waves-effect waves-button">
         more
