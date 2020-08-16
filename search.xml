@@ -3,6 +3,42 @@
   
     
     <entry>
+      <title><![CDATA[GPUImage渲染流程解析]]></title>
+      <url>/2020/08/13/GPUImage%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/</url>
+      <content type="html"><![CDATA[<h2 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h2><h3 id="着色器"><a href="#着色器" class="headerlink" title="着色器"></a>着色器</h3><h4 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h4><p>顶点坐标：在OpenGL中，顶点坐标使用的是笛卡尔右手坐标系（世界坐标系）。分X Y Z 3个轴，X轴朝右为正，Y轴朝上为正，Z轴垂直屏幕朝外为正。X Y Z 3个轴的最大与最小值为 1 和 -1。</p>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2020/08/13/GPUImage渲染流程解析/顶点坐标.png" alt title class>
+                <p></p>
+            </figure>
+
+<p>屏幕坐标：<br>屏幕坐标系，就是应用在设备屏幕上的坐标系，也就是图形最终显示的地方。</p>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2020/08/13/GPUImage渲染流程解析/屏幕坐标.png" alt title class>
+                <p></p>
+            </figure>
+<p>X轴朝右为正，Y轴朝下为正。<br>纹理坐标：原点在左下角，X轴朝右为正，Y轴朝上为正，X Y 轴的最大与最小值为 0 和 1。</p>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2020/08/13/GPUImage渲染流程解析/纹理坐标.png" alt title class>
+                <p></p>
+            </figure>
+<h4 id="顶点着色器-Vertex-Shader"><a href="#顶点着色器-Vertex-Shader" class="headerlink" title="顶点着色器(Vertex Shader)"></a>顶点着色器(Vertex Shader)</h4>]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> FaceUnity </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[美颜相关概念]]></title>
       <url>/2020/08/05/%E7%BE%8E%E9%A2%9C%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/</url>
       <content type="html"><![CDATA[<h2 id="图像深度-amp-像素深度"><a href="#图像深度-amp-像素深度" class="headerlink" title="图像深度&amp;像素深度"></a>图像深度&amp;像素深度</h2><p>图像深度是指存储每个像素所用的位数，它也是用来度量图像的色彩分辨率的。它确定了彩色图像的每个像素可能有的色彩数，或者确定灰度图像的每个像素可能有的灰度级数。它决定了色彩图像中可能出现的最多的色彩数，或者灰度图像中的最大灰度等级。 </p>
