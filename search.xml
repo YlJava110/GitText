@@ -71,6 +71,10 @@
                 <p></p>
             </figure>
 <p>染流程如下：顶点数据(Vertices) &gt; 顶点着色器(Vertex Shader) &gt; 图元装配(Assembly) &gt; 几何着色器(Geometry Shader) &gt; 光栅化(Rasterization) &gt; 片元着色器(Fragment Shader) &gt; 逐片元处理(Per-Fragment Operations) &gt; 帧缓冲(FrameBuffer)。再经过双缓冲的交换(SwapBuffer)，渲染内容就显示到了屏幕上。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://juejin.im/post/6844903878740148231#heading-0" target="_blank" rel="noopener">OpenGL ES</a></p>
+<p><a href="https://www.cnblogs.com/zhxmdefj/p/11192408.html" target="_blank" rel="noopener">OpenGL入门1.2：渲染管线简介，画三角形</a></p>
+<p><a href="https://blog.csdn.net/dengchukun/category_9281212.html" target="_blank" rel="noopener">GLES2.0中文API</a></p>
+<p><a href="https://www.jianshu.com/p/cb55d8f2b4d0" target="_blank" rel="noopener">OpenGLES 绘制图片纹理</a></p>
 ]]></content>
       
         <categories>
