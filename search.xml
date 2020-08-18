@@ -359,7 +359,7 @@ mVideoItemAnchor?.showLoading(local, surfaceView, type)
 <p>/**</p>
 <ul>
 <li>美颜初始化，设置美颜参数</li>
-<li>/<br>private fun initFaceUnityParam(local: Boolean, type: Int,surfaceViewLocal: SurfaceView) {<br>  if (!local) {<pre><code>return</code></pre>  }<br>  //初始化<br>  faceunityManager?.initFuRender(this)<br>  //设置view<br>  faceunityManager?.setGLSurfaceView(surfaceViewLocal as GLSurfaceView)<br>  //设置美颜参数<br>  mVideoItemAnchor?.setFaceunity()<br>  }<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">美颜的管理都在FaceunityManager中进行设置：代码如下：</span><br></pre></td></tr></table></figure>
+<li>/<br>private fun initFaceUnityParam(local: Boolean, type: Int,surfaceViewLocal: Surf<br>  //初始化<br>  faceunityManager?.initFuRender(this)<br>  //设置view<br>  faceunityManager?.setGLSurfaceView(surfaceViewLocal as GLSurfaceView)<br>  //设置美颜参数<br>  mVideoItemAnchor?.setFaceunity()<br>  }<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">美颜的管理都在FaceunityManager中进行设置：代码如下：</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
