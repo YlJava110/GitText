@@ -339,79 +339,24 @@
 <h3 id="转化"><a href="#转化" class="headerlink" title="转化"></a>转化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *</span><br><span class="line"> * @param img NV21数据</span><br><span class="line"> * @param tex 纹理ID</span><br><span class="line"> * @param w</span><br><span class="line"> * @param h</span><br><span class="line"> * @return</span><br><span class="line"> */</span><br><span class="line">public int onDrawFrame(byte[] img, int tex, int w, int h) &#123;</span><br><span class="line">    if (tex &lt;= 0 || img == null || w &lt;= 0 || h &lt;= 0) &#123;</span><br><span class="line">        Log.e(TAG, &quot;onDrawFrame data null&quot;);</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"> ...</span><br><span class="line">    int fuTex = faceunity.fuDualInputToTexture(img, tex, flags, w, h, mFrameId++, mItemsArray);</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>其中 img 和 tex纹理是我们传入的原始数据，mItemsArray 则是需要用到的美颜效果数组，当该方法返回时，得到的数据便是经过美颜处理的数据，该数据会写回到我们传入的 img 数组中，而返回的 fuTex 则是经过美颜处理的新的纹理标识。</p>
-<h3 id="推流"><a href="#推流" class="headerlink" title="推流"></a>推流</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mConsumer.consumeTextureFrame(data.mEffectTextureId,</span><br><span class="line">                        MediaIO.PixelFormat.TEXTURE_2D.intValue(), needsFixWidthAndHeight ? data.videoHeight : data.videoWidth,</span><br><span class="line">                        needsFixWidthAndHeight ? data.videoWidth : data.videoHeight, 0, data.mTimeStamp, data.mTexMatrix);</span><br><span class="line">                        </span><br><span class="line">```	</span><br><span class="line">### 美颜调整	</span><br><span class="line"></span><br><span class="line">而相应的美颜效果可以通过如下方法进行调节(均在 faceunity 当中)，由于我们在对每一帧的时候进行了美颜参数设置，所以我们的美颜设置可以随时的调节并生效。</span><br></pre></td></tr></table></figure>
+<h3 id="推流"><a href="#推流" class="headerlink" title="推流"></a>推流</h3><p>美颜处理后，推举到服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mConsumer.consumeTextureFrame(data.mEffectTextureId,</span><br><span class="line">                        MediaIO.PixelFormat.TEXTURE_2D.intValue(), needsFixWidthAndHeight ? data.videoHeight : data.videoWidth,</span><br><span class="line">                        needsFixWidthAndHeight ? data.videoWidth : data.videoHeight, 0, data.mTimeStamp, data.mTexMatrix);</span><br></pre></td></tr></table></figure>
 
-<p>faceunity.fuItemSetParam(itemBeauty, BeautificationParams.IS_BEAUTY_ON, 1.0);<br>// filter_name 滤镜名称<br>faceunity.fuItemSetParam(itemBeauty, BeautificationParams.FILTER_NAME, mFilterName);<br>// filter_level 滤镜强度 范围 0~1 SDK 默认为 1<br>faceunity.fuItemSetParam(itemBeauty, BeautificationParams.FILTER_LEVEL, mFilterLevel);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 相亲接入</span><br><span class="line"></span><br><span class="line">![](http://nunu03.github.io/2020/06/06/Android接入实时美颜/faceman.png)</span><br><span class="line"></span><br><span class="line">关键代码如下：直接看注释即可。这里需要注意的是，美颜的sdk，在初始化的时候，加载了证书信息和ai的bundle文件，这个很容易产生误导，实际上，ai的bundle并不是必须在这里进行加载，在直播的过程中也可以再加载生效。所以我把美颜的initFuRender中的ai bundle拆分了出来。这样我们可以提前加载证书，任何时候加载并开启美颜功能。</span><br></pre></td></tr></table></figure>
+<h3 id="美颜调整"><a href="#美颜调整" class="headerlink" title="美颜调整"></a>美颜调整</h3><p>而相应的美颜效果可以通过如下方法进行调节(均在 faceunity 当中)，由于我们在对每一帧的时候进行了美颜参数设置，所以我们的美颜设置可以随时的调节并生效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">faceunity.fuItemSetParam(itemBeauty, BeautificationParams.IS_BEAUTY_ON, 1.0);</span><br><span class="line">// filter_name 滤镜名称</span><br><span class="line">faceunity.fuItemSetParam(itemBeauty, BeautificationParams.FILTER_NAME, mFilterName);</span><br><span class="line">// filter_level 滤镜强度 范围 0~1 SDK 默认为 1</span><br><span class="line">faceunity.fuItemSetParam(itemBeauty, BeautificationParams.FILTER_LEVEL, mFilterLevel);</span><br></pre></td></tr></table></figure>
 
-<p>private fun startBroadcast(uid: Int, local: Boolean, type: Int, userInfo: LiveUserInfo) {<br>        //创建SurfaceView，本地view=GLSurfaceView 远端view=SurfaceView<br>        var surfaceView = getSurfaceView(uid,local)<br>        //初始化美颜，以及设置参数<br>        initFaceUnityParam(local, type, surfaceView)<br>        //321倒计时直播开始<br>       mVideoItemAnchor?.showLoading(local, surfaceView, type)<br>        }<br>    }<br>}</p>
-<p>/**</p>
-<ul>
-<li>美颜初始化，设置美颜参数</li>
-<li>/<br>private fun initFaceUnityParam(local: Boolean, type: Int,surfaceViewLocal: Surf<br>  //初始化<br>  faceunityManager?.initFuRender(this)<br>  //设置view<br>  faceunityManager?.setGLSurfaceView(surfaceViewLocal as GLSurfaceView)<br>  //设置美颜参数<br>  mVideoItemAnchor?.setFaceunity()<br>  }<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">美颜的管理都在FaceunityManager中进行设置：代码如下：</span><br></pre></td></tr></table></figure>
+<h2 id="相亲接入"><a href="#相亲接入" class="headerlink" title="相亲接入"></a>相亲接入</h2><figure class="image-box">
+                <img src="http://nunu03.github.io/2020/06/06/Android接入实时美颜/faceman.png" alt title class>
+                <p></p>
+            </figure>
 
-</li>
-</ul>
-<p>class FaceunityManager {</p>
-<pre><code>//初始化美颜sdk，以及相关管理类
-fun initFuRender(context: Context) {
-    // The settings of FURender may be slightly different,
-    FURenderer.initFURenderer(context)
+<p>关键代码如下：直接看注释即可。这里需要注意的是，美颜的sdk，在初始化的时候，加载了证书信息和ai的bundle文件，这个很容易产生误导，实际上，ai的bundle并不是必须在这里进行加载，在直播的过程中也可以再加载生效。所以我把美颜的initFuRender中的ai bundle拆分了出来。这样我们可以提前加载证书，任何时候加载并开启美颜功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">private fun startBroadcast(uid: Int, local: Boolean, type: Int, userInfo: LiveUserInfo) &#123;</span><br><span class="line">		//创建SurfaceView，本地view=GLSurfaceView 远端view=SurfaceView</span><br><span class="line">        var surfaceView = getSurfaceView(uid,local)</span><br><span class="line">        //初始化美颜，以及设置参数</span><br><span class="line">        initFaceUnityParam(local, type, surfaceView)</span><br><span class="line">        //321倒计时直播开始</span><br><span class="line">       mVideoItemAnchor?.showLoading(local, surfaceView, type)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 美颜初始化，设置美颜参数</span><br><span class="line"> */</span><br><span class="line">private fun initFaceUnityParam(local: Boolean, type: Int,surfaceViewLocal: Surf</span><br><span class="line">    //初始化</span><br><span class="line">    faceunityManager?.initFuRender(this)</span><br><span class="line">    //设置view</span><br><span class="line">    faceunityManager?.setGLSurfaceView(surfaceViewLocal as GLSurfaceView)</span><br><span class="line">    //设置美颜参数</span><br><span class="line">    mVideoItemAnchor?.setFaceunity()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-}
+<p>美颜的管理都在FaceunityManager中进行设置：代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">class FaceunityManager &#123;</span><br><span class="line">   </span><br><span class="line">    //初始化美颜sdk，以及相关管理类</span><br><span class="line">    fun initFuRender(context: Context) &#123;</span><br><span class="line">        // The settings of FURender may be slightly different,</span><br><span class="line">        FURenderer.initFURenderer(context)</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //设计camera数据相关采集参数,宽，高，帧率，是否推流......</span><br><span class="line">    fun setFaceUnityParam(width: Int, height: Int) &#123;</span><br><span class="line">        // set capture width</span><br><span class="line">        mVideoCaptureConfigInfo?.videoCaptureWidth = width</span><br><span class="line">        // set capture height</span><br><span class="line">        mVideoCaptureConfigInfo?.videoCaptureHeight = height</span><br><span class="line">        // set capture fps</span><br><span class="line">        mVideoCaptureConfigInfo?.videoCaptureFps = 30</span><br><span class="line">        // set capture camera</span><br><span class="line">        mVideoCaptureConfigInfo?.cameraFace = Constant.CAMERA_FACING_FRONT</span><br><span class="line">        // set agora consumer format</span><br><span class="line">        mVideoCaptureConfigInfo?.videoCaptureFormat = VideoCaptureConfigInfo.CaptureFormat.TEXTURE_2D</span><br><span class="line">        // set agora consumer type</span><br><span class="line">  		......</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 设置并开启美颜，当上麦倒计时，直接调用</span><br><span class="line">     */</span><br><span class="line">    fun setBeauty() &#123;</span><br><span class="line">        if (this.mGLSurfaceViewLocal == null) &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        if (mVideoManager?.videoRender != null) &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        isShowVideo = true</span><br><span class="line">        mVideoManager?.allocate(mVideoCaptureConfigInfo)</span><br><span class="line">        mVideoManager?.setRenderView(this.mGLSurfaceViewLocal)</span><br><span class="line">        startBundle()</span><br><span class="line">        mVideoManager?.attachConnectorToRender(mVideoSource)</span><br><span class="line">        mVideoManager?.startCapture()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 开启美颜，对bundle进行校验，校验成功，加载bundle，开启美颜功能</span><br><span class="line">     * 如果bundle下载成功后，也使用此方法开启美颜功能</span><br><span class="line">     */</span><br><span class="line">    fun startBundle(fileName: String) &#123;</span><br><span class="line">            val isVerity = isVerify(mFaceBundlePath, fileName + &quot;_md5&quot;)</span><br><span class="line">            if (isVerity) &#123;</span><br><span class="line">                mVideoManager?.runInRenderThread &#123;</span><br><span class="line">                    if (!mFUInit) &#123;</span><br><span class="line">                        mFURenderer?.onSurfaceCreated()</span><br><span class="line">                        mFUInit = true</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            mVideoManager?.connectEffectHandler(mEffectHandler)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-//设计camera数据相关采集参数,宽，高，帧率，是否推流......
-fun setFaceUnityParam(width: Int, height: Int) {
-    // set capture width
-    mVideoCaptureConfigInfo?.videoCaptureWidth = width
-    // set capture height
-    mVideoCaptureConfigInfo?.videoCaptureHeight = height
-    // set capture fps
-    mVideoCaptureConfigInfo?.videoCaptureFps = 30
-    // set capture camera
-    mVideoCaptureConfigInfo?.cameraFace = Constant.CAMERA_FACING_FRONT
-    // set agora consumer format
-    mVideoCaptureConfigInfo?.videoCaptureFormat = VideoCaptureConfigInfo.CaptureFormat.TEXTURE_2D
-    // set agora consumer type
-      ......
-}
-
-/**
- * 设置并开启美颜，当上麦倒计时，直接调用
- */
-fun setBeauty() {
-    if (this.mGLSurfaceViewLocal == null) {
-        return
-    }
-    if (mVideoManager?.videoRender != null) {
-        return
-    }
-    isShowVideo = true
-    mVideoManager?.allocate(mVideoCaptureConfigInfo)
-    mVideoManager?.setRenderView(this.mGLSurfaceViewLocal)
-    startBundle()
-    mVideoManager?.attachConnectorToRender(mVideoSource)
-    mVideoManager?.startCapture()
-}
-
-/**
- * 开启美颜，对bundle进行校验，校验成功，加载bundle，开启美颜功能
- * 如果bundle下载成功后，也使用此方法开启美颜功能
- */
-fun startBundle(fileName: String) {
-        val isVerity = isVerify(mFaceBundlePath, fileName + &quot;_md5&quot;)
-        if (isVerity) {
-            mVideoManager?.runInRenderThread {
-                if (!mFUInit) {
-                    mFURenderer?.onSurfaceCreated()
-                    mFUInit = true
-                }
-            }
-        }
-        mVideoManager?.connectEffectHandler(mEffectHandler)
-    }
-}</code></pre><p>}</p>
-<pre><code></code></pre>]]></content>
+]]></content>
       
         <categories>
             
