@@ -71,6 +71,7 @@
                 <p></p>
             </figure>
 <p>染流程如下：顶点数据(Vertices) &gt; 顶点着色器(Vertex Shader) &gt; 图元装配(Assembly) &gt; 几何着色器(Geometry Shader) &gt; 光栅化(Rasterization) &gt; 片元着色器(Fragment Shader) &gt; 逐片元处理(Per-Fragment Operations) &gt; 帧缓冲(FrameBuffer)。再经过双缓冲的交换(SwapBuffer)，渲染内容就显示到了屏幕上。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>根据渲染流程，我们知道，美颜的操作即是对着色器编码的源码进行编写。采用不同的算法，实现不同的美颜功能。同时滤镜的纹理，可以是ps的acv文件，也可以是图片，着色器源码针对不同的 资源分别解析和使用。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://juejin.im/post/6844903878740148231#heading-0" target="_blank" rel="noopener">OpenGL ES</a></p>
 <p><a href="https://www.cnblogs.com/zhxmdefj/p/11192408.html" target="_blank" rel="noopener">OpenGL入门1.2：渲染管线简介，画三角形</a></p>
 <p><a href="https://blog.csdn.net/dengchukun/category_9281212.html" target="_blank" rel="noopener">GLES2.0中文API</a></p>
