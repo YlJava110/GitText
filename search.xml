@@ -8,23 +8,23 @@
       <content type="html"><![CDATA[<h2 id="打卡"><a href="#打卡" class="headerlink" title="打卡"></a>打卡</h2><table>
 <thead>
 <tr>
-<th align="left">日期</th>
-<th align="center">上</th>
-<th align="right">下</th>
+<th align="left">D</th>
+<th align="center">U</th>
+<th align="right">D</th>
 <th align="right">TT</th>
 </tr>
 </thead>
 <tbody><tr>
 <td align="left">09</td>
-<td align="center">假</td>
-<td align="right">假</td>
-<td align="right">假</td>
+<td align="center">H</td>
+<td align="right">H</td>
+<td align="right">H</td>
 </tr>
 <tr>
 <td align="left">10</td>
-<td align="center">假</td>
-<td align="right">假</td>
-<td align="right">假</td>
+<td align="center">H</td>
+<td align="right">H</td>
+<td align="right">H</td>
 </tr>
 <tr>
 <td align="left">12</td>
@@ -46,9 +46,9 @@
 </tr>
 <tr>
 <td align="left">15</td>
-<td align="center">假</td>
-<td align="right">假</td>
-<td align="right">假</td>
+<td align="center">H</td>
+<td align="right">H</td>
+<td align="right">H</td>
 </tr>
 <tr>
 <td align="left">16</td>
@@ -89,8 +89,14 @@
 <tr>
 <td align="left">26</td>
 <td align="center">10:39</td>
-<td align="right">20:17</td>
-<td align="right">10:15</td>
+<td align="right">21:27</td>
+<td align="right">10:48</td>
+</tr>
+<tr>
+<td align="left">27</td>
+<td align="center">10:15</td>
+<td align="right">21:27</td>
+<td align="right">10:48</td>
 </tr>
 </tbody></table>
 ]]></content>
