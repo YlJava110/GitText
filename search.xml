@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[2020-10-Logs]]></title>
       <url>/2020/10/12/2020-10-Logs/</url>
-      <content type="html"><![CDATA[<h2 id="打卡"><a href="#打卡" class="headerlink" title="打卡"></a>打卡</h2><table>
+      <content type="html"><![CDATA[<table>
 <thead>
 <tr>
 <th align="left">D</th>
@@ -95,8 +95,14 @@
 <tr>
 <td align="left">27</td>
 <td align="center">10:15</td>
-<td align="right">21:27</td>
-<td align="right">10:48</td>
+<td align="right">20:40</td>
+<td align="right">10:25</td>
+</tr>
+<tr>
+<td align="left">28</td>
+<td align="center">10:05</td>
+<td align="right">20:40</td>
+<td align="right">10:25</td>
 </tr>
 </tbody></table>
 ]]></content>
