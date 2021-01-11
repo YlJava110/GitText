@@ -1714,6 +1714,10 @@ auto</td>
 <p>print(r):&lt;Response [200]&gt;<br>print(r.json):{‘id’: 132968, ‘iid’: 2182437, ‘project_id’: 15509,<br>print(r.text):{“id”:132968,”iid”:2182437,”project_id”:15509,<br>json.dumps(r.json())</p>
 <p>3.can only concatenate str (not “int”) to str</p>
 <p>print(‘payload—-projectid:%d’ % projectid)</p>
+<h2 id="MR方案"><a href="#MR方案" class="headerlink" title="MR方案"></a>MR方案</h2><figure class="image-box">
+                <img src="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/automr.png" alt="MR流程图" title class>
+                <p>MR流程图</p>
+            </figure>
 <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>1.Could not fetch URL <a href="https://pypi.python.org/simple/requests/" target="_blank" rel="noopener">https://pypi.python.org/simple/requests/</a>: There was a problem confirming the ssl certificate: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:777) - skipping<br>  Could not find a version that satisfies the requirement requests (from versions: )<br>No matching distribution found for requests</p>
 <p>解决方法：pip3 install requests  -i  <a href="http://pypi.douban.com/simple" target="_blank" rel="noopener">http://pypi.douban.com/simple</a> –trusted-host=pypi.douban.com</p>
 <p>2.升级pip</p>
@@ -1722,10 +1726,6 @@ auto</td>
 <p>sudo easy_install –upgrade pip</p>
 <p>3.405 Method Not Allowed</p>
 <p>路由名不对与Payload URL中设置的名不一样，或者method丢失。</p>
-<h2 id="MR方案"><a href="#MR方案" class="headerlink" title="MR方案"></a>MR方案</h2><figure class="image-box">
-                <img src="http://nunu03.github.io/2019/08/21/通过ngrok搭建github的webhook/automr.png" alt="MR流程图" title class>
-                <p>MR流程图</p>
-            </figure>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.jianshu.com/p/55209f1031e8" target="_blank" rel="noopener">webhook小试水(无需外网服务器)</a></p>
 <p><a href="https://forge.autodesk.com/blog/how-fix-ngrok-reconnecting-x509-certificate-signed-unknown-authority" target="_blank" rel="noopener">x509 certificate signed by unknown authority</a></p>
 <p><a href="https://github.com/inconshreveable/ngrok" target="_blank" rel="noopener">ngrok</a></p>
