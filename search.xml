@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title><![CDATA[日常问题解决记录]]></title>
+      <url>/2021/02/25/%E6%97%A5%E5%B8%B8%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95/</url>
+      <content type="html"><![CDATA[<h2 id="1-Android-Studio-不能调试"><a href="#1-Android-Studio-不能调试" class="headerlink" title="1.Android Studio 不能调试"></a>1.Android Studio 不能调试</h2><p>提示异常：Attention! No symbol directories found - please check your native debug configuration</p>
+<p>解决方案：在Android studio， file–&gt;settering—&gt;plugins—-android NDK support插件的选项去掉。重新编译后再debug就可以了。</p>
+<p><a href="https://www.jianshu.com/p/3d8ddf8df1b6" target="_blank" rel="noopener">android studio无法debug解决方法</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Log </category>
+            
+            <category> Fix </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Log </tag>
+            
+            <tag> Fix </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[nps 内网穿透]]></title>
       <url>/2021/01/06/nps-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
       <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://github.com/ehang-io/nps/releases" target="_blank" rel="noopener">下载nps：</a></p>
