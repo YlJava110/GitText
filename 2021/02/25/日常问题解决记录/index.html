@@ -217,6 +217,12 @@
 <p>2.git remote -v 查看远端仓库地址</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chenyulong01$ git remote -v</span><br><span class="line">origin  https://github.com/danengz/OpenCVDemo.git (fetch)</span><br><span class="line">origin  https://github.com/danengz/OpenCVDemo.git (push)</span><br></pre></td></tr></table></figure>
 
+<h2 id="4-Android-Studio-Connect-to-127-0-0-1-8888-127-0-0-1-failed-Connection-refused-Connection-refused"><a href="#4-Android-Studio-Connect-to-127-0-0-1-8888-127-0-0-1-failed-Connection-refused-Connection-refused" class="headerlink" title="4.Android Studio - Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)"></a>4.Android Studio - Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)</h2><blockquote>
+<p>Could not resolve com.anjuke.android.community:communitymodule:1014-1.0.0.<br>Could not get resource ‘<a href="http://artifactory.58corp.com:8081/artifactory/android-public/com/anjuke/android/community/communitymodule/1014-1.0.0/communitymodule-1014-1.0.0.pom&#39;" target="_blank" rel="noopener">http://artifactory.58corp.com:8081/artifactory/android-public/com/anjuke/android/community/communitymodule/1014-1.0.0/communitymodule-1014-1.0.0.pom&#39;</a>.<br>Could not GET ‘<a href="http://artifactory.58corp.com:8081/artifactory/android-public/com/anjuke/android/community/communitymodule/1014-1.0.0/communitymodule-1014-1.0.0.pom&#39;" target="_blank" rel="noopener">http://artifactory.58corp.com:8081/artifactory/android-public/com/anjuke/android/community/communitymodule/1014-1.0.0/communitymodule-1014-1.0.0.pom&#39;</a>.<br>Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)</p>
+</blockquote>
+<p>解决方案：cmd：lsof -i，找到COMMAND java 对应的 PID，然后kill 98087  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chenyulong01deMacBook-Pro:~ chenyulong01$ lsof -i</span><br><span class="line">COMMAND     PID         USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME</span><br><span class="line">java      77690 chenyulong01  211u  IPv6 0x426c9f64949f384b      0t0  TCP *:65337 (LISTEN)</span><br><span class="line">chenyulong01deMacBook-Pro:~ chenyulong01$ </span><br><span class="line">chenyulong01deMacBook-Pro:~ chenyulong01$ kill 77690</span><br><span class="line">chenyulong01deMacBook-Pro:~ chenyulong01$</span><br></pre></td></tr></table></figure>
+
 
         </div>
         
@@ -224,7 +230,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-03-24T09:41:25.000Z" itemprop="dateUpdated">2021-03-24 17:41:25</time>
+    最后更新时间：<time datetime="2021-04-09T02:40:06.000Z" itemprop="dateUpdated">2021-04-09 10:40:06</time>
 </span><br>
 
 
@@ -313,7 +319,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Android-Studio-不能调试"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.Android Studio 不能调试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Linux下Git命令中文显示乱码"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.Linux下Git命令中文显示乱码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Git常用命令"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.Git常用命令</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Android-Studio-不能调试"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.Android Studio 不能调试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Linux下Git命令中文显示乱码"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.Linux下Git命令中文显示乱码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Git常用命令"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.Git常用命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Android-Studio-Connect-to-127-0-0-1-8888-127-0-0-1-failed-Connection-refused-Connection-refused"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.Android Studio - Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>

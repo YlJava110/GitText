@@ -5,7 +5,8 @@
     <entry>
       <title><![CDATA[OpenCV学习]]></title>
       <url>/2021/03/24/OpenCV%E5%AD%A6%E4%B9%A0/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<h2 id="C-11-shared-ptr"><a href="#C-11-shared-ptr" class="headerlink" title="C++11 shared_ptr"></a>C++11 shared_ptr</h2><p>OpenCV提供了类似于C ++ 11中的std :: shared_ptr的Ptr模板类，用来实现自动内存管理。</p>
+]]></content>
       
         <categories>
             
@@ -35,6 +36,12 @@
 <h2 id="3-Git常用命令"><a href="#3-Git常用命令" class="headerlink" title="3.Git常用命令"></a>3.Git常用命令</h2><p>1.git reset HEAD^ 撤销最后一次commit</p>
 <p>2.git remote -v 查看远端仓库地址</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chenyulong01$ git remote -v</span><br><span class="line">origin  https://github.com/danengz/OpenCVDemo.git (fetch)</span><br><span class="line">origin  https://github.com/danengz/OpenCVDemo.git (push)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Android-Studio-Connect-to-127-0-0-1-8888-127-0-0-1-failed-Connection-refused-Connection-refused"><a href="#4-Android-Studio-Connect-to-127-0-0-1-8888-127-0-0-1-failed-Connection-refused-Connection-refused" class="headerlink" title="4.Android Studio - Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)"></a>4.Android Studio - Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)</h2><blockquote>
+<p>Could not resolve com.anjuke.android.community:communitymodule:1014-1.0.0.<br>Could not get resource ‘<a href="http://artifactory.58corp.com:8081/artifactory/android-public/com/anjuke/android/community/communitymodule/1014-1.0.0/communitymodule-1014-1.0.0.pom&#39;" target="_blank" rel="noopener">http://artifactory.58corp.com:8081/artifactory/android-public/com/anjuke/android/community/communitymodule/1014-1.0.0/communitymodule-1014-1.0.0.pom&#39;</a>.<br>Could not GET ‘<a href="http://artifactory.58corp.com:8081/artifactory/android-public/com/anjuke/android/community/communitymodule/1014-1.0.0/communitymodule-1014-1.0.0.pom&#39;" target="_blank" rel="noopener">http://artifactory.58corp.com:8081/artifactory/android-public/com/anjuke/android/community/communitymodule/1014-1.0.0/communitymodule-1014-1.0.0.pom&#39;</a>.<br>Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)</p>
+</blockquote>
+<p>解决方案：cmd：lsof -i，找到COMMAND java 对应的 PID，然后kill 98087  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chenyulong01deMacBook-Pro:~ chenyulong01$ lsof -i</span><br><span class="line">COMMAND     PID         USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME</span><br><span class="line">java      77690 chenyulong01  211u  IPv6 0x426c9f64949f384b      0t0  TCP *:65337 (LISTEN)</span><br><span class="line">chenyulong01deMacBook-Pro:~ chenyulong01$ </span><br><span class="line">chenyulong01deMacBook-Pro:~ chenyulong01$ kill 77690</span><br><span class="line">chenyulong01deMacBook-Pro:~ chenyulong01$</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       
