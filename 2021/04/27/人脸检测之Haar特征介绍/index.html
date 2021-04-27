@@ -206,7 +206,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h2 id="Haar特征"><a href="#Haar特征" class="headerlink" title="Haar特征"></a>Haar特征</h2><p>Haar特征：也叫Haar-like特征、哈尔特征，是图像特征提取的一种方法。<br>Haar特征分为三类：边缘特征、线性特征、特定方向特征（中心特征和对角线特征），组合成特征模板。特征模板内有白色和黑色两种矩形，并定义该模板的特征值为白色矩形像素和减去黑色矩形像素和。Haar特征值反映了图像的灰度变化情况。例如：脸部的一些特征能由矩形特征简单的描述，如：眼睛要比脸颊颜色要深，鼻梁两侧比鼻梁颜色要深，嘴巴比周围颜色要深等。但矩形特征只对一些简单的图形结构，如边缘、线段较敏感，所以只能描述特定走向（水平、垂直、对角）的结构。</p>
+            <h2 id="Haar特征"><a href="#Haar特征" class="headerlink" title="Haar特征"></a>Haar特征</h2><p>Haar特征：也叫Haar-like特征、哈尔特征，是图像特征提取的一种方法。<br>Haar特征分为三类：边缘特征、线性特征、特定方向特征（中心特征和对角线特征），组合成特征模板。<font color="#FF0000">特征模板内有白色和黑色两种矩形，并定义该模板的特征值为白色矩形像素和减去黑色矩形像素和。</font>Haar特征值反映了图像的灰度变化情况。例如：脸部的一些特征能由矩形特征简单的描述，如：眼睛要比脸颊颜色要深，鼻梁两侧比鼻梁颜色要深，嘴巴比周围颜色要深等。但矩形特征只对一些简单的图形结构，如边缘、线段较敏感，所以只能描述特定走向（水平、垂直、对角）的结构。</p>
 <figure class="image-box">
                 <a rel=人脸检测之Haar特征介绍 href="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-model.drawio.png" title="Haar特征" data-fancybox="images"><img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-model.drawio.png" alt="Haar特征" title class></a>
                 <p>Haar特征</p>
@@ -218,7 +218,8 @@
                 <p>s,t比例</p>
             </figure>
 
-<h2 id="Haar特征个数计算"><a href="#Haar特征个数计算" class="headerlink" title="Haar特征个数计算"></a>Haar特征个数计算</h2><p>通过改变特征模板的大小和位置，可在图像子窗口中穷举出大量的特征。上图的特征模板称为“特征原型”；特征原型在图像子窗口中扩展（平移伸缩）得到的特征称为“矩形特征”；矩形特征的值称为“特征值”。</p>
+<h2 id="Haar特征个数计算"><a href="#Haar特征个数计算" class="headerlink" title="Haar特征个数计算"></a>Haar特征个数计算</h2><p>通过改变特征模板的大小和位置，可在图像子窗口中穷举出大量的特征。上图的特征模板称为“特征原型”；<font color="#FF0000">特征原型在图像子窗口中扩展（平移伸缩）得到的特征称为“矩形特征”；矩形特征的值称为“特征值”。</font><br>对于 m×m 子窗口，我们只需要确定了矩形左上顶点A(x1,y1)和右下顶点B(x2,y2) ，即可以确定一个矩形；如果这个矩形还必须满足下面两个条件（称为(s, t)条件，满足(s, t)条件的矩形称为条件矩形）：</p>
+<p>1) x 方向边长必须能被自然数s 整除（能均等分成s 段）；<br>2) y 方向边长必须能被自然数t 整除（能均等分成t 段）；<br>则 ， 这个矩形的最小尺寸为s×t 或t×s， 最大尺寸为[m/s]·s×[m/t]·t 或[m/t]·t×[m/s]·s；其中[ ]为取整运算符。</p>
 <figure class="image-box">
                 <a rel=人脸检测之Haar特征介绍 href="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-image.drawio.png" title="特征计算" data-fancybox="images"><img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-image.drawio.png" alt="特征计算" title class></a>
                 <p>特征计算</p>
@@ -232,13 +233,15 @@
 
 <p>实现类似python的range函数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">public class Range implements Iterable&lt;Integer&gt; &#123;</span><br><span class="line">    private final int start;</span><br><span class="line">    private final int end;</span><br><span class="line">    private final int step;</span><br><span class="line"></span><br><span class="line">    public Range(int end) &#123;</span><br><span class="line">        this(0, end, 1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Range(int start, int end) &#123;</span><br><span class="line">        this(start, end, 1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Range(int start, int end, int step) &#123;</span><br><span class="line">        this.start = start;</span><br><span class="line">        this.end = end;</span><br><span class="line">        this.step = step;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Iterator&lt;Integer&gt; iterator() &#123;</span><br><span class="line">        return new Itr();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private class Itr implements Iterator&lt;Integer&gt; &#123;</span><br><span class="line">        int current = start;</span><br><span class="line">        @Override</span><br><span class="line">        public boolean hasNext() &#123;</span><br><span class="line">            return step &gt; 0 ? current &lt; end : current &gt; end;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public Integer next() &#123;</span><br><span class="line">            int t = current;</span><br><span class="line">            current += step;</span><br><span class="line">            return t;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void remove() &#123;</span><br><span class="line">            Iterator.super.remove();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @RequiresApi(api = Build.VERSION_CODES.N)</span><br><span class="line">        @Override</span><br><span class="line">        public void forEachRemaining(@NonNull Consumer&lt;? super Integer&gt; action) &#123;</span><br><span class="line">            Iterator.super.forEachRemaining(action);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="特征值"><a href="#特征值" class="headerlink" title="特征值"></a>特征值</h2>
         </div>
         
 <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-04-27T11:20:23.769Z" itemprop="dateUpdated">2021-04-27 19:20:23</time>
+    最后更新时间：<time datetime="2021-04-27T11:53:37.211Z" itemprop="dateUpdated">2021-04-27 19:53:37</time>
 </span><br>
 
 
@@ -320,7 +323,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Haar特征"><span class="post-toc-number">1.</span> <span class="post-toc-text">Haar特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Haar特征个数计算"><span class="post-toc-number">2.</span> <span class="post-toc-text">Haar特征个数计算</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Haar特征"><span class="post-toc-number">1.</span> <span class="post-toc-text">Haar特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Haar特征个数计算"><span class="post-toc-number">2.</span> <span class="post-toc-text">Haar特征个数计算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特征值"><span class="post-toc-number">3.</span> <span class="post-toc-text">特征值</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
