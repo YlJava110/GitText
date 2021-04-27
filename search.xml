@@ -5,7 +5,23 @@
     <entry>
       <title><![CDATA[人脸检测之Haar特征介绍]]></title>
       <url>/2021/04/27/%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B9%8BHaar%E7%89%B9%E5%BE%81%E4%BB%8B%E7%BB%8D/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<h2 id="Haar特征"><a href="#Haar特征" class="headerlink" title="Haar特征"></a>Haar特征</h2><p>Haar特征：也叫Haar-like特征、哈尔特征，是图像特征提取的一种方法。<br>Haar特征分为三类：边缘特征、线性特征、特定方向特征（中心特征和对角线特征），组合成特征模板。特征模板内有白色和黑色两种矩形，并定义该模板的特征值为白色矩形像素和减去黑色矩形像素和。Haar特征值反映了图像的灰度变化情况。例如：脸部的一些特征能由矩形特征简单的描述，如：眼睛要比脸颊颜色要深，鼻梁两侧比鼻梁颜色要深，嘴巴比周围颜色要深等。但矩形特征只对一些简单的图形结构，如边缘、线段较敏感，所以只能描述特定走向（水平、垂直、对角）的结构。</p>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2019/04/27/人脸检测之Haar特征介绍/haar-model.drawio.png" alt="Haar特征" title class>
+                <p>Haar特征</p>
+            </figure>
+
+<p>常用的矩形特征有三种：两矩形特征、三矩形特征、四矩形特征：如边缘特征是两矩形特征，线性特征是三矩形特征，特定方向特征是四矩形特征。如果特征模版的黑白矩形按宽高比来分段的话，那具体的比例如下表：</p>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2019/04/27/人脸检测之Haar特征介绍/haar-scalemodel.drawio.png" alt="s,t比例" title class>
+                <p>s,t比例</p>
+            </figure>
+
+<h2 id="Haar特征个数计算"><a href="#Haar特征个数计算" class="headerlink" title="Haar特征个数计算"></a>Haar特征个数计算</h2><p>通过改变特征模板的大小和位置，可在图像子窗口中穷举出大量的特征。上图的特征模板称为“特征原型”；特征原型在图像子窗口中扩展（平移伸缩）得到的特征称为“矩形特征”；矩形特征的值称为“特征值”。</p>
+<figure class="image-box">
+                <img src="http://nunu03.github.io/2019/04/27/人脸检测之Haar特征介绍/haar-image.drawio.png" alt="特征计算" title class>
+                <p>特征计算</p>
+            </figure>]]></content>
       
         <categories>
             
