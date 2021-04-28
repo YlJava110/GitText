@@ -221,12 +221,17 @@
 <h2 id="Haar特征个数计算"><a href="#Haar特征个数计算" class="headerlink" title="Haar特征个数计算"></a>Haar特征个数计算</h2><p>通过改变特征模板的大小和位置，可在图像子窗口中穷举出大量的特征。上图的特征模板称为“特征原型”；<font color="#FF0000">特征原型在图像子窗口中扩展（平移伸缩）得到的特征称为“矩形特征”；矩形特征的值称为“特征值”。</font><br>对于 m×m 子窗口，我们只需要确定了矩形左上顶点A(x1,y1)和右下顶点B(x2,y2) ，即可以确定一个矩形；如果这个矩形还必须满足下面两个条件（称为(s, t)条件，满足(s, t)条件的矩形称为条件矩形）：</p>
 <p>1) x 方向边长必须能被自然数s 整除（能均等分成s 段）；<br>2) y 方向边长必须能被自然数t 整除（能均等分成t 段）；<br>则 ， <font color="#FF0000">这个矩形的最小尺寸为s×t 或t×s，</font> 最大尺寸为[m/s]·s×[m/t]·t 或[m/t]·t×[m/s]·s；其中[ ]为取整运算符。</p>
 <figure class="image-box">
-                <a rel=人脸检测之Haar特征介绍 href="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-image.drawio.png" title="特征计算" data-fancybox="images"><img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-image.drawio.png" alt="特征计算" title class></a>
-                <p>特征计算</p>
+                <a rel=人脸检测之Haar特征介绍 href="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-image.drawio.png" title="特征计算-公式" data-fancybox="images"><img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-image.drawio.png" alt="特征计算-公式" title class></a>
+                <p>特征计算-公式</p>
+            </figure>
+<p>这种计算方式可能不太直观，那用下面的列表方式看一下就很清楚了，我们知道特征原型在图像窗口中根据平移伸缩得到矩形特征。</p>
+<figure class="image-box">
+                <a rel=人脸检测之Haar特征介绍 href="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-transm.drawio.png" title="特征计算-平移缩放" data-fancybox="images"><img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-transm.drawio.png" alt="特征计算-平移缩放" title class></a>
+                <p>特征计算-平移缩放</p>
             </figure>
 <figure class="image-box">
-                <a rel=人脸检测之Haar特征介绍 href="/.io//haar-image.drawio.png" title="特征计算" data-fancybox="images"><img src="/.io//haar-image.drawio.png" alt="特征计算" title class></a>
-                <p>特征计算</p>
+                <a rel=人脸检测之Haar特征介绍 href="/.io//haar-transm.drawio.png" title="特征计算-平移缩放" data-fancybox="images"><img src="/.io//haar-transm.drawio.png" alt="特征计算-平移缩放" title class></a>
+                <p>特征计算-平移缩放</p>
             </figure>
 <p>综上，可以计算出24x24的特征总数为 43200+27600+43200+27600+20736=162336。所以五种可能的类型就产生了16万以上的特征数量，同时也就是16万以上的特征值，这个是一个非常大数字了。上图通过代码进行计算就是如下：</p>
 <p>计算某一种特征的特征数量；</p>
@@ -245,7 +250,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-04-27T12:55:06.486Z" itemprop="dateUpdated">2021-04-27 20:55:06</time>
+    Last updated: <time datetime="2021-04-28T01:58:39.457Z" itemprop="dateUpdated">2021-04-28 09:58:39</time>
 </span><br>
 
 
