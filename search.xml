@@ -76,7 +76,7 @@
                 <p>特征值-积分图</p>
             </figure>
 
-<p>然后计算一下颜色区域的特征值：</p>
+<p>然后计算一下颜色区域的特征值：<br>根据积分图公式：总的像素值（有颜色区域的像素值）= 130+8-32-33 = 73</p>
 <h2 id="级联分类器"><a href="#级联分类器" class="headerlink" title="级联分类器"></a>级联分类器</h2><h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><figure class="image-box">
                 <img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml.jpg" alt="haar-xml" title class>
                 <p>haar-xml</p>
