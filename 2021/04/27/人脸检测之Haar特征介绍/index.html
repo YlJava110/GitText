@@ -277,14 +277,14 @@
                 <p>特征值-积分图</p>
             </figure>
 
-<p>然后计算一下颜色区域的特征值：<br>根据积分图公式：</p>
-<pre><code>总的像素值（有颜色区域的像素值）= 130+8-32-33 = 73
-       白色区域的像素值 = 91+14-18-62 = 25
-       特征值：3*白-总 =    3*25 -23 = 2
+<p>然后计算一下颜色区域的特征值：<br>根据积分图公式：<br>    特征A：2<br>     总的像素值（有颜色区域的像素值）= 130+8-32-33 = 73<br>            白色区域的像素值 = 91+14-18-62 = 25<br>            特征值：3<em>白-总 =    3</em>25 -23 = 2</p>
+<pre><code>左侧黑色区域的像素值 =  62+8-14-33 = 23
+右侧黑色区域的像素值 =  130+18-32-91 = 25
+    特征值：2*白-黑 =  2*25-23+25 = 2</code></pre><p>通过同样计算方式：特征B：-2<br>这个时候我们会发现，跟之前提到的特征值定义，不符合了，之前说过特征值为白色矩形像素和减去黑色矩形像素和，按此计算，应该是-23和23.那么问题在哪里？看上述我们计算发现，我们在计算特征值的时候都乘以了一个变量，3和2，那为啥要乘以两个变量呢？按照OpenCV代码，<font color="#FF0000">（Haar特征值=整个Haar区域内像素和×权重 + 黑色区域内像素和×权重）Haar特征值=白色区域内图像像素和 x 权重 - 黑色区域内图像像素和 x 权重</font>，那变量3和2其实就是权重。这也就是其他文章中提到的所谓“白色区域像素和减去黑色区域像素和”，只不过是加权相减而已（在XML文件中，每一个Haar特征都被保存在2~3个形如<x y width height weight>的标签中，其中x和y代表Haar矩形左上角点以检测窗口的左上角为原点的坐标，width和height代表矩形框的宽和高，而weight则对应了上面说的权重值。</x></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;rects&gt;</span><br><span class="line">        &lt;_&gt;</span><br><span class="line">          7 1 2 7 -1.&lt;/_&gt;</span><br><span class="line">        &lt;_&gt;</span><br><span class="line">          8 1 1 7 2.&lt;/_&gt;&lt;/rects&gt;&lt;/_&gt;</span><br></pre></td></tr></table></figure>
 
-   左侧黑色区域的像素值 =  62+8-14-33 = 23
-   右侧黑色区域的像素值 =  130+18-32-91 = 25
-       特征值：2*白-黑 =  2*25-23+25 = 2</code></pre><h2 id="级联分类器"><a href="#级联分类器" class="headerlink" title="级联分类器"></a>级联分类器</h2><h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><figure class="image-box">
+<p>例如上Haar特征应该表示为&lt;7 1 2 7 -1&gt;和&lt;8 1 1 7 2&gt;，原则上-1权重代表的是黑色矩形。<br>为什么要设置这种加权相减，而不是直接相减？请仔细观察上图中的特征，不难发现x3、y3、point特征黑白面积不相等，而其他特征黑白面积相等。设置权值就是为了抵消面积不等带来的影响，保证所有Haar特征的特征值在“灰度分布绝对均匀的图像”中为0。</p>
+<h2 id="级联分类器"><a href="#级联分类器" class="headerlink" title="级联分类器"></a>级联分类器</h2><h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><figure class="image-box">
                 <a rel=人脸检测之Haar特征介绍 href="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml.jpg" title="haar-xml" data-fancybox="images"><img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml.jpg" alt="haar-xml" title class></a>
                 <p>haar-xml</p>
             </figure>
@@ -321,7 +321,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-04-29T09:38:57.883Z" itemprop="dateUpdated">2021-04-29 17:38:57</time>
+    最後更新時間：<time datetime="2021-04-29T10:03:36.068Z" itemprop="dateUpdated">2021-04-29 18:03:36</time>
 </span><br>
 
 
