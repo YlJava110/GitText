@@ -67,10 +67,19 @@
 <p>区域A的像素值：<br>𝑖𝑖(5)+𝑖𝑖(1)−𝑖𝑖(2)−𝑖𝑖(4)<br>区域B的像素值：<br>𝑖𝑖(6)+𝑖𝑖(2)−𝑖𝑖(5)−𝑖𝑖(3)<br>所以：该矩形特征的特征值<br>𝑖𝑖(5)+𝑖𝑖(1)−𝑖𝑖(2)−𝑖𝑖(4)−[𝑖𝑖(6)+𝑖𝑖(2)−𝑖𝑖(5)−𝑖𝑖(3)]<br>=[𝑖𝑖(5)−𝑖𝑖(4)]+[𝑖𝑖(3)−𝑖𝑖(2)]−[𝑖𝑖(2)−𝑖𝑖(1)]−[𝑖𝑖(6)−𝑖𝑖(5)]<br>所以，矩形特征的特征值，只与特征矩形的端点的积分图有关，而与图像的坐标无关。通过计算特征矩形的端点的积分图，再进行简单的加减运算，就可以得到特征值，正因为如此，特征的计算速度大大提高，也提高了目标的检测速度。</p>
 <p>然后看一个复杂一点的积分图示例如下：</p>
 <figure class="image-box">
+                <img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-x3-jifen.drawio.png" alt="特征值-2" title class>
+                <p>特征值-2</p>
+            </figure>
+<figure class="image-box">
                 <img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-x3.drawio.png" alt="特征值-2" title class>
                 <p>特征值-2</p>
             </figure>
+<figure class="image-box">
+                <img src="/.io//haar-x3.drawio.png" alt="特征值-2" title class>
+                <p>特征值-2</p>
+            </figure>
 
+<p>然后计算一下颜色区域的特征值：</p>
 <h2 id="级联分类器"><a href="#级联分类器" class="headerlink" title="级联分类器"></a>级联分类器</h2><h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><figure class="image-box">
                 <img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml.jpg" alt="haar-xml" title class>
                 <p>haar-xml</p>
