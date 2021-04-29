@@ -76,42 +76,21 @@
                 <p>特征值-积分图</p>
             </figure>
 
-<p>然后计算一下颜色区域的特征值：<br>根据积分图公式：<br>    特征A：2<br>     总的像素值（有颜色区域的像素值）= 130+8-32-33 = 73<br>            白色区域的像素值 = 91+14-18-62 = 25<br>            特征值：3<em>白-总 =    3</em>25 -23 = 2</p>
-<pre><code>左侧黑色区域的像素值 =  62+8-14-33 = 23
-右侧黑色区域的像素值 =  130+18-32-91 = 25
-    特征值：2*白-黑 =  2*25-23+25 = 2</code></pre><p>通过同样计算方式：特征B：-2<br>这个时候我们会发现，跟之前提到的特征值定义，不符合了，之前说过特征值为白色矩形像素和减去黑色矩形像素和，按此计算，应该是-23和23.那么问题在哪里？看上述我们计算发现，我们在计算特征值的时候都乘以了一个变量，3和2，那为啥要乘以两个变量呢？按照OpenCV代码，<font color="#FF0000">（Haar特征值=整个Haar区域内像素和×权重 + 黑色区域内像素和×权重）Haar特征值=白色区域内图像像素和 x 权重 - 黑色区域内图像像素和 x 权重</font>，那变量3和2其实就是权重。这也就是其他文章中提到的所谓“白色区域像素和减去黑色区域像素和”，只不过是加权相减而已（在XML文件中，每一个Haar特征都被保存在2~3个形如<x y width height weight>的标签中，其中x和y代表Haar矩形左上角点以检测窗口的左上角为原点的坐标，width和height代表矩形框的宽和高，而weight则对应了上面说的权重值。</x></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;rects&gt;</span><br><span class="line">        &lt;_&gt;</span><br><span class="line">          7 1 2 7 -1.&lt;/_&gt;</span><br><span class="line">        &lt;_&gt;</span><br><span class="line">          8 1 1 7 2.&lt;/_&gt;&lt;/rects&gt;&lt;/_&gt;</span><br></pre></td></tr></table></figure>
+<p>然后计算一下颜色区域的特征值：</p>
+<p>根据积分图公式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">特征A：2</span><br><span class="line">    总的像素值（有颜色区域的像素值）= 130+8-32-33 = 73</span><br><span class="line">        白色区域的像素值 = 91+14-18-62 = 25</span><br><span class="line">        特征值：3*白-总 =    3*25 -23 = 2</span><br><span class="line"></span><br><span class="line">    左侧黑色区域的像素值 =  62+8-14-33 = 23</span><br><span class="line">    右侧黑色区域的像素值 =  130+18-32-91 = 25</span><br><span class="line">        特征值：2*白-黑 =  2*25-23+25 = 2</span><br><span class="line">``` </span><br><span class="line">通过同样计算方式：特征B：-2</span><br><span class="line">这个时候我们会发现，跟之前提到的特征值定义，不符合了，之前说过特征值为白色矩形像素和减去黑色矩形像素和，按此计算，应该是-23和23.那么问题在哪里？看上述我们计算发现，我们在计算特征值的时候都乘以了一个变量，3和2，那为啥要乘以两个变量呢？按照OpenCV代码，&lt;font color=#FF0000&gt;（Haar特征值=整个Haar区域内像素和×权重 + 黑色区域内像素和×权重）Haar特征值=白色区域内图像像素和 x 权重 - 黑色区域内图像像素和 x 权重&lt;/font&gt;，那变量3和2其实就是权重。这也就是其他文章中提到的所谓“白色区域像素和减去黑色区域像素和”，只不过是加权相减而已（在XML文件中，每一个Haar特征都被保存在2~3个形如&lt;x y width height weight&gt;的标签中，其中x和y代表Haar矩形左上角点以检测窗口的左上角为原点的坐标，width和height代表矩形框的宽和高，而weight则对应了上面说的权重值。</span><br></pre></td></tr></table></figure>
 
-<p>例如上Haar特征应该表示为&lt;7 1 2 7 -1&gt;和&lt;8 1 1 7 2&gt;，原则上-1权重代表的是黑色矩形。<br>为什么要设置这种加权相减，而不是直接相减？请仔细观察上图中的特征，不难发现x3、y3、point特征黑白面积不相等，而其他特征黑白面积相等。设置权值就是为了抵消面积不等带来的影响，保证所有Haar特征的特征值在“灰度分布绝对均匀的图像”中为0。</p>
-<h2 id="级联分类器"><a href="#级联分类器" class="headerlink" title="级联分类器"></a>级联分类器</h2><h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><figure class="image-box">
-                <img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml.jpg" alt="haar-xml" title class>
-                <p>haar-xml</p>
-            </figure>
-<h3 id="分类器"><a href="#分类器" class="headerlink" title="分类器"></a>分类器</h3><figure class="image-box">
-                <img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml-node.jpg" alt="haar-stages" title class>
-                <p>haar-stages</p>
-            </figure>
+<rects>
+        <_>
+          7 1 2 7 -1.</_>
+        <_>
+          8 1 1 7 2.</_></rects>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">例如上Haar特征应该表示为&lt;7 1 2 7 -1&gt;和&lt;8 1 1 7 2&gt;，原则上-1权重代表的是黑色矩形。</span><br><span class="line">为什么要设置这种加权相减，而不是直接相减？请仔细观察上图中的特征，不难发现x3、y3、point特征黑白面积不相等，而其他特征黑白面积相等。设置权值就是为了抵消面积不等带来的影响，保证所有Haar特征的特征值在“灰度分布绝对均匀的图像”中为0。</span><br><span class="line"></span><br><span class="line">## 级联分类器</span><br><span class="line">### XML</span><br><span class="line">![haar-xml](http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml.jpg)</span><br><span class="line">### 分类器</span><br><span class="line">![haar-stages](http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml-node.jpg)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;internalNodes&gt;0 1 2 5.2434601821005344e-04 -1 -2 3 4.4573000632226467e-03&lt;/internalNodes&gt;</span><br><span class="line">&lt;leafValues&gt; 1.0216630250215530e-01 1.2384019792079926e-01 6.9103831052780151e-01&lt;/leafValues&gt;&lt;/_&gt;</span><br></pre></td></tr></table></figure>
+<p><internalnodes>0 1 2 5.2434601821005344e-04 -1 -2 3 4.4573000632226467e-03</internalnodes><br><leafvalues> 1.0216630250215530e-01 1.2384019792079926e-01 6.9103831052780151e-01</leafvalues>&lt;/_&gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">internalNodes:</span><br><span class="line">0 、1,-1 、-2,则用于控制弱分类器树的形状；</span><br><span class="line">5.2434601821005344e-04，弱分类器阈值t1；</span><br><span class="line">4.4573000632226467e-03，弱分类器阈值t2；</span><br><span class="line">2 、3 代表2个Haar特征位置；</span><br><span class="line"></span><br><span class="line">leafValues：返回值。</span><br><span class="line">其中标签中的3个浮点数，对应下图的三个value值，由左向右依次是rightValue2、leftValue和rightValue1；</span><br><span class="line"></span><br><span class="line">![haar-树](http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-shu.drawio.png)</span><br><span class="line"></span><br><span class="line">1.计算第一个Haar特征的特征值haar1，与第一个弱分类器阈值t1对比，当haar1&lt;t1时，进入步骤2；当haar1&gt;t1时候，该弱分类器输出rightValue2并结束。</span><br><span class="line">2.计算第二个Haar特征值haar2，与第二个弱分类器阈值t2对比，当haar2&lt;t2时候输出leftValue；当haar2&gt;t2时输出rightValue1。</span><br><span class="line"></span><br><span class="line">![haar-树](http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-shu2.drawio.png)</span><br><span class="line"></span><br><span class="line">1、0和-1、-2则用于控制弱分类器树的形状。在运行时，OpenCV会把1赋值给当前的node.left，并把0赋值给node.right（请注意do-while代码中的条件，只有idx&lt;=0时才停止循环，参考图3应该可以理解这4个整数的含义）。如此，OpenCV通过这些巧妙的数值和结构，控制了整个分类器的运行。可以看到，每个弱分类器内部都是类似于这种树状的“串联”结构，所以我称其为“串联组成的的弱分类器”。</span><br><span class="line"></span><br><span class="line">### 强分类器结构</span><br><span class="line">在opencv中，强分类器是有多个弱分类器“并列”构成，即强分类器中的弱分类器是两两相互独立的。在目标检测时，每个弱分类器独立运行并输出cascadeLeaves[leafOfs-idx]值，然后把当前强分类器中每个弱分类器的输出值相加，即：</span><br></pre></td></tr></table></figure>
 
-<p>internalNodes:<br>0 、1,-1 、-2,则用于控制弱分类器树的形状；<br>5.2434601821005344e-04，弱分类器阈值t1；<br>4.4573000632226467e-03，弱分类器阈值t2；<br>2 、3 代表2个Haar特征位置；</p>
-<p>leafValues：返回值。<br>其中标签中的3个浮点数，对应下图的三个value值，由左向右依次是rightValue2、leftValue和rightValue1；</p>
-<figure class="image-box">
-                <img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-shu.drawio.png" alt="haar-树" title class>
-                <p>haar-树</p>
-            </figure>
-
-<p>1.计算第一个Haar特征的特征值haar1，与第一个弱分类器阈值t1对比，当haar1&lt;t1时，进入步骤2；当haar1&gt;t1时候，该弱分类器输出rightValue2并结束。<br>2.计算第二个Haar特征值haar2，与第二个弱分类器阈值t2对比，当haar2&lt;t2时候输出leftValue；当haar2&gt;t2时输出rightValue1。</p>
-<figure class="image-box">
-                <img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-shu2.drawio.png" alt="haar-树" title class>
-                <p>haar-树</p>
-            </figure>
-
-<p>1、0和-1、-2则用于控制弱分类器树的形状。在运行时，OpenCV会把1赋值给当前的node.left，并把0赋值给node.right（请注意do-while代码中的条件，只有idx&lt;=0时才停止循环，参考图3应该可以理解这4个整数的含义）。如此，OpenCV通过这些巧妙的数值和结构，控制了整个分类器的运行。可以看到，每个弱分类器内部都是类似于这种树状的“串联”结构，所以我称其为“串联组成的的弱分类器”。</p>
-<h3 id="强分类器结构"><a href="#强分类器结构" class="headerlink" title="强分类器结构"></a>强分类器结构</h3><p>在opencv中，强分类器是有多个弱分类器“并列”构成，即强分类器中的弱分类器是两两相互独立的。在目标检测时，每个弱分类器独立运行并输出cascadeLeaves[leafOfs-idx]值，然后把当前强分类器中每个弱分类器的输出值相加，即：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum += cascadeLeaves[leafOfs - idx];</span><br></pre></td></tr></table></figure>
-
-<p>之后与本级强分类器的stageThreshold阈值对比，当且仅当结果sum&gt;stageThreshold时，认为当前检测窗口通过了该级强分类器。当前检测窗口通过所有强分类器时，才被认为是一个检测目标。可以看出，强分类器与弱分类器结构不同，是一种类似于“并联”的结构，我称其为“并联组成的强分类器”。</p>
+<p>sum += cascadeLeaves[leafOfs - idx];<br>```<br>之后与本级强分类器的stageThreshold阈值对比，当且仅当结果sum&gt;stageThreshold时，认为当前检测窗口通过了该级强分类器。当前检测窗口通过所有强分类器时，才被认为是一个检测目标。可以看出，强分类器与弱分类器结构不同，是一种类似于“并联”的结构，我称其为“并联组成的强分类器”。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.cnblogs.com/zyly/p/9410563.html#_label0" target="_blank" rel="noopener">人脸检测之Haar分类器</a><br><a href="https://www.cnblogs.com/codingmengmeng/p/6567124.html" target="_blank" rel="noopener">积分图及其应用</a><br><a href="https://zhuanlan.zhihu.com/p/38056144" target="_blank" rel="noopener">人脸Haar特征快速检测及其特征计算</a><br><a href="https://blog.csdn.net/liulina603/article/details/8617281" target="_blank" rel="noopener">Haar特征与积分图</a><br><a href="https://blog.csdn.net/beizhengren/article/details/77095724" target="_blank" rel="noopener">Haar特征详细介绍</a></p>
 ]]></content>
       
