@@ -277,8 +277,14 @@
                 <p>特征值-积分图</p>
             </figure>
 
-<p>然后计算一下颜色区域的特征值：<br>根据积分图公式：总的像素值（有颜色区域的像素值）= 130+8-32-33 = 73</p>
-<h2 id="级联分类器"><a href="#级联分类器" class="headerlink" title="级联分类器"></a>级联分类器</h2><h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><figure class="image-box">
+<p>然后计算一下颜色区域的特征值：<br>根据积分图公式：</p>
+<pre><code>总的像素值（有颜色区域的像素值）= 130+8-32-33 = 73
+       白色区域的像素值 = 91+14-18-62 = 25
+       特征值：3*白-总 =    3*25 -23 = 2
+
+   左侧黑色区域的像素值 =  62+8-14-33 = 23
+   右侧黑色区域的像素值 =  130+18-32-91 = 25
+       特征值：2*白-黑 =  2*25-23+25 = 2</code></pre><h2 id="级联分类器"><a href="#级联分类器" class="headerlink" title="级联分类器"></a>级联分类器</h2><h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><figure class="image-box">
                 <a rel=人脸检测之Haar特征介绍 href="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml.jpg" title="haar-xml" data-fancybox="images"><img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml.jpg" alt="haar-xml" title class></a>
                 <p>haar-xml</p>
             </figure>
@@ -315,7 +321,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-04-29T09:25:44.148Z" itemprop="dateUpdated">2021-04-29 17:25:44</time>
+    Last updated: <time datetime="2021-04-29T09:38:57.883Z" itemprop="dateUpdated">2021-04-29 17:38:57</time>
 </span><br>
 
 
