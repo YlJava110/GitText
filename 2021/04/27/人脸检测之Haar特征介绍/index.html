@@ -206,7 +206,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h2 id="Haar特征"><a href="#Haar特征" class="headerlink" title="Haar特征"></a>Haar特征</h2><p>Haar特征：也叫Haar-like特征、哈尔特征，是图像特征提取的一种方法。<br>Haar特征分为三类：边缘特征、线性特征、特定方向特征（中心特征和对角线特征），组合成特征模板。<font color="#FF0000">特征模板内有白色和黑色两种矩形，并定义该模板的特征值为白色矩形像素和减去黑色矩形像素和。</font>Haar特征值反映了图像的灰度变化情况。例如：脸部的一些特征能由矩形特征简单的描述，如：眼睛要比脸颊颜色要深，鼻梁两侧比鼻梁颜色要深，嘴巴比周围颜色要深等。但矩形特征只对一些简单的图形结构，如边缘、线段较敏感，所以只能描述特定走向（水平、垂直、对角）的结构。</p>
+            <h2 id="Haar特征"><a href="#Haar特征" class="headerlink" title="Haar特征"></a>Haar特征</h2><p>图像特征提取的三种方式：HOG特征，LBP特征，Haar特征。Haar特征：也叫Haar-like特征、哈尔特征，是图像特征提取的一种方法。<br>Haar特征分为三类：边缘特征、线性特征、特定方向特征（中心特征和对角线特征），组合成特征模板。<font color="#FF0000">特征模板内有白色和黑色两种矩形，并定义该模板的特征值为白色矩形像素和减去黑色矩形像素和。</font>Haar特征值反映了图像的灰度变化情况。例如：脸部的一些特征能由矩形特征简单的描述，如：眼睛要比脸颊颜色要深，鼻梁两侧比鼻梁颜色要深，嘴巴比周围颜色要深等。但矩形特征只对一些简单的图形结构，如边缘、线段较敏感，所以只能描述特定走向（水平、垂直、对角）的结构。</p>
 <figure class="image-box">
                 <a rel=人脸检测之Haar特征介绍 href="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-model.drawio.png" title="Haar特征" data-fancybox="images"><img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/haar-model.drawio.png" alt="Haar特征" title class></a>
                 <p>Haar特征</p>
@@ -266,7 +266,15 @@
 <p> <a rel=人脸检测之Haar特征介绍 href="http://nunu03.github.io/2021/04/27/%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B9%8BHaar%E7%89%B9%E5%BE%81%E4%BB%8B%E7%BB%8D/haar-featurevalue.drawio.png" title="特征值" data-fancybox="images"><img src="http://nunu03.github.io/2021/04/27/%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B9%8BHaar%E7%89%B9%E5%BE%81%E4%BB%8B%E7%BB%8D/haar-featurevalue.drawio.png" alt="特征值"></a></p>
 <p>该矩形特征的特征值，由定义，为区域A的像素值减去区域B的像素值。</p>
 <p>区域A的像素值：<br>𝑖𝑖(5)+𝑖𝑖(1)−𝑖𝑖(2)−𝑖𝑖(4)<br>区域B的像素值：<br>𝑖𝑖(6)+𝑖𝑖(2)−𝑖𝑖(5)−𝑖𝑖(3)<br>所以：该矩形特征的特征值<br>𝑖𝑖(5)+𝑖𝑖(1)−𝑖𝑖(2)−𝑖𝑖(4)−[𝑖𝑖(6)+𝑖𝑖(2)−𝑖𝑖(5)−𝑖𝑖(3)]<br>=[𝑖𝑖(5)−𝑖𝑖(4)]+[𝑖𝑖(3)−𝑖𝑖(2)]−[𝑖𝑖(2)−𝑖𝑖(1)]−[𝑖𝑖(6)−𝑖𝑖(5)]<br>所以，矩形特征的特征值，只与特征矩形的端点的积分图有关，而与图像的坐标无关。通过计算特征矩形的端点的积分图，再进行简单的加减运算，就可以得到特征值，正因为如此，特征的计算速度大大提高，也提高了目标的检测速度。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.cnblogs.com/zyly/p/9410563.html#_label0" target="_blank" rel="noopener">人脸检测之Haar分类器</a><br><a href="https://www.cnblogs.com/codingmengmeng/p/6567124.html" target="_blank" rel="noopener">积分图及其应用</a><br><a href="https://zhuanlan.zhihu.com/p/38056144" target="_blank" rel="noopener">人脸 Haar 特征快速检测及其特征计算</a><br><a href="https://blog.csdn.net/liulina603/article/details/8617281" target="_blank" rel="noopener">Haar特征与积分图</a></p>
+<h2 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h2><figure class="image-box">
+                <a rel=人脸检测之Haar特征介绍 href="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml.jpg" title="特征值" data-fancybox="images"><img src="http://nunu03.github.io/2021/04/27/人脸检测之Haar特征介绍/xml.jpg" alt="特征值" title class></a>
+                <p>特征值</p>
+            </figure>
+<figure class="image-box">
+                <a rel=人脸检测之Haar特征介绍 href="/.io//xml.jpg" title="特征值" data-fancybox="images"><img src="/.io//xml.jpg" alt="特征值" title class></a>
+                <p>特征值</p>
+            </figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.cnblogs.com/zyly/p/9410563.html#_label0" target="_blank" rel="noopener">人脸检测之Haar分类器</a><br><a href="https://www.cnblogs.com/codingmengmeng/p/6567124.html" target="_blank" rel="noopener">积分图及其应用</a><br><a href="https://zhuanlan.zhihu.com/p/38056144" target="_blank" rel="noopener">人脸Haar特征快速检测及其特征计算</a><br><a href="https://blog.csdn.net/liulina603/article/details/8617281" target="_blank" rel="noopener">Haar特征与积分图</a></p>
 
         </div>
         
@@ -274,7 +282,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-04-28T03:35:31.228Z" itemprop="dateUpdated">2021-04-28 11:35:31</time>
+    Last updated: <time datetime="2021-04-29T04:36:24.766Z" itemprop="dateUpdated">2021-04-29 12:36:24</time>
 </span><br>
 
 
@@ -356,7 +364,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Haar特征"><span class="post-toc-number">1.</span> <span class="post-toc-text">Haar特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Haar特征个数计算"><span class="post-toc-number">2.</span> <span class="post-toc-text">Haar特征个数计算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#积分图"><span class="post-toc-number">3.</span> <span class="post-toc-text">积分图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计算特征值"><span class="post-toc-number">4.</span> <span class="post-toc-text">计算特征值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Haar特征"><span class="post-toc-number">1.</span> <span class="post-toc-text">Haar特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Haar特征个数计算"><span class="post-toc-number">2.</span> <span class="post-toc-text">Haar特征个数计算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#积分图"><span class="post-toc-number">3.</span> <span class="post-toc-text">积分图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计算特征值"><span class="post-toc-number">4.</span> <span class="post-toc-text">计算特征值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#XML"><span class="post-toc-number">5.</span> <span class="post-toc-text">XML</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
