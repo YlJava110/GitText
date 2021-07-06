@@ -229,6 +229,22 @@
 <h3 id="配置路径使idea容易找到"><a href="#配置路径使idea容易找到" class="headerlink" title="配置路径使idea容易找到"></a>配置路径使idea容易找到</h3><p>sudo ln -s /usr/local/opt/groovy/libexec /Library/Groovy</p>
 <h3 id="安装目录"><a href="#安装目录" class="headerlink" title="安装目录"></a>安装目录</h3><p>所有sdk都安装在了sdkman目录下：~/.sdkman/candidates/<br><a href="https://zhuanlan.zhihu.com/p/82315812" target="_blank" rel="noopener">sdkman介绍</a></p>
 <h2 id="Mac系统如何显示隐藏文件？"><a href="#Mac系统如何显示隐藏文件？" class="headerlink" title="Mac系统如何显示隐藏文件？"></a>Mac系统如何显示隐藏文件？</h2><p>Command+Shift+. 可以显示隐藏文件、文件夹，再按一次，恢复隐藏；</p>
+<h2 id="Linux-Mac下统计当前文件夹下的文件个数、目录个数"><a href="#Linux-Mac下统计当前文件夹下的文件个数、目录个数" class="headerlink" title="Linux/Mac下统计当前文件夹下的文件个数、目录个数"></a>Linux/Mac下统计当前文件夹下的文件个数、目录个数</h2><p>1.统计当前文件夹下文件的个数</p>
+<pre><code>ls -l |grep &quot;^-&quot;|wc -l</code></pre><p>2、 统计当前文件夹下目录的个数</p>
+<pre><code>ls -l |grep &quot;^d&quot;|wc -l</code></pre><p>3、 统计当前文件夹下文件的个数，包括子文件夹里的</p>
+<pre><code>ls -lR|grep &quot;^-&quot;|wc -l</code></pre><p>4、统计文件夹下目录的个数，包括子文件夹里的</p>
+<p>   ls -lR|grep “^d”|wc -l</p>
+<ol start="5">
+<li><p>说明<br>代码如下:</p>
+<p>   ls -l </p>
+<p>长列表输出当前文件夹下文件信息(注意这里的文件，不同于一般的文件，可能是目录、链接、设备文件等)</p>
+<p>代码如下:</p>
+<p>   grep “^-“ </p>
+<p>这里将长列表输出信息过滤一部分，只保留一般文件，如果只保留目录就是 ^d<br>代码如下:</p>
+<p>   wc -l </p>
+<p>统计输出信息的行数，因为已经过滤得只剩一般文件了，所以统计结果就是一般文件信息的行数，又由于一行信息对应一个文件，所以也就是文件的个数。</p>
+</li>
+</ol>
 
         </div>
         
@@ -236,7 +252,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-05-21T02:46:22.214Z" itemprop="dateUpdated">2021-05-21 10:46:22</time>
+    Last updated: <time datetime="2021-07-05T07:56:53.882Z" itemprop="dateUpdated">2021-07-05 15:56:53</time>
 </span><br>
 
 
@@ -325,7 +341,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Android-Studio-不能调试"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.Android Studio 不能调试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Linux下Git命令中文显示乱码"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.Linux下Git命令中文显示乱码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Git常用命令"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.Git常用命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#撤销commit"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">撤销commit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看远端仓库地址"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">查看远端仓库地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git-stash"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">git stash</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Android-Studio-Connect-to-127-0-0-1-8888-127-0-0-1-failed-Connection-refused-Connection-refused"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.Android Studio - Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sdkman"><span class="post-toc-number">5.</span> <span class="post-toc-text">sdkman</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装groovy"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">安装groovy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置路径使idea容易找到"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">配置路径使idea容易找到</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装目录"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">安装目录</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mac系统如何显示隐藏文件？"><span class="post-toc-number">6.</span> <span class="post-toc-text">Mac系统如何显示隐藏文件？</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Android-Studio-不能调试"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.Android Studio 不能调试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Linux下Git命令中文显示乱码"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.Linux下Git命令中文显示乱码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Git常用命令"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.Git常用命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#撤销commit"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">撤销commit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看远端仓库地址"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">查看远端仓库地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git-stash"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">git stash</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Android-Studio-Connect-to-127-0-0-1-8888-127-0-0-1-failed-Connection-refused-Connection-refused"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.Android Studio - Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sdkman"><span class="post-toc-number">5.</span> <span class="post-toc-text">sdkman</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装groovy"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">安装groovy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置路径使idea容易找到"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">配置路径使idea容易找到</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装目录"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">安装目录</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mac系统如何显示隐藏文件？"><span class="post-toc-number">6.</span> <span class="post-toc-text">Mac系统如何显示隐藏文件？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Linux-Mac下统计当前文件夹下的文件个数、目录个数"><span class="post-toc-number">7.</span> <span class="post-toc-text">Linux/Mac下统计当前文件夹下的文件个数、目录个数</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
