@@ -3,6 +3,174 @@
   
     
     <entry>
+      <title><![CDATA[Gradle打包流程]]></title>
+      <url>/2021/07/07/Gradle%E6%89%93%E5%8C%85%E6%B5%81%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<h2 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h2><h2 id="Task源码对应"><a href="#Task源码对应" class="headerlink" title="Task源码对应"></a>Task源码对应</h2><table>
+<thead>
+<tr>
+<th>Task Name</th>
+<th>Class Name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>preBuild</td>
+<td>AppPreBuildTask</td>
+</tr>
+<tr>
+<td>preReleaseBuild</td>
+<td></td>
+</tr>
+<tr>
+<td>compileReleaseAidl</td>
+<td></td>
+</tr>
+<tr>
+<td>compileReleaseRenderscript</td>
+<td></td>
+</tr>
+<tr>
+<td>generateReleaseBuildConfig</td>
+<td></td>
+</tr>
+<tr>
+<td>generateReleaseResValues</td>
+<td></td>
+</tr>
+<tr>
+<td>generateReleaseResources</td>
+<td></td>
+</tr>
+<tr>
+<td>createReleaseCompatibleScreenManifests</td>
+<td></td>
+</tr>
+<tr>
+<td>extractDeepLinksRelease</td>
+<td></td>
+</tr>
+<tr>
+<td>processReleaseManifest</td>
+<td></td>
+</tr>
+<tr>
+<td>javaPreCompileRelease</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeReleaseResources</td>
+<td></td>
+</tr>
+<tr>
+<td>processReleaseResources</td>
+<td></td>
+</tr>
+<tr>
+<td>compileReleaseJavaWithJavac</td>
+<td></td>
+</tr>
+<tr>
+<td>compileReleaseSources</td>
+<td></td>
+</tr>
+<tr>
+<td>prepareLintJar</td>
+<td></td>
+</tr>
+<tr>
+<td>lintVitalRelease</td>
+<td></td>
+</tr>
+<tr>
+<td>checkReleaseDuplicateClasses</td>
+<td></td>
+</tr>
+<tr>
+<td>dexBuilderRelease</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeReleaseShaders</td>
+<td></td>
+</tr>
+<tr>
+<td>compileReleaseShaders</td>
+<td></td>
+</tr>
+<tr>
+<td>generateReleaseAssets</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeReleaseAssets</td>
+<td></td>
+</tr>
+<tr>
+<td>processReleaseJavaRes</td>
+<td></td>
+</tr>
+<tr>
+<td>collectReleaseDependencies</td>
+<td></td>
+</tr>
+<tr>
+<td>sdkReleaseDependencyData</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeReleaseJniLibFolders</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeReleaseNativeLibs</td>
+<td></td>
+</tr>
+<tr>
+<td>stripReleaseDebugSymbols</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeReleaseJavaResource</td>
+<td></td>
+</tr>
+<tr>
+<td>desugarReleaseFileDependencies</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeExtDexRelease</td>
+<td></td>
+</tr>
+<tr>
+<td>mergeDexRelease</td>
+<td></td>
+</tr>
+<tr>
+<td>packageRelease</td>
+<td></td>
+</tr>
+<tr>
+<td>assembleRelease</td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      
+        <categories>
+            
+            <category> Gradle </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Gradle </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[人脸检测之Haar特征介绍]]></title>
       <url>/2021/04/27/%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B9%8BHaar%E7%89%B9%E5%BE%81%E4%BB%8B%E7%BB%8D/</url>
       <content type="html"><![CDATA[<h2 id="Haar特征"><a href="#Haar特征" class="headerlink" title="Haar特征"></a>Haar特征</h2><p>图像特征提取的三种方式：HOG特征，LBP特征，Haar特征。Haar特征：也叫Haar-like特征、哈尔特征，是图像特征提取的一种方法。<br>Haar特征分为三类：边缘特征、线性特征、特定方向特征（中心特征和对角线特征），组合成特征模板。<font color="#FF0000">特征模板内有白色和黑色两种矩形，并定义该模板的特征值为白色矩形像素和减去黑色矩形像素和。</font>Haar特征值反映了图像的灰度变化情况。例如：脸部的一些特征能由矩形特征简单的描述，如：眼睛要比脸颊颜色要深，鼻梁两侧比鼻梁颜色要深，嘴巴比周围颜色要深等。但矩形特征只对一些简单的图形结构，如边缘、线段较敏感，所以只能描述特定走向（水平、垂直、对角）的结构。</p>
