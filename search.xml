@@ -410,6 +410,7 @@
 <p>  代码如下:</p>
 <pre><code>grep &quot;^-&quot; </code></pre><p>  这里将长列表输出信息过滤一部分，只保留一般文件，如果只保留目录就是 ^d<br>  代码如下:</p>
 <pre><code>wc -l </code></pre><p>  统计输出信息的行数，因为已经过滤得只剩一般文件了，所以统计结果就是一般文件信息的行数，又由于一行信息对应一个文件，所以也就是文件的个数。</p>
+<h2 id="adb-backup"><a href="#adb-backup" class="headerlink" title="adb backup"></a>adb backup</h2><p>  1.备份：adb backup -f /Users/xxx/Desktop/photo/clientbackup.ab 包名<br>  2.Android backup extractor<br>  <a href="https://github.com/nelenkov/android-backup-extractor/releases" target="_blank" rel="noopener">下载abe.jar</a><br>  执行： java -jar /Users/xxx/Desktop/photo/abe.jar unpack /Users/xxx/Desktop/photo/clientbackup.ab   /Users/xxx/Desktop/photo/clientbackup.tar<br>  3.恢复：adb restore clientbackup.ab </p>
 ]]></content>
       
         <categories>
