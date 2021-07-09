@@ -206,7 +206,51 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <h2 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h2><h2 id="Task源码对应"><a href="#Task源码对应" class="headerlink" title="Task源码对应"></a>Task源码对应</h2><table>
+            <h2 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h2><figure class="image-box">
+                <a rel=Gradle打包流程 href="/.io//debug1.png" title="debug调试1" data-fancybox="images"><img src="/.io//debug1.png" alt="debug调试1" title class></a>
+                <p>debug调试1</p>
+            </figure>
+<figure class="image-box">
+                <a rel=Gradle打包流程 href="/.io//debug2.png" title="debug调试2" data-fancybox="images"><img src="/.io//debug2.png" alt="debug调试2" title class></a>
+                <p>debug调试2</p>
+            </figure>
+<figure class="image-box">
+                <a rel=Gradle打包流程 href="/.io//debug3.png" title="debug调试3" data-fancybox="images"><img src="/.io//debug3.png" alt="debug调试3" title class></a>
+                <p>debug调试3</p>
+            </figure>
+<figure class="image-box">
+                <a rel=Gradle打包流程 href="/.io//debug4.png" title="debug调试4" data-fancybox="images"><img src="/.io//debug4.png" alt="debug调试4" title class></a>
+                <p>debug调试4</p>
+            </figure>
+<h2 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h2><p>先看一下<a href="https://juejin.cn/post/6844904142725447687#heading-29" target="_blank" rel="noopener">来自掘金社区</a>Gradle构建的核心流程图</p>
+<figure class="image-box">
+                <a rel=Gradle打包流程 href="/.io//执行流程图.image" title="核心流程图" data-fancybox="images"><img src="/.io//执行流程图.image" alt="核心流程图" title class></a>
+                <p>核心流程图</p>
+            </figure>
+<p>时序图：</p>
+<figure class="image-box">
+                <a rel=Gradle打包流程 href="/.io//pretask.png" title="时序图" data-fancybox="images"><img src="/.io//pretask.png" alt="时序图" title class></a>
+                <p>时序图</p>
+            </figure>
+<p>1.当我们执行一个 gralde 命令时，便会调用 gradle/wrapper/gradle-wrapper.jar 里面 org.gradle.wrapper.GradleWrapperMain 类的 main 方法，它就是 gradle 的一个入口方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        ......</span><br><span class="line">        WrapperExecutor wrapperExecutor = WrapperExecutor.forWrapperPropertiesFile(propertiesFile);</span><br><span class="line">        wrapperExecutor.execute(</span><br><span class="line">                args,</span><br><span class="line">                new Install(logger, new Download(logger, &quot;gradlew&quot;, UNKNOWN_VERSION), new PathAssembler(gradleUserHome)),</span><br><span class="line">                new BootstrapMainStarter());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.WrapperExecutor 的 execute 方法:createDist,会根据config的配置去校验版本和下载gradle wrapper需要的依赖与源码；start方法开始执行gradle的构建流程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void execute(String[] args, Install install, BootstrapMainStarter bootstrapMainStarter) throws Exception &#123;</span><br><span class="line">        File gradleHome = install.createDist(config);</span><br><span class="line">        bootstrapMainStarter.start(args, gradleHome);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.<br>BootstrapMainStarter的start做了什么：就是调用GradleMain里的main方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public void start(String[] args, File gradleHome) throws Exception &#123;</span><br><span class="line">        ......</span><br><span class="line">        Class&lt;?&gt; mainClass = contextClassLoader.loadClass(&quot;org.gradle.launcher.GradleMain&quot;);</span><br><span class="line">        Method mainMethod = mainClass.getMethod(&quot;main&quot;, String[].class);</span><br><span class="line">        mainMethod.invoke(null, new Object[]&#123;args&#125;);</span><br><span class="line">        if (contextClassLoader instanceof Closeable) &#123;</span><br><span class="line">            ((Closeable) contextClassLoader).close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.GradleMain不解释。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        new ProcessBootstrap().run(&quot;org.gradle.launcher.Main&quot;, args);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>5.Main</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">       new Main().run(args);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   @Override</span><br><span class="line">   protected void doAction(String[] args, ExecutionListener listener) &#123;</span><br><span class="line">       createActionFactory().convert(Arrays.asList(args)).execute(listener);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   CommandLineActionFactory createActionFactory() &#123;</span><br><span class="line">       return new DefaultCommandLineActionFactory();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>6.DefaultCommandLineActionFactory</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public CommandLineExecution convert(List&lt;String&gt; args) &#123;</span><br><span class="line">        ......</span><br><span class="line">        return new WithLogging(loggingServices,</span><br><span class="line">            args,</span><br><span class="line">            loggingConfiguration,</span><br><span class="line">            new ParseAndBuildAction(loggingServices, args),</span><br><span class="line">            new BuildExceptionReporter(loggingServices.get(StyledTextOutputFactory.class), loggingConfiguration, clientMetaData()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void execute(ExecutionListener executionListener) &#123;</span><br><span class="line">            ......</span><br><span class="line">            Action&lt;? super ExecutionListener&gt; action;</span><br><span class="line">            try &#123;</span><br><span class="line">                ParsedCommandLine commandLine = parser.parse(args);</span><br><span class="line">                action = createAction(actions, parser, commandLine);</span><br><span class="line">            &#125; catch (CommandLineArgumentException e) &#123;</span><br><span class="line">                action = new CommandLineParseFailureAction(parser, e);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            action.execute(executionListener);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Task源码对应"><a href="#Task源码对应" class="headerlink" title="Task源码对应"></a>Task源码对应</h2><table>
 <thead>
 <tr>
 <th>Task Name</th>
@@ -361,7 +405,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-07-07T07:35:00.547Z" itemprop="dateUpdated">2021-07-07 15:35:00</time>
+    Last updated: <time datetime="2021-07-09T09:19:59.025Z" itemprop="dateUpdated">2021-07-09 17:19:59</time>
 </span><br>
 
 
@@ -443,7 +487,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#断点调试"><span class="post-toc-number">1.</span> <span class="post-toc-text">断点调试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Task源码对应"><span class="post-toc-number">2.</span> <span class="post-toc-text">Task源码对应</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#断点调试"><span class="post-toc-number">1.</span> <span class="post-toc-text">断点调试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#执行流程"><span class="post-toc-number">2.</span> <span class="post-toc-text">执行流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Task源码对应"><span class="post-toc-number">3.</span> <span class="post-toc-text">Task源码对应</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
