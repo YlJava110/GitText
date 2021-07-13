@@ -238,6 +238,11 @@
 <p>6.DefaultCommandLineActionFactory</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public CommandLineExecution convert(List&lt;String&gt; args) &#123;</span><br><span class="line">        ......</span><br><span class="line">        return new WithLogging(loggingServices,</span><br><span class="line">            args,</span><br><span class="line">            loggingConfiguration,</span><br><span class="line">            new ParseAndBuildAction(loggingServices, args),</span><br><span class="line">            new BuildExceptionReporter(loggingServices.get(StyledTextOutputFactory.class), loggingConfiguration, clientMetaData()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void execute(ExecutionListener executionListener) &#123;</span><br><span class="line">            ......</span><br><span class="line">            Action&lt;? super ExecutionListener&gt; action;</span><br><span class="line">            try &#123;</span><br><span class="line">                ParsedCommandLine commandLine = parser.parse(args);</span><br><span class="line">                action = createAction(actions, parser, commandLine);</span><br><span class="line">            &#125; catch (CommandLineArgumentException e) &#123;</span><br><span class="line">                action = new CommandLineParseFailureAction(parser, e);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            action.execute(executionListener);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="image-box">
+                <a rel=Gradle打包流程 href="http://nunu03.github.io/2021/07/07/Gradle打包流程/pretask2.jpg" title="时序图" data-fancybox="images"><img src="http://nunu03.github.io/2021/07/07/Gradle打包流程/pretask2.jpg" alt="时序图" title class></a>
+                <p>时序图</p>
+            </figure>
+
 <h2 id="Task源码对应"><a href="#Task源码对应" class="headerlink" title="Task源码对应"></a>Task源码对应</h2><table>
 <thead>
 <tr>
@@ -393,7 +398,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-07-12T03:10:26.098Z" itemprop="dateUpdated">2021-07-12 11:10:26</time>
+    Last updated: <time datetime="2021-07-13T07:13:16.811Z" itemprop="dateUpdated">2021-07-13 15:13:16</time>
 </span><br>
 
 
