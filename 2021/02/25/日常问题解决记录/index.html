@@ -240,6 +240,48 @@
 <pre><code>grep &quot;^-&quot; </code></pre><p>  这里将长列表输出信息过滤一部分，只保留一般文件，如果只保留目录就是 ^d<br>  代码如下:</p>
 <pre><code>wc -l </code></pre><p>  统计输出信息的行数，因为已经过滤得只剩一般文件了，所以统计结果就是一般文件信息的行数，又由于一行信息对应一个文件，所以也就是文件的个数。</p>
 <h2 id="adb-backup"><a href="#adb-backup" class="headerlink" title="adb backup"></a>adb backup</h2><p>  1.备份：adb backup -f /Users/xxx/Desktop/photo/clientbackup.ab 包名<br>  2.Android backup extractor<br>  <a href="https://github.com/nelenkov/android-backup-extractor/releases" target="_blank" rel="noopener">下载abe.jar</a><br>  执行： java -jar /Users/xxx/Desktop/photo/abe.jar unpack /Users/xxx/Desktop/photo/clientbackup.ab   /Users/xxx/Desktop/photo/clientbackup.tar<br>  3.恢复：adb restore clientbackup.ab </p>
+<h2 id="adb多用户操作"><a href="#adb多用户操作" class="headerlink" title="adb多用户操作"></a>adb多用户操作</h2><p>查看用户列表  </p>
+<blockquote>
+<p>adb shell pm list users</p>
+</blockquote>
+<p>创建新用户</p>
+<blockquote>
+<p>adb shell pm create-user [–profileOf USER_ID] [–managed] USER_NAME</p>
+</blockquote>
+<blockquote>
+<p>adb shell pm create-user 10 godv</p>
+</blockquote>
+<p>启动和切换用户</p>
+<blockquote>
+<p>adb shell am switch-user USER_ID</p>
+</blockquote>
+<blockquote>
+<p>adb shell am start-user USER_ID</p>
+</blockquote>
+<p>安装应用到某个用户下</p>
+<blockquote>
+<p>adb install –user USER_ID name.apk</p>
+</blockquote>
+<p>删除用户</p>
+<blockquote>
+<p>adb shell pm remove-user USER_ID</p>
+</blockquote>
+<p>为了多用户下的数据安全性，在每个新用户创建之初，不管是外部存储（External Storage）还是app data目录，Android都为其准备了独立的文件存储</p>
+<p>/storage/emulated/下拥有不同的用户分区</p>
+<blockquote>
+<p>/storage/emulated/0</p>
+</blockquote>
+<blockquote>
+<p>/storage/emulated/10</p>
+</blockquote>
+<p>代码查看不同用户 以SDK为例 反射获取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int uid = -1;</span><br><span class="line">try &#123;</span><br><span class="line">     Class clz = Class.forName(&quot;android.os.UserHandle&quot;);</span><br><span class="line">     Method m = clz.getDeclaredMethod(&quot;myUserId&quot;);</span><br><span class="line">     uid = (int) m.invoke(null);</span><br><span class="line">     &#125; catch (Exception e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>ContentResolver下的uri</p>
+<blockquote>
+<p>content:// USER_ID @media/external/audio/media</p>
+</blockquote>
+<p>即可获取不同用户下的不同数据<br><a href="https://blog.csdn.net/we1less/article/details/108280882?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-5-108280882.pc_agg_rank_aggregation&utm_term=adb+shell%E7%94%A8%E6%88%B7id&spm=1000.2123.3001.4430" target="_blank" rel="noopener">安卓adb多用户操作</a><br><a href="https://mazhuang.org/awesome-adb/" target="_blank" rel="noopener">awesome-adb</a></p>
 
         </div>
         
@@ -247,7 +289,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-07-09T11:36:28.952Z" itemprop="dateUpdated">2021-07-09 19:36:28</time>
+    Last updated: <time datetime="2021-07-14T03:19:59.611Z" itemprop="dateUpdated">2021-07-14 11:19:59</time>
 </span><br>
 
 
@@ -336,7 +378,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Android-Studio-不能调试"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.Android Studio 不能调试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Linux下Git命令中文显示乱码"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.Linux下Git命令中文显示乱码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Git常用命令"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.Git常用命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#撤销commit"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">撤销commit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看远端仓库地址"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">查看远端仓库地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git-stash"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">git stash</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Android-Studio-Connect-to-127-0-0-1-8888-127-0-0-1-failed-Connection-refused-Connection-refused"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.Android Studio - Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sdkman"><span class="post-toc-number">5.</span> <span class="post-toc-text">sdkman</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装groovy"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">安装groovy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置路径使idea容易找到"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">配置路径使idea容易找到</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装目录"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">安装目录</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mac系统如何显示隐藏文件？"><span class="post-toc-number">6.</span> <span class="post-toc-text">Mac系统如何显示隐藏文件？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Linux-Mac下统计当前文件夹下的文件个数、目录个数"><span class="post-toc-number">7.</span> <span class="post-toc-text">Linux/Mac下统计当前文件夹下的文件个数、目录个数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-backup"><span class="post-toc-number">8.</span> <span class="post-toc-text">adb backup</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Android-Studio-不能调试"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.Android Studio 不能调试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Linux下Git命令中文显示乱码"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.Linux下Git命令中文显示乱码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Git常用命令"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.Git常用命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#撤销commit"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">撤销commit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看远端仓库地址"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">查看远端仓库地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git-stash"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">git stash</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Android-Studio-Connect-to-127-0-0-1-8888-127-0-0-1-failed-Connection-refused-Connection-refused"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.Android Studio - Connect to 127.0.0.1:8888 [/127.0.0.1] failed: Connection refused (Connection refused)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sdkman"><span class="post-toc-number">5.</span> <span class="post-toc-text">sdkman</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装groovy"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">安装groovy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置路径使idea容易找到"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">配置路径使idea容易找到</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装目录"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">安装目录</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mac系统如何显示隐藏文件？"><span class="post-toc-number">6.</span> <span class="post-toc-text">Mac系统如何显示隐藏文件？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Linux-Mac下统计当前文件夹下的文件个数、目录个数"><span class="post-toc-number">7.</span> <span class="post-toc-text">Linux/Mac下统计当前文件夹下的文件个数、目录个数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb-backup"><span class="post-toc-number">8.</span> <span class="post-toc-text">adb backup</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb多用户操作"><span class="post-toc-number">9.</span> <span class="post-toc-text">adb多用户操作</span></a></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
